@@ -121,6 +121,9 @@ body {
     width: .9vw;
 }
 
+#mobile-twitter{
+    width: 2.2vw;
+}
 
 
 nav {
@@ -142,6 +145,7 @@ nav {
     font-size: 2rem;
     font-weight: 900;
     font-family: "Shippori Mincho", serif;
+    cursor: pointer;
 
    
 }
@@ -319,10 +323,6 @@ footer {
     font-family: "Raleway", sans-serif;
     font-size: x-small;
     transform: translate(45vw,35vh);
-
-    
-
-
     
 }
 
@@ -339,7 +339,7 @@ footer {
         position: absolute;
         top: 60px;
         left: 0;
-        background-color: #f7f1e8;
+        background-color: #F8F8F8;
         text-align: center;
         margin-left: 0;
     }
@@ -426,19 +426,26 @@ footer {
       }
       .sm-icon {
       
-         right: 10px;
+         right: 30px;
          font-size: x-small;
-         transform: translate(0, 60%);
+         transform: translate(-10%, 60%);
+
       }
       .sm-icon img {
           width: 30px;
           /* margin-bottom: 20px; */
           display: inline-flex;
+          transform: translate(-10%);
+ 
 
-          
-          
-     
-          
+      }
+
+      #mobile-twitter {
+   
+        position: absolute;
+        /* border: 1px solid red; */
+        width: 8.5vw;
+        transform: translate(0, -30%);
       }
   
       .line-break {
