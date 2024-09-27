@@ -73,10 +73,12 @@ body {
 
 .home-icons {
     display: flex;
-    width: 5vw;
+    width: 7.5vw;
     justify-content: space-between;
     margin-top: 5px;
     margin-right: 1.7rem;
+    /* border: 1px solid red; */
+    padding-left: 8%;
 }
 
 .home-icons img {
@@ -170,21 +172,31 @@ nav {
     list-style: none;
     display: flex;
     margin-left: 50rem;
+    margin-right: 10%;
     /* border: 1px solid red; */
     z-index: 10; /* Adjust as needed */
+    
 }
 
 .nav-links li {
     margin-left: 2rem;
+ 
+  
     
 }
+
+/* .nav-li-container {
+    display: flex;
+    margin-left: -23%;
+    position: absolute;
+} */
 
 .nav-links li a {
     color: rgb(141, 139, 139);
     text-decoration: none;
     font-size: .8em;
     position: relative;
-    
+
     font-family: "Ubuntu", sans-serif;
     
 }
@@ -343,12 +355,23 @@ footer {
         background-color: #F8F8F8;
         text-align: center;
         margin-left: 0;
+        height: 40vh;
+      
     }
+
+
+
+   
 
     .home-icons {
         display: none;
-      
-        
+        /* margin: 0 auto; */
+        margin-left: 34.5%;
+        transform: translate(0, 70%);
+    }
+
+    .box img {
+        width: 4vw;
     }
     
     .nav-links li {
@@ -402,7 +425,15 @@ footer {
 
     #menu-toggle:checked + .hamburger + .nav-links {
         display: flex;
+        flex-direction: column;
         
+    }
+
+    #menu-toggle:checked + .hamburger + .nav-links .home-icons {
+        display: flex; /* Show the icons below the links */
+        flex-direction: row; /* Icons in a row */
+        gap: 10px;
+        margin-top: 10px; /* Add space between the links and the icons */
     }
 
     .cwf {
