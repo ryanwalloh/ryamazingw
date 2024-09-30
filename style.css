@@ -360,15 +360,17 @@ footer {
     }
 
 
-
+    #sm-logo-links {
+        /* border: 1px solid red; */
+        width: 30vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transform: translate(100%, 50%);
+        
+    }
    
 
-    .home-icons {
-        display: none;
-        /* margin: 0 auto; */
-        margin-left: 34.5%;
-        transform: translate(0, 70%);
-    }
 
     .box img {
         width: 4vw;
