@@ -83,13 +83,18 @@ body {
 
 .home-icons img {
     width: 1vw;
-    
+
 }
 
 .box {
     cursor: pointer;
     transition: opacity 0.6s ease;
+
+    filter: brightness(0) saturate(100%) invert(48%) sepia(5%) saturate(1974%) hue-rotate(53deg) brightness(60%) contrast(92%);
+   
+    
 }
+
 
 .home-icons:hover > :not(:hover) {
     opacity: 0.5;
