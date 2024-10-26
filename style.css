@@ -1,5 +1,5 @@
 body {
-    background-color: #F8F8F8;
+    /* background-color: #F8F8F8; */
     overflow-x: hidden;
 }
 
@@ -26,28 +26,36 @@ body {
     width: 80%;
     margin: 0 auto;
     margin-top: 2%;
-    
 }
 
+/* For large screens */
 .theme {
     color: #2A5649;
     text-align: left;
     padding: 5px;
-    margin-left: 52px;
+    margin-left: 3rem; /* Adjusted margin */
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 1rem;
-     
- }
- 
- .intro {
-     text-align: justify;
-     font-size: 1rem;
-     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-     padding: 5px;
-     margin-left: 52px;
-     color:darkslategray;
-     margin-right: 52px;
- }
+    font-size: 1.3rem;
+}
+
+/* Responsive text settings */
+.intro {
+    text-align: justify;
+    font-size: 1.3vw;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 5px;
+    margin-left: 3rem; /* Use rem for better scaling */
+    margin-right: 3rem;
+    color: darkslategray;
+}
+
+/* Responsive adjustments for smaller screens */
+@media screen and (max-width: 768px) {
+    .theme, .intro {
+        margin-left: 1.5rem; /* Reduce margins for smaller screens */
+        margin-right: 1.5rem;
+    }
+}
 
 .container {
     width: 100%;
@@ -73,16 +81,16 @@ body {
 
 .home-icons {
     display: flex;
-    width: 7.5vw;
+    width: 7rem;
     justify-content: space-between;
     margin-top: 5px;
-    margin-right: 1.7rem;
+    /* margin-right: 1.7rem; */
     /* border: 1px solid red; */
-    padding-left: 8%;
+    /* padding-left: 8%; */
 }
 
 .home-icons img {
-    width: 1vw;
+    width: 1.2rem;
 
 }
 
@@ -105,40 +113,44 @@ body {
 } */
 
 #facebook img {
-    width: 1.1vw;
+    width: 1.3rem;
     transform: translate(0, -10%);
 
 }
 
 #instagram  img{
-    width: .9vw;
+    width: 1.1rem;
     padding-bottom: 1px;
  
 }
 
 #twitter img {
-    width: .9vw;
+    width: 1.1rem;
 }
 
 #linkedin img {
-    width: .9vw;
+    width: 1.1rem;
 }
 
 #github img {
-    width: .9vw;
+    width: 1.1rem;
 }
 
-#mobile-twitter{
-    width: 2.2vw;
-}
+/* #mobile-twitter img{
+    width: 1.1rem;
+} */
+
+
 
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    /* background-color: #111; */
     padding: 1rem;
+    position: static;
+    flex-wrap: wrap; /* Allow the nav items to wrap if needed */
+    margin-top: 1%;
 }
 
 .logo-container {
@@ -153,12 +165,9 @@ nav {
     font-weight: 900;
     font-family: "Shippori Mincho", serif;
     cursor: pointer;
-
-   
 }
 
 .trade-mark {
-    
     font-weight: lighter;
     font-size: 0.3em;
     vertical-align: super;
@@ -176,34 +185,29 @@ nav {
 .nav-links {
     list-style: none;
     display: flex;
-    margin-left: 50rem;
-    margin-right: 10%;
-    /* border: 1px solid red; */
-    z-index: 10; /* Adjust as needed */
-    
+    justify-content: flex-end;
+    gap: 1.5rem; /* Space between links */
+    flex-grow: 1; /* Make the nav links take up the remaining space */
+    margin-right: 1.5%; /* Adjust margin to prevent overflowing */
+    flex-wrap: wrap; /* Wrap nav items when screen size decreases */
+    z-index: 10;
 }
 
-.nav-links li {
-    margin-left: 2rem;
+/* .nav-links li {
+    margin-left: 2.5rem;
  
   
     
-}
-
-/* .nav-li-container {
-    display: flex;
-    margin-left: -23%;
-    position: absolute;
 } */
+
+
 
 .nav-links li a {
     color: rgb(141, 139, 139);
-    text-decoration: none;
-    font-size: .8em;
-    position: relative;
-
+    text-decoration: none; /* No underline by default */
+    font-size: 1rem;
     font-family: "Ubuntu", sans-serif;
-    
+    position: relative; /* Needed for the pseudo-element underline effect */
 }
 
 .nav-links li a::after{
@@ -226,6 +230,27 @@ nav {
     
 }
 
+@media screen and (min-width: 768px) {
+    .navbar {
+        padding: 1rem 2rem; /* Extra padding for larger screens */
+    }
+
+    .nav-links {
+        margin-left: auto; /* Automatically push links to the right */
+    }
+
+    .nav-links li {
+        margin-left: 1.5rem; /* Adjust spacing between nav items */
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .nav-links {
+        gap: 3rem; /* Increase spacing for larger screens */
+    }
+}
+
+
 .hamburger {
     display: none;
     font-size: 2rem;
@@ -246,102 +271,123 @@ nav {
 footer {
     color: white;
     display: flex;
-    height: 40vh;
+    justify-content: center;
+    align-items: center;
+    
+    padding: 2rem 1rem;
     background-color: #111;
-   
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
 }
-
-.sm-icon {
-    position: absolute;
-    right: 15%;
-    margin-top: 2%;
-    font-size: smaller;
-    padding: 20px;
-    font-family: "Dosis", sans-serif;
-    
-}
-.sm-icon img{
-    width: 2vw;
-    padding: 5px;
-    margin-top: 20%;
-    cursor: pointer;
-}
-
-.customer-service {
-    position: absolute;
-    right: 30%;
-   font-size: smaller;
-    margin-top: 2%;
-    padding: 20px;
-    font-family: "Dosis", sans-serif;
-}
-
-
-.quick-links {
-    position: absolute;
-    left: 30%;
-    margin-top: 2%;
-    padding: 20px;
-    display: grid;
-    gap: 5px;
-    font-family: "Dosis", sans-serif;
-    cursor: pointer;
-    font-size: smaller;
-    
-}
-
-.cwf {
-    position: absolute;
-    left: 15%;
-    margin-top: 3%;
-    font-size: large;
-
-    font-family: "Josefin Sans", sans-serif;
-    /* font-weight: lighter; */
-}
-
-#index-footer {
-    margin-top: 15%;
-    background-color: #111;
-   
-   
-}
-
-#index-footer a {
-    font-weight: lighter;
-    margin-top: 20%;
-    text-decoration: none;
-    color: white;
-    
-}
-
-
 
 .footer-container {
     display: flex;
-    background-color: #111;
- 
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 2rem;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
 }
 
-.line-break {
-    border: none; 
-    height: .5px; 
-    background-color: #ffffff21; 
-    width: 100%; 
-    /* margin: 20px auto; */
-    font-weight: lighter;
+.cwf {
+    font-size: large;
+    font-family: "Josefin Sans", sans-serif;
+    margin-bottom: 1rem;
+}
+
+.quick-links, .customer-service, .sm-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 1rem;
+}
+
+.quick-links p, .customer-service p, .sm-icon p {
+    margin-bottom: 0.5rem;
+    font-family: "Dosis", sans-serif;
+    font-size: smaller;
+}
+
+.quick-links a, .customer-service a {
+    color: rgb(141, 139, 139);
+    text-decoration: none;
+    font-size: smaller;
+    font-family: "Dosis", sans-serif;
+    margin-bottom: 5px;
+    position: relative;
+}
+
+.sm-icon-img {
+    display: flex;
+    gap: 10px;
+}
+
+/* Underline effect on hover */
+/* .quick-links a:hover, .customer-service a:hover {
+    text-decoration: underline;
+} */
+
+/* Optional: Custom underline animation */
+.quick-links a::after, .customer-service a::after {
+    content: "";
     position: absolute;
-    margin-top: 15%;
+    width: 0;
+    height: 2px;
+    background-color: rgb(141, 139, 139);
+    bottom: -2px;
+    left: 0;
+    transition: width 0.3s ease-in-out;
 }
 
+.quick-links a:hover::after, .customer-service a:hover::after {
+    width: 100%;
+}
+
+/* Social media icons */
+.sm-icon img {
+    width: 1.8vw;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+
+
+/* Line break */
+.line-break {
+    border: none;
+    height: 0.5px;
+    background-color: #ffffff21;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+/* Copyright text */
 .copy-right {
-  
     font-weight: lighter;
     font-family: "Raleway", sans-serif;
     font-size: x-small;
-    transform: translate(45vw,35vh);
-    
+    text-align: center;
+    margin-top: 1rem;
+    width: 100%;
 }
+
+
+/* Responsive adjustments */
+@media screen and (max-width: 1024px) {
+    footer {
+        padding: 2rem 1rem;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .quick-links, .customer-service, .sm-icon {
+        align-items: center;
+        text-align: center;
+    }
+}
+
 
 
 @media (max-width: 768px) {
@@ -351,19 +397,27 @@ footer {
         grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
     }
     .nav-links {
+        margin: 0 auto;
         display: none;
         flex-direction: column;
         width: 100%;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        background-color: #F8F8F8;
+        max-width: 1200px;
+        /* position: absolute; */
+        z-index: 5;
+        /* left: 0; */
+        background-color: white;
         text-align: center;
-        margin-left: 0;
-        height: 40vh;
+        /* margin-left: 0; */
+        max-height: 1200px;
+        height: 100%;
+        margin-top: 1rem;
       
     }
 
+    
+    .hamburger, .logo {
+        z-index: 10;
+    }
 
     #sm-logo-links {
         /* border: 1px solid red; */
@@ -371,7 +425,9 @@ footer {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        transform: translate(100%, 50%);
+        /* transform: translate(100%, -10%); */
+        margin: 0 auto;
+        margin-bottom: 20px;
         
     }
    
@@ -383,6 +439,7 @@ footer {
     
     .nav-links li {
         margin: 1rem 0;
+        
     }
 
     .foto {
@@ -453,38 +510,41 @@ footer {
           left: 10px;
           margin-top: 15px;
           display: grid;
-          gap: 1px;
-          font-size: x-small;
+          gap: 10px;
+          font-size: small;
           transform: translate(0, 10%);
         
       }
-      .customer-service {
-          margin-top: 10px;
-          font-size: x-small;
-          right: 25px;
-      }
+     
       .sm-icon {
       
-         right: 30px;
-         font-size: x-small;
-         transform: translate(-10%, 60%);
+    
+        font-size: small;
+        /* transform: translate(-10%, 60%); */
+        justify-content: space-around;
+        display: flex;
+        
+        
+         
 
+      }
+      .sm-icon-img {
+        display: flex;
+        flex-direction: row;
+        transform: translate(-.5rem, 0);
+        gap: 10px;
+     
       }
       .sm-icon img {
-          width: 30px;
-          /* margin-bottom: 20px; */
-          display: inline-flex;
-          transform: translate(-10%);
- 
-
-      }
-
+            width: .4rem;
+            /* Increase icon size for smaller devices */
+        }
       #mobile-twitter {
    
         position: absolute;
-        /* border: 1px solid red; */
-        width: 8.5vw;
-        transform: translate(0, -30%);
+      
+        width: 200%;
+        /* transform: translate(0, -30%); */
       }
   
       .line-break {
@@ -493,18 +553,24 @@ footer {
       }
   
       .copy-right {
-          font-size: 8px;
+          font-size: .5rem;
         
           right: 10px;
-          transform: translate(0,27vh);
+          transform: translate(0,-1rem);
           display: flex;
-          position: absolute;
+  
+          /* position: absolute; */
       }
   
-      footer {
-          height: 30vh;
-      }
+      /* footer {
+          height: 40vh;
+      } */
 
+      .footer-container {
+      width: 100%;
+      height: 100%;
+      max-width: 1200px;
+    }
   
 }
 

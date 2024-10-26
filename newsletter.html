@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal website of Ryan Walloh, a developer and photographer.">
     <title>ryamazingw&#8482;</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,21 +18,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
 
     <style>
+   
     .contact {
         justify-content: center;
         align-items: center;
         display: flex;
-   
+       
+        
     
     }
     .contact-bg {
-        width: 95%;
+        width: 93vw;
+       
         height: 40%;
-        /* background-color: red; */
+        background-color: red;
         display: flex;
-      
-        position: absolute;
-        top: 12%;
+     
+        position: relative;
+        top: .1rem;
+     
         /* border: 3px solid red; */
         
     }
@@ -42,7 +47,7 @@
        max-width: 33.3%; /* Limit image width to fit 3 images in a row */
        height: auto; /* Maintain aspect ratio */
        object-fit: cover; /* Ensure images are fully contained in the div */
-        
+       
     }
 
     .CW {
@@ -57,24 +62,36 @@
         word-wrap: break-word; /* For older browsers */
         line-height: 1; /* Adjust line height */
         max-width: 90%; /* Optional: set max width for the text */
-          
         
+        
+    }
+
+    .subscription-container {
+      margin-top: 1.5rem;
     }
 
 
 
     .subscription-input {
-        width: 40vw;
-        margin: 0 auto;
-        /* background-color: #fff; */
+        width: 90vw; /* Increase width for smaller screens */
+        max-width: 500px; /* Limit the maximum width */
+        margin: 0 auto; /* Center it */
         padding: 20px;
-        /* border-radius: 10px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
-        position: absolute;
-        top: 56%;
-        left: 30%;
-        /* border: 1px solid red; */
-        
+        margin-top: 0px;
+        position: relative;
+        /* position: relative;  */
+        /* background-color: red; */
+       
+      
+  
+    }
+
+ 
+
+    .container {
+      display: flex;
+      flex-direction: column;
+
     }
 
     h1 {
@@ -99,7 +116,7 @@
     }
 
     .name {
-        display: flex;
+      display: flex;
       justify-content: space-between;
     }
     .subscription-input label {
@@ -148,21 +165,44 @@
     .subscription-footer {
         /* border: 1px solid yellow; */
         display: flex;
-        margin-top: 80%;
+        /* margin-top: 80%; */
       }
 
 
 
       #subscription-footer a {
           font-weight: lighter;
-          margin-top: 20%;
+          /* margin-top: 20%; */
           text-decoration: none;
-          color: white;
+          color: rgb(158, 150, 150);
+          font-size: 1rem;
           
       }
 
+      .sm-icon {
+        font-size: 1.2rem;
+        font-weight: 400;
+        
+      }
+
+      .quick-links {
+        font-size: 1.2rem;
+        font-weight: 400;
+      }
+
+      .footer-sm-icon-image {
+        display: flex;
+        gap: 1rem;
+        transform: translate(-10%);
+      }
+
+      .copy-right {
+        font-size: .5rem;
+
+      }
+
       #news-letter-links {
-        /* border: 1px solid red; */
+        border: 1px solid red;
         transform: translate(7%);
       }
 
@@ -171,38 +211,27 @@
           transform: translate(0);
         }
         .subscription-input {
-            width: 87vw;
-            /* border: 1px solid red; */
-            margin: 0 auto;
-            padding: 20px;
-            position: absolute;
-            top: 55%;
-            left: 5%;
-            font-size: smaller;
-          }
+            width: 90vw; /* Full width on small screens */
+            padding: 10px; /* Adjust padding */
+        }
 
-          .subscription-input input[type="submit"]  {
-            width: 40%;
-            background-color: rgb(207, 109, 109);
-            color: white;
-            border: none;
-            padding: 10px;
-            font-size: smaller;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-top: 10px;
-          }
+
+        .subscription-input input[type="submit"] {
+            width: 100%; /* Full width submit button */
+            font-size: 1rem; /* Adjust font size */
+        }
 
           .contact-bg {
-            position: absolute;
+            position: relative;
             z-index: 1;
             /* border: 1px solid red; */
-            width: 90%;
+            width: 90vw;
+            
           }
 
           .subscription-footer {
             display: flex;
-            margin-top: 250%;
+            /* margin-top: 70rem; */
           }
 
           .subsimg2 {
@@ -240,6 +269,18 @@
             font-size: 5rem;
           }
 
+          .sm-icon {
+            margin-top: 2rem;
+          }
+
+          .sm-icon img {
+            width: 1.5rem;
+          }
+
+          #mobile-twitter {
+            width: 1.6rem;
+          }
+
       
 
     
@@ -249,16 +290,17 @@
     </style>
 </head>
 <body>
+<div>
 
   <nav class="navbar">
     <div class="logo-container">
-     
+      
       <div  onclick="ryamazingw()" class="logo">ryamazingw<span class="trade-mark">&#8482;</span></div>
      
      </div>
     <input type="checkbox" id="menu-toggle">
     <label for="menu-toggle" class="hamburger">&#9776;</label>
-    <ul id="news-letter-links" class="nav-links">
+    <ul class="nav-links">
      
         <li><a href="home.html">Home</a></li>
         <li><a href="blog.html">Blog</a></li>
@@ -274,44 +316,47 @@
    
 </nav>
 
-  <div class="contact">
-    <div class="contact-bg">
-        <img class="subsimg1" src="subsimg2.jpg">
-        <img class="subsimg2" src="subsimg1.jpg">
-        <img class="subsimg3" src="subsimg3.jpg">
-        <h1 class="CW">Ryan Walloh</h1>
-    </div>
-</div>
-
-  <div class="subscription-container">
-    <div class="subscription-input">
-      <h1>SUBSCRIBE</h1>
-      <p>Feel free to reach out with any questions or request you have!</p>
-      <p>Or let's talk business!</p>
-      <form action="https://formspree.io/f/mblrnjpk" method="POST">
-      <label for="first-name">Name<span class="required">(required)</span></label>
-      <div class="name">
-
-      <input type="text" id="first-name" name="first-name" placeholder="First Name" required>
-
-      <input type="text" id="last-name" name="last-name" placeholder="Last Name" required>
-      </div>
-      <label for="email">Email Address<span class="required">(required)</span></label>
-      <input type="email" id="email" name="email" placeholder="Your Email Address" required>
-
-      <label for="subject">Subject<span class="required">(required)</span></label>
-      <input type="text" id="subject" name="subject" placeholder="Subject" required>
-
-      <label for="message">Message<span class="required">(required)</span></label>
-      <textarea id="message" name="message" placeholder="Your message here..." required></textarea>
-
-      <input type="submit" value="Submit">
-      </form>
+  <div class="container">
+    <div class="contact">
+      <div class="contact-bg">
+          <img class="subsimg1" src="subsimg2.jpg">
+          <img class="subsimg2" src="subsimg1.jpg">
+          <img class="subsimg3" src="subsimg3.jpg">
+          <h1 class="CW">Ryan Walloh</h1>
       </div>
     </div>
 
+
+          <div class="subscription-container">
+            <div class="subscription-input">
+              <h1>SUBSCRIBE</h1>
+              <p>Feel free to reach out with any questions or request you have!</p>
+              <p>Or let's talk business!</p>
+              <form action="https://formspree.io/f/mblrnjpk" method="POST">
+              <label for="first-name">Name<span class="required">(required)</span></label>
+              <div class="name">
+      
+              <input type="text" id="first-name" name="first-name" placeholder="First Name" required>
+      
+              <input type="text" id="last-name" name="last-name" placeholder="Last Name" required>
+              </div>
+              <label for="email">Email Address<span class="required">(required)</span></label>
+              <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+      
+              <label for="subject">Subject<span class="required">(required)</span></label>
+              <input type="text" id="subject" name="subject" placeholder="Subject" required>
+      
+              <label for="message">Message<span class="required">(required)</span></label>
+              <textarea id="message" name="message" placeholder="Your message here..." required></textarea>
+      
+              <input type="submit" value="Submit">
+              </form>
+            </div>
+          </div>
+   </div>
+   </div>
     <footer id="subscription-footer" class="subscription-footer">
-        <div class="white-footer">
+      
         <div class="footer-container">
             <p class="cwf">ryamazingw</p>
             <div class="quick-links">
@@ -322,27 +367,26 @@
                   <a href="newsletter.html">Newsletter</a>
             </div>
 
-            <div class="customer-service">
-                <p>CUSTOMER SERVICE</p>
-                <a href="contact.html">CONTACT US</a>
-            </div>
+            
 
             <div class="sm-icon">
                 <p>FOLLOW</p>
-                <a href="https://www.facebook.com/mohammadryan.walloh/" target="_blank">
-                    <img src="mobileicon/facebook.png">
-                </a>
-                <a href="https://www.instagram.com/ryamazingw" target="_blank">
-                    <img src="mobileicon/instagram.png">
-                </a>
-                <a href="https://twitter.com/pursuitofakhira">
-                 <img id="mobile-twitter" src="mobileicon/twitter.png">
-                </a>
+                <div class="footer-sm-icon-image">
+                  <a href="https://www.facebook.com/mohammadryan.walloh/" target="_blank">
+                      <img src="mobileicon/facebook.png">
+                  </a>
+                  <a href="https://www.instagram.com/ryamazingw" target="_blank">
+                      <img src="mobileicon/instagram.png">
+                  </a>
+                  <a href="https://twitter.com/pursuitofakhira">
+                     <img id="mobile-twitter" src="mobileicon/twitter.png">
+                  </a>
+              </div>
             </div>
             <hr class="line-break">
             <p class="copy-right">&copy; 2024, Ryan Walloh. All rights reserved.</p>
         </div>
-        </div>
+
         
     </footer>
 
