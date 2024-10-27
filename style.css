@@ -11,7 +11,13 @@ body {
     /* background-color: #f7f1e8; */
 }
 
-
+@font-face {
+    font-family: 'RyanWalloh';
+    src: url('/trasfonter/MediaSansExtended-Bold.woff2') format('woff2'), /* modern browsers */
+         url('/transfonter/MediaSansExtended-Bold.woff') format('woff');   /* fallback for older browsers */
+    font-weight: normal;
+    font-style: normal;
+}
 
 
 

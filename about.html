@@ -53,7 +53,7 @@
 
     #avatar {
         position: relative; /* Keep this as relative */
-        width: 25vw; /* Width remains responsive */
+        width: 23vw; /* Width remains responsive */
         z-index: 2; /* Ensure it's above the background */
         text-align: center; /* Centering content */
         margin-bottom: -10px; /* Align the avatar to the bottom */
@@ -65,8 +65,16 @@
         padding: 0; /* Remove padding to prevent overflow */
     }
 
+    @font-face {
+        font-family: 'RyanWalloh';
+        src: url('/trasfonter/MediaSansSemiCondensed-Bold.woff2') format('woff2'), /* modern browsers */
+            url('/transfonter/MediaSansSemiCondensed-Bold.woff') format('woff');   /* fallback for older browsers */
+        font-weight: normal;
+        font-style: normal;
+    }
     h2 {
-        font-family: "Antonio", sans-serif;
+        font-family: 'RyanWalloh', "Antonio", sans-serif;
+        
         cursor: pointer;
         z-index: 3; /* Keep text above other elements */
         text-align: center; /* Center the text */
@@ -123,6 +131,37 @@
         display: none;
     }
 
+    .about-me-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        line-height: 1.6;
+        font-size: 1.5rem;
+        margin-top: 5rem;
+    }
+
+    .about-me-container a {
+        color: #0073e6;
+        text-decoration: underline;
+    }
+
+    .about-me-container a:hover {
+        color: #005bb5;
+        text-decoration: none;
+    }
+
+    .about-me-container h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        text-align: start;
+    }
+
+    .about-me-container p {
+        margin-bottom: 15px;
+        text-align: justify;
+    }
+
+
     @media (max-width: 768px) {
         #avatar {
             width: 90%; /* Adjust the width on smaller screens */
@@ -165,7 +204,95 @@
             transform: translate(-50%, 200%);
             
         }
+
+        .about-me-container {
+            padding: 15px;
+            font-size: 0.95rem;
+        }
+
+        .about-me-container h1 {
+            font-size: 1.8rem;
+        }
     }
+
+    @media (max-width: 480px) {
+        .about-me-container {
+            padding: 10px;
+            font-size: 0.9rem;
+        }
+
+        .about-me-container h1 {
+            font-size: 1.5rem;
+        }
+    }
+
+    .subscription-footer {
+        /* border: 1px solid yellow; */
+        display: flex;
+        margin-top: 10rem;
+        /* margin-top: 80%; */
+      }
+
+
+
+      #subscription-footer a {
+          font-weight: lighter;
+          /* margin-top: 20%; */
+          text-decoration: none;
+          color: rgb(158, 150, 150);
+          font-size: 1rem;
+          
+      }
+
+      .sm-icon {
+        font-size: 1.2rem;
+        font-weight: 400;
+        
+      }
+
+      .quick-links {
+        font-size: 1.2rem;
+        font-weight: 400;
+      }
+
+      .footer-sm-icon-image {
+        display: flex;
+        gap: 1rem;
+        transform: translate(-10%);
+      }
+
+      .copy-right {
+        font-size: .5rem;
+
+      }
+
+      @media (max-width: 768px) {
+        
+          .subscription-footer {
+            display: flex;
+            /* margin-top: 70rem; */
+          }
+
+          
+
+         
+          .CW {
+            font-size: 5rem;
+          }
+
+          .sm-icon {
+            margin-top: 2rem;
+          }
+
+          .sm-icon img {
+            width: 1.5rem;
+          }
+
+          #mobile-twitter {
+            width: 1.6rem;
+          }
+    
+      }
 </style>
 
 
@@ -209,11 +336,67 @@
                 
             </div>
         </div>
+
+       
     </div>
 
-    <script>
+    <div class="about-me-container">
+        <h1>ABOUT</h1>
+        <p>
+            Hi, Human, and Hello World! 🌍 I’m Ryan Walloh – a web designer and developer, and this is my humble personal website. It began as a simple photography portfolio, but I’m growing it into my main online presence, aiming to replace my social media with something uniquely my own.
+        </p>
+        <p>
+            I’m on a mission to build software and web applications that bring advanced tools and innovation to my community. If you’re reading this, feel free to say "Hi!" in the <a href="newsletter.html">newsletter</a> section – we can chat casually or talk business!
+        </p>
+        <p>
+            Join me on this magical journey in tech. Let’s make a difference together! ✨
+        </p>
+          
+    </div>
+    
+    <footer id="subscription-footer" class="subscription-footer">
+      
+        <div class="footer-container">
+            <p class="cwf">ryamazingw</p>
+            <div class="quick-links">
+                <p>QUICK LINKS</p>
+                  <a href="home.html">Home</a>
+                  <a href="blog.html">Blog</a>
+                  <a href="about.html">About</a>
+                  <a href="newsletter.html">Newsletter</a>
+            </div>
+
+            
+
+            <div class="sm-icon">
+                <p>FOLLOW</p>
+                <div class="footer-sm-icon-image">
+                  <a href="https://www.facebook.com/mohammadryan.walloh/" target="_blank">
+                      <img src="mobileicon/facebook.png">
+                  </a>
+                  <a href="https://www.instagram.com/ryamazingw" target="_blank">
+                      <img src="mobileicon/instagram.png">
+                  </a>
+                  <a href="https://twitter.com/pursuitofakhira">
+                     <img id="mobile-twitter" src="mobileicon/twitter.png">
+                  </a>
+              </div>
+            </div>
+            <hr class="line-break">
+            <p class="copy-right">&copy; 2024, Ryan Walloh. All rights reserved.</p>
+        </div>
 
         
+    </footer>
+
+   
+      
+  
+    <script>
+
+        function ryamazingw() {
+          window.location.href = 'index.html';
+        }
         const mytext = document.getElementById('cw');
         mytext.addEventListener('mouseover', () => {
             mytext.style.color = 'red';

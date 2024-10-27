@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Media Sans SemiCondensed';
+    src: url('MediaSansSemiCondensed-Bold.woff2') format('woff2'),
+        url('MediaSansSemiCondensed-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
