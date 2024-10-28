@@ -206,7 +206,7 @@ nav {
 .nav-links li a {
     color: rgb(141, 139, 139);
     text-decoration: none; /* No underline by default */
-    font-size: 1rem;
+    font-size: .9rem;
     font-family: "Ubuntu", sans-serif;
     position: relative; /* Needed for the pseudo-element underline effect */
 }
@@ -605,7 +605,7 @@ footer {
     height: 100%;
     object-fit: cover;
     opacity: 0;
-    animation: fade 30s infinite;
+    animation: fade 24s infinite;
 }
 
 .slider-images img:nth-child(1) {
@@ -613,23 +613,23 @@ footer {
 }
 
 .slider-images img:nth-child(2) {
-    animation-delay: 5s;
+    animation-delay: 2s;
 }
 
 .slider-images img:nth-child(3) {
-    animation-delay: 10s;
+    animation-delay: 6s;
 }
 
 .slider-images img:nth-child(4) {
-    animation-delay: 15s;
+    animation-delay: 10s;
 }
 
 .slider-images img:nth-child(5) {
-    animation-delay: 20s;
+    animation-delay: 14s;
 }
 
 .slider-images img:nth-child(6) {
-    animation-delay: 25s;
+    animation-delay: 18s;
 }
 
 /* .slider-images img:nth-child(7) {

@@ -196,7 +196,7 @@
         .PT1 {
             font-size: 15vw;
             transform: translate(-50%, 200%);
-            color: red;
+            color: #E23D4D;
             
         }
         .PT2 {
@@ -266,6 +266,16 @@
 
       }
 
+      #mobile-linkedin {
+        
+        filter: invert(1);
+      }
+
+      #git {
+        filter: invert(1);
+        
+      }
+
       @media (max-width: 768px) {
         
           .subscription-footer {
@@ -273,7 +283,9 @@
             /* margin-top: 70rem; */
           }
 
-          
+          .footer-sm-icon-image {
+            margin-left: 20px;
+          }
 
          
           .CW {
@@ -282,14 +294,22 @@
 
           .sm-icon {
             margin-top: 2rem;
+            
+            
           }
 
           .sm-icon img {
             width: 1.5rem;
+       
+            
           }
 
           #mobile-twitter {
             width: 1.6rem;
+          }
+
+          #git {
+            margin-left: 20px;
           }
     
       }
@@ -343,7 +363,7 @@
     <div class="about-me-container">
         <h1>ABOUT</h1>
         <p>
-            Hi, Human, and Hello World! 🌍 I’m Ryan Walloh – a web designer and developer, and this is my humble personal website. It began as a simple photography portfolio, but I’m growing it into my main online presence, aiming to replace my social media with something uniquely my own.
+            Hi, Hooman, and Hello World! 🌍 I’m Ryan Walloh – a web designer and developer, and this is my humble personal website. It began as a simple photography portfolio, but I’m growing it into my main online presence, aiming to replace my social media with something uniquely my own.
         </p>
         <p>
             I’m on a mission to build software and web applications that bring advanced tools and innovation to my community. If you’re reading this, feel free to say "Hi!" in the <a href="newsletter.html">newsletter</a> section – we can chat casually or talk business!
@@ -371,14 +391,17 @@
             <div class="sm-icon">
                 <p>FOLLOW</p>
                 <div class="footer-sm-icon-image">
-                  <a href="https://www.facebook.com/mohammadryan.walloh/" target="_blank">
-                      <img src="mobileicon/facebook.png">
-                  </a>
                   <a href="https://www.instagram.com/ryamazingw" target="_blank">
                       <img src="mobileicon/instagram.png">
                   </a>
                   <a href="https://twitter.com/pursuitofakhira">
                      <img id="mobile-twitter" src="mobileicon/twitter.png">
+                  </a>
+                  <a href="https://github.com/ryanwalloh" target="_blank">
+                    <img id="git" src="mobileicon/git.png">
+                   </a>
+                  <a href="https://www.linkedin.com/in/ryan-walloh-4b2623289/" target="_blank">
+                     <img id="mobile-linkedin" src="mobileicon/in.png">
                   </a>
               </div>
             </div>
@@ -464,7 +487,7 @@
         });
         
         photographer2.addEventListener('mouseover', () => {
-            photographer1.style.color = 'red';
+            photographer1.style.color = '#E23D4D';
 
             webD.style.zIndex = '0';
             webDesigner2.style.zIndex = '0';
@@ -506,7 +529,7 @@
             photographer1.style.zIndex = '0';
             photographer2.style.zIndex = '0';
 
-            webD.style.color = 'red';
+            webD.style.color = '#E23D4D';
             webDesigner2.style.zIndex = '10';
             webDesigner2.style.webkitTextStroke = '2px whitesmoke';
             webDesigner2.style.webkitTextFillColor = 'transparent';
