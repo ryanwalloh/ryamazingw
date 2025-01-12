@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal website of Ryan Walloh, a developer and photographer.">
+    <title>ryamazingw&#8482;</title>
+    <link rel="icon" type="image/png" href="w.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="lightbox.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Shippori+Mincho:wght@400;500;600;700;800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <style>
+        .subscription-footer {
+        /* border: 1px solid yellow; */
+        display: flex;
+        margin-top: 10rem;
+      }
+
+
+
+      #subscription-footer a {
+          font-weight: lighter;
+          /* margin-top: 20%; */
+          text-decoration: none;
+          color: rgb(158, 150, 150);
+          font-size: 1rem;
+          
+      }
+
+      .sm-icon {
+        font-size: 1.2rem;
+        font-weight: 400;
+        
+      }
+
+      .quick-links {
+        font-size: 1.2rem;
+        font-weight: 400;
+      }
+
+      .footer-sm-icon-image {
+        display: flex;
+        gap: 1rem;
+        transform: translate(-10%);
+      }
+
+      .copy-right {
+        font-size: .5rem;
+
+      }
+
+      #mobile-linkedin {
+        
+        filter: invert(1);
+      }
+
+      #git {
+        filter: invert(1);
+        
+      }
+
+      @media (max-width: 768px) {
+        
+          .subscription-footer {
+            display: flex;
+            /* margin-top: 70rem; */
+          }
+
+          .footer-sm-icon-image {
+            margin-left: 20px;
+          }
+
+         
+          .CW {
+            font-size: 5rem;
+          }
+
+          .sm-icon {
+            margin-top: 2rem;
+          }
+
+          .sm-icon img {
+            width: 1.5rem;
+          }
+
+          #mobile-twitter {
+            width: 1.6rem;
+          }
+
+          #git {
+            margin-left: 20px;
+          }
+    
+    
+      }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo-container">
+      
+          <div  onclick="ryamazingw()" class="logo">ryamazingw<span class="trade-mark">&#8482;</span></div>
+         
+         </div>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="hamburger">&#9776;</label>
+        <ul class="nav-links">
+         
+            <li><a href="home.html">Home</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+       
+            <div id="sm-logo-links" class="home-icons">
+                <a id="email" class="box" href="mailto:mohammadryanmwalloh@gmail.com" target="_blank"><img src="email.png"></a>
+                <a id="instagram" class="box" href="https://www.instagram.com/ryamazingw/" target="_blank"><img src="instagram.png"></a>
+                <a id="twitter" class="box" href="https://twitter.com/pursuitofakhira" target="_blank"><img src="twitter.png"></a>
+            </div>
+        </ul>
+       
+    </nav>
+
+    <section class="headerimg">
+        <div class="headerimg-container">
+            <img src="images/marawi.webp" alt="Marawi Siege Aftermath" class="headerPic">
+            <img src="phonebg.jpg" alt="Ryan Walloh" class="mobile-header-pic">
+        </div>
+    </section>
+
+    <article class="foto">
+        <p class="theme">The Visual Odyssey: Unveiling Life's Canvas
+            
+        </p>
+
+        <p class="intro">                 
+        "Through my lens, I immortalize the essence of life's fleeting moments, capturing the vibrant streets and captivating people from the northern parts of Mindanao. Each image tells a story, frozen in time yet brimming with untold tales. With every click, I seek to capture the raw emotion and unique charm of this region, inviting viewers to immerse themselves in the rich tapestry of sights and sounds that define Mindanao. Join me on this visual journey as we explore the heart and soul of these islands and its people, one frame at a time."
+        </p>
+    </article>
+    
+
+    <div class="container">
+
+        
+
+        <div class="gallery">
+            <a href="optimized/1.webp" data-lightbox="models" data-title="We see the world through glass windows.">
+                <img src="optimized/1.webp">
+            </a>
+      
+            <a href="optimized/2.webp" data-lightbox="models" data-title="They're here.">
+                <img src="optimized/2.webp">
+            </a>
+     
+            <a href="optimized/3.webp" data-lightbox="models" data-title="Resilience.">
+                <img src="optimized/3.webp">
+            </a>
+     
+            <a href="optimized/4.webp" data-lightbox="models" data-title="Feast of Sacrifice.">
+                <img src="optimized/4.webp">
+            </a>
+ 
+            <a href="optimized/5.webp" data-lightbox="models" data-title="Infamous LA.">
+                <img src="optimized/5.webp">
+            </a>
+  
+            <a href="optimized/6.webp" data-lightbox="models" data-title="The willows.">
+                <img src="optimized/6.webp">
+            </a>
+ 
+            <a href="optimized/7.webp" data-lightbox="models" data-title="The journey">
+                <img src="optimized/7.webp">
+            </a>
+    
+            <a href="optimized/8.webp" data-lightbox="models" data-title="In the mist, no one hears you coming.">
+                <img src="optimized/8.webp">
+            </a>
+            <a href="optimized/9.webp" data-lightbox="models" data-title="Ink Empowered.">
+                <img src="optimized/9.webp">
+            </a>
+           
+            <a href="optimized/10.webp" data-lightbox="models" data-title="Power Unites.">
+                <img src="optimized/10.webp">
+            </a>
+
+            <a href="optimized/11.webp" data-lightbox="models" data-title="Innocence Found.">
+                <img src="optimized/11.webp">
+            </a>
+
+            <a href="optimized/12.webp" data-lightbox="models" data-title="Playing in the rain brings the kids in us.">
+                <img src="optimized/12.webp">
+            </a>
+            <a href="optimized/13.webp" data-lightbox="models" data-title="Engine Secrets.">
+                <img src="optimized/13.webp">
+            </a>
+            <a href="optimized/14.webp" data-lightbox="models" data-title="The Arrival">
+                <img src="optimized/14.webp">
+            </a>
+            <a href="optimized/15.webp" data-lightbox="models" data-title="Shared Shelter.">
+                <img src="optimized/15.webp">
+            </a>
+            <a href="optimized/16.webp" data-lightbox="models" data-title="Power in Stillness.">
+                <img src="optimized/16.webp">
+            </a>
+           
+            <a href="optimized/17.webp" data-lightbox="models" data-title="Whispers in Flames.">
+                <img src="optimized/17.webp">
+            </a>
+           
+            <a href="optimized/18.webp" data-lightbox="models" data-title="Silhouette Symphony.">
+                <img src="optimized/18.webp">
+            </a>
+            <a href="optimized/19.webp" data-lightbox="models" data-title="Storm's Quiet Canvas.">
+                <img src="optimized/19.webp">
+            </a>
+           
+            <a href="optimized/20.webp" data-lightbox="models" data-title="Nostalgic Heartbeat.">
+                <img src="optimized/20.webp">
+            </a>
+            <a href="optimized/21.webp" data-lightbox="models" data-title="The Director.">
+                <img src="optimized/21.webp">
+            </a>
+           
+            <a href="optimized/22.webp" data-lightbox="models" data-title="Driven by Culture.">
+                <img src="optimized/22.webp">
+            </a>
+           
+            <a href="optimized/23.webp" data-lightbox="models" data-title="Driven by Culture.">
+                <img src="optimized/22.webp">
+            </a>
+           
+           
+        </div>
+    </div>
+    <script src="lightbox-plus-jquery.js"></script>
+
+    <footer id="subscription-footer" class="subscription-footer">
+      
+        <div class="footer-container">
+            <p class="cwf">ryamazingw</p>
+            <div class="quick-links">
+                <p>QUICK LINKS</p>
+                  <a href="home.html">Home</a>
+                  <a href="blog.html">Blog</a>
+                  <a href="about.html">About</a>
+                  <a href="newsletter.html">Newsletter</a>
+            </div>
+
+            
+
+            <div class="sm-icon">
+                <p>FOLLOW</p>
+                <div class="footer-sm-icon-image">
+                    <a href="https://www.instagram.com/ryamazingw" target="_blank">
+                        <img src="mobileicon/instagram.png">
+                    </a>
+                    <a href="https://twitter.com/pursuitofakhira">
+                       <img id="mobile-twitter" src="mobileicon/twitter.png">
+                    </a>
+                    <a href="https://github.com/ryanwalloh" target="_blank">
+                      <img id="git" src="mobileicon/git.png">
+                     </a>
+                    <a href="https://www.linkedin.com/in/ryan-walloh-4b2623289/" target="_blank">
+                       <img id="mobile-linkedin" src="mobileicon/in.png">
+                    </a>
+                </div>
+            </div>
+            <hr class="line-break">
+            <p class="copy-right">&copy; 2024, Ryan Walloh. All rights reserved.</p>
+        </div>
+
+        
+    </footer>
+
+    <script>
+      function ryamazingw() {
+          window.location.href = 'index.html';
+      }
+  </script>
+</body>
+</html>
