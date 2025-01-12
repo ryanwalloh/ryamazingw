@@ -34,4 +34,9 @@ document.addEventListener("DOMContentLoaded", function () {
             loadBodyContent();
         }
     });
+
+    const article = document.getElementById('blog-modal');
+        mytext.addEventListener('onclick', () => {
+            mytext.style.color = 'red';
+        });
 });

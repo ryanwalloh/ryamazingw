@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal website of Ryan Walloh, a developer and photographer.">
+    <title>ryamazingw&#8482;</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&display=swap" rel="stylesheet">
+    <script src="script.js"></script>
+</head>
+
+<style>
+    .contact {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        position: relative;
+    }
+
+    .contact-bg {
+        display: flex;
+        flex-direction: column; /* Stack children vertically */
+        justify-content: flex-end; /* Align items to the bottom */
+        align-items: center; /* Center items horizontally */
+        width: 95%;
+        height: 75%;
+        position: relative; 
+        overflow: hidden; 
+    }
+
+    .contact img {
+        object-fit: cover;
+        width: 100%; 
+        max-width: 100%; 
+        height: 100%; 
+        position: absolute;
+        filter: brightness(.9) blur(.3px);
+        z-index: -1;
+    }
+
+    #avatar {
+        position: relative; /* Keep this as relative */
+        width: 23vw; /* Width remains responsive */
+        z-index: 2; /* Ensure it's above the background */
+        text-align: center; /* Centering content */
+        margin-bottom: -10px; /* Align the avatar to the bottom */
+    }
+
+    #avatar img {
+        max-width: 100%; /* Makes the image responsive */
+        height: auto; /* Maintains aspect ratio */
+        padding: 0; /* Remove padding to prevent overflow */
+    }
+
+    @font-face {
+        font-family: 'RyanWalloh';
+        src: url('font2.woff2') format('woff2'), /* modern browsers */
+             url('font1.woff') format('woff');   /* fallback for older browsers */
+        font-weight: normal;
+        font-style: normal;
+    }
+    h2 {
+        font-family: 'RyanWalloh', sans-serif;
+        
+        cursor: pointer;
+        z-index: 3; /* Keep text above other elements */
+        text-align: center; /* Center the text */
+        position: absolute; /* Keep them positioned absolutely for overlapping */
+        margin: 0; /* Remove default margins */
+        
+        transform: translate(-50%, -10%); 
+   
+        width: 100vw;
+    }
+
+    /* Responsive Font Sizes */
+    .WD2 {
+        font-size: 12vw; /* Responsive font size */
+        font-weight: 700;
+        color: white; /* Maintain color */
+        position: absolute; /* Positioning absolutely */
+        top: 15%; /* Position above avatar */
+        z-index: 3; /* Ensure it stays above other elements */
+    }
+
+    .webD {
+        font-size: 12vw; /* Responsive font size */
+        font-weight: 700;
+        color: white;
+        transition: color 0.3s ease-in-out;
+        transition: -webkit-text-fill-color 0.3s ease-in-out;
+        position: absolute; /* Positioning absolutely */
+        top: 15%; /* Ensure it overlaps with WD2 */
+        z-index: 3; /* Ensure it stays above other elements */
+    }
+
+    .PT2 {
+        font-size: 12vw; /* Responsive font size */
+        font-weight: 700;
+        position: absolute; /* Positioning absolutely */
+        top: 45%; /* Position below avatar */
+        z-index: 3; /* Ensure it stays above other elements */
+    }
+
+    .PT1 {
+        font-size: 12vw; /* Responsive font size */
+        font-weight: 700;
+        color: white;
+        position: absolute; /* Positioning absolutely */
+        top: 45%; /* Ensure it overlaps with PT2 */
+        z-index: 3; /* Ensure it stays above other elements */
+    }
+
+    #cw {
+        font-size: 3rem; /* You can keep this as is or make it responsive */
+        transition: color 0.5s ease;
+        color: pink;
+        display: none;
+    }
+
+    .about-me-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        line-height: 1.6;
+        font-size: 1.5rem;
+        margin-top: 5rem;
+    }
+
+    .about-me-container a {
+        color: #0073e6;
+        text-decoration: underline;
+    }
+
+    .about-me-container a:hover {
+        color: #005bb5;
+        text-decoration: none;
+    }
+
+    .about-me-container h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        text-align: start;
+    }
+
+    .about-me-container p {
+        margin-bottom: 15px;
+        text-align: justify;
+    }
+
+
+    @media (max-width: 768px) {
+        #avatar {
+            width: 90%; /* Adjust the width on smaller screens */
+            z-index: 1;
+        }
+
+      
+
+        .contact-bg {
+            height: 100%; /* Allow full height on small screens */
+        }
+
+        .WD2 {
+            font-size: 17vw;
+            z-index: 1;
+            font-weight: bolder;
+            
+        }
+        .webD {
+            font-size: 17vw;
+            z-index: 1;
+            font-weight: bolder;
+        }
+
+        h2 {
+            transform: translate(-50%, 300%);
+            margin: 0;
+          
+            
+        }
+
+        .PT1 {
+            font-size: 15vw;
+            transform: translate(-50%, 200%);
+            color: #E23D4D;
+            
+        }
+        .PT2 {
+            font-size: 15vw;
+            transform: translate(-50%, 200%);
+            
+        }
+
+        .about-me-container {
+            padding: 15px;
+            font-size: 0.95rem;
+        }
+
+        .about-me-container h1 {
+            font-size: 1.8rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .about-me-container {
+            padding: 10px;
+            font-size: 0.9rem;
+        }
+
+        .about-me-container h1 {
+            font-size: 1.5rem;
+        }
+    }
+
+    .subscription-footer {
+        /* border: 1px solid yellow; */
+        display: flex;
+        margin-top: 10rem;
+        /* margin-top: 80%; */
+      }
+
+
+
+      #subscription-footer a {
+          font-weight: lighter;
+          /* margin-top: 20%; */
+          text-decoration: none;
+          color: rgb(158, 150, 150);
+          font-size: 1rem;
+          
+      }
+
+      .sm-icon {
+        font-size: 1.2rem;
+        font-weight: 400;
+        
+      }
+
+      .quick-links {
+        font-size: 1.2rem;
+        font-weight: 400;
+      }
+
+      .footer-sm-icon-image {
+        display: flex;
+        gap: 1rem;
+        transform: translate(-10%);
+      }
+
+      .copy-right {
+        font-size: .5rem;
+
+      }
+
+      #mobile-linkedin {
+        
+        filter: invert(1);
+      }
+
+      #git {
+        filter: invert(1);
+        
+      }
+
+      @media (max-width: 768px) {
+        
+          .subscription-footer {
+            display: flex;
+            /* margin-top: 70rem; */
+          }
+
+          .footer-sm-icon-image {
+            margin-left: 20px;
+          }
+
+         
+          .CW {
+            font-size: 5rem;
+          }
+
+          .sm-icon {
+            margin-top: 2rem;
+            
+            
+          }
+
+          .sm-icon img {
+            width: 1.5rem;
+       
+            
+          }
+
+          #mobile-twitter {
+            width: 1.6rem;
+          }
+
+          #git {
+            margin-left: 20px;
+          }
+
+          .about-me-container {
+            /* background-color: red; */
+            width: 94%;
+        }
+    
+      }
+</style>
+
+
+
+
+
+<body data-src="content.html">
+    <nav class="navbar">
+        <div class="logo-container">
+            <div onclick="ryamazingw()" class="logo">ryamazingw<span class="trade-mark">&#8482;</span></div>
+        </div>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="hamburger">&#9776;</label>
+        <ul class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <div id="sm-logo-links" class="home-icons">
+                <a class="box" href="mailto:mohammadryanmwalloh@gmail.com" target="_blank"><img src="email.png"></a>
+                <a id="instagram" class="box" href="https://www.instagram.com/ryamazingw/" target="_blank"><img src="instagram.png"></a>
+                <a id="twitter" class="box" href="https://twitter.com/pursuitofakhira" target="_blank"><img src="twitter.png"></a>
+            </div>
+        </ul>
+    </nav>
+
+    <div class="contact">
+        <div class="contact-bg">
+            <img class="subsimg1" alt="Ryan Walloh" src="aboutBG3.jpg">
+            <div class="avatar-container">
+                 <img id="avatar" class="subsimg2" alt="Ryan Walloh" src="avatar2.png">
+            </div>
+            <div id="text-container" class="text-container">
+                <h1 id="cw" class="CW">Hi, I'm Ryan Walloh</h1>
+                
+                <h2 id="WD2" class="WD2">Web Designer</h2>
+                <h2 id="PT2" class="PT2">& Photographer</h2>
+
+                <h2 id="webD" class="webD">Web Designer</h2>
+                <h2 id="PT1" class="PT1">& Photographer</h2>
+                
+            </div>
+        </div>
+
+       
+    </div>
+
+    <div class="about-me-container">
+        <h1>ABOUT</h1>
+        <p>
+            Hi, Hooman, and Hello World! 🌍 I’m Ryan Walloh – a web designer and developer, and this is my humble personal website. It began as a simple photography portfolio, but I’m growing it into my main online presence, aiming to replace my social media with something uniquely my own.
+        </p>
+        <p>
+            I’m on a mission to build software and web applications that bring advanced tools and innovation to my community. If you’re reading this, feel free to say "Hi!" in the <a href="newsletter.html">newsletter</a> section – we can chat casually or talk business!
+        </p>
+        <p>
+            Join me on this magical journey in tech. Let’s make a difference together! ✨
+        </p>
+          
+    </div>
+    
+    <footer id="subscription-footer" class="subscription-footer">
+      
+        <div class="footer-container">
+            <p class="cwf">ryamazingw</p>
+            <div class="quick-links">
+                <p>QUICK LINKS</p>
+                  <a href="home.html">Home</a>
+                  <a href="blog.html">Blog</a>
+                  <a href="about.html">About</a>
+                  <a href="newsletter.html">Newsletter</a>
+            </div>
+
+            
+
+            <div class="sm-icon">
+                <p>FOLLOW</p>
+                <div class="footer-sm-icon-image">
+                  <a href="https://www.instagram.com/ryamazingw" target="_blank">
+                      <img src="mobileicon/instagram.png">
+                  </a>
+                  <a href="https://twitter.com/pursuitofakhira">
+                     <img id="mobile-twitter" src="mobileicon/twitter.png">
+                  </a>
+                  <a href="https://github.com/ryanwalloh" target="_blank">
+                    <img id="git" src="mobileicon/git.png">
+                   </a>
+                  <a href="https://www.linkedin.com/in/ryan-walloh-4b2623289/" target="_blank">
+                     <img id="mobile-linkedin" src="mobileicon/in.png">
+                  </a>
+              </div>
+            </div>
+            <hr class="line-break">
+            <p class="copy-right">&copy; 2024, Ryan Walloh. All rights reserved.</p>
+        </div>
+
+        
+    </footer>
+
+   
+      
+  
+    <script>
+
+        function ryamazingw() {
+          window.location.href = 'index.html';
+        }
+        const mytext = document.getElementById('cw');
+        mytext.addEventListener('mouseover', () => {
+            mytext.style.color = 'red';
+        });
+
+        mytext.addEventListener('mouseout', () => {
+            mytext.style.color = 'black';
+        });
+
+        const avatar = document.getElementById('avatar');
+
+        let photographer2 = document.getElementById('PT2');
+        let webDesigner2 = document.getElementById('WD2');
+
+        let photographer1 = document.getElementById('PT1');
+        let webD = document.getElementById('webD');
+        webD.style.zIndex = '1';
+        webDesigner2.style.zIndex = '1';
+        
+        const textContainer = document.getElementById('text-container');
+
+        avatar.style.transition = 'transform 1s ease';
+        let xx = 0;
+        let yy = 0;
+
+       
+
+        const avatarWidth = avatar.offsetWidth;
+        const containerRect = textContainer.getBoundingClientRect();
+
+        document.addEventListener('mousemove', (event) => {
+            const x = event.clientX; // Cursor's X position
+            const windowWidth = window.innerWidth;
+            const containerLeft = containerRect.left; // Left boundary of container
+            const containerRight = containerRect.right; // Right boundary of container
+            const containerWidth = containerRect.width; // Width of the container
+            let xx = ((x - (windowWidth / 2)) / (windowWidth / 2)) * avatarWidth;
+            xx = Math.max(-40, Math.min(xx, 70));
+            avatar.style.transform = `translateX(${xx}px)`;
+
+        });
+
+        
+        
+       
+        // avatar.addEventListener('mouseout', () => {
+        //     avatar.style.transform = 'translate(-50px)';
+        //     photographer2.style.webkitTextStroke = 'none';
+        // });
+
+        photographer1.style.transition = 'color 0.5s ease-in-out';
+        photographer2.style.transition = 'color 0.5s ease-in-out';
+        photographer1.addEventListener('mouseover', () => {
+            
+        
+            photographer1.style.zIndex = '0';
+            
+        });
+
+        photographer1.addEventListener('mouseout', () => {
+            photographer1.style.color = 'white';
+            photographer1.style.zIndex = '0';
+            
+            
+        });
+        
+        photographer2.addEventListener('mouseover', () => {
+            photographer1.style.color = '#E23D4D';
+
+            webD.style.zIndex = '0';
+            webDesigner2.style.zIndex = '0';
+
+            photographer2.style.zIndex = '10';
+            photographer2.style.webkitTextStroke = '2px white';
+            photographer2.style.webkitTextFillColor = 'transparent';
+            console.log('huhu');
+        });
+        
+        photographer2.addEventListener('mouseout', () => {
+            webD.style.zIndex = '1';
+            webDesigner2.style.zIndex = '1';
+
+            photographer2.style.color = 'white';
+            photographer2.style.webkitTextStroke = 'none';
+            photographer2.style.webkitTextFillColor = 'whitesmoke';
+            photographer2.style.zIndex = '3';
+            photographer1.style.color = 'white';
+            
+        });
+
+        webD.style.transition = 'color 0.5s ease-in-out';
+        webDesigner2.style.transition = 'color 0.5s ease-in-out';
+        webD.addEventListener('mouseover', () => {
+            
+        
+            webD.style.zIndex = '0';
+            
+        });
+
+        webD.addEventListener('mouseout', () => {
+            webD.style.color = 'white';
+            webD.style.zIndex = '0';
+            
+        });
+        
+        webDesigner2.addEventListener('mouseover', () => {
+            photographer1.style.zIndex = '0';
+            photographer2.style.zIndex = '0';
+
+            webD.style.color = '#E23D4D';
+            webDesigner2.style.zIndex = '10';
+            webDesigner2.style.webkitTextStroke = '2px whitesmoke';
+            webDesigner2.style.webkitTextFillColor = 'transparent';
+            console.log('huhu');
+        });
+        
+        webDesigner2.addEventListener('mouseout', () => {
+            photographer1.style.zIndex = '3';
+            photographer2.style.zIndex = '3';
+
+            webDesigner2.style.color = 'white';
+            webDesigner2.style.webkitTextStroke = 'none';
+            webDesigner2.style.webkitTextFillColor = 'white';
+            webDesigner2.style.zIndex = '1';
+            webD.style.color = 'white';
+            
+        });
+
+        
+    
+    </script>
+</body>
+</html>
