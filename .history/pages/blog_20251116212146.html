@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal website of Ryan Walloh, a developer and photographer.">
+    <title>ryamazingw&#8482;</title>
+    <link rel="icon" type="image/png" href="../assets/favicon/w.png">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="../assets/js/script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    
+    <style>
+
+
+    .blog-header {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-top: 5rem;
+        display: flex;
+    }
+
+    .blog h1{
+        display: flex;
+        
+    }
+    .blog2 {
+        padding-left: 10px;
+        color: #E23D4D;
+    }
+
+   
+
+
+    .blog-card-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: 50px;
+        width: 90vw;
+        margin: 0 auto;
+        gap: 20px;
+        row-gap: 100px;
+        
+        margin-top: 5rem;
+    }
+
+    @media (max-width: 1024px) {
+        .blog-card-container {
+            grid-template-columns: 1fr 1fr;
+            gap: 5%;
+        }
+        .blog-card {
+            min-width: 90%;
+            overflow: hidden;
+            
+        }
+
+        .card-header {
+            max-width: 100%;
+           
+            max-height: 50%;
+            
+        }
+    }
+
+    @media (max-width: 768px) {
+        .blog-card-container {
+            grid-template-columns: 1fr;
+            justify-content: center;
+            /* background-color: red; */
+            gap: 1%;   
+            
+        }
+
+        .blog-card {
+        
+            width: 80vw;
+            overflow: hidden;
+            background-color: yellow;
+        }
+
+       
+        
+    }
+
+    .blog-card {
+        display: flex;
+        flex-direction: column;
+        min-width: 80%;
+        max-width: 100%;
+        justify-content: center;
+        /* background-color: #52ad92; */
+        background-color: #EDEADE;
+        color: black;
+        margin: 0 auto;
+        height: 80%;
+        /* border: 1px solid black; */
+        overflow: hidden;
+       
+       
+        
+    }
+
+    .card-header{
+        width: 100%;
+        margin: 0 auto;
+        max-height: 100%;
+        height: 40%;
+        cursor: pointer;
+        object-fit: cover;
+        /* margin-top: 15px; */
+    }
+
+    
+
+    .author {
+        display: flex;
+        padding: 20px;
+        background-color: #EDEADE;
+        color: black;
+        
+        margin: 0 auto;
+        width: 100%;
+        max-width: 92%;
+    }
+
+    .author-profile {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        
+        
+    }
+
+    .author-section {
+        padding-left: 15px;
+        padding-top: 5px;
+        
+    }
+
+    .author-section h3 {
+        font-size: 1rem;
+        cursor: pointer;
+    }
+
+    .author-section, p {
+        font-size: smaller;
+    }
+
+    .blog-content {
+        padding: 20px;
+        /* background-color: #E23D4D; */
+        color: black;
+        margin: 0 auto;
+        margin-bottom: 17px;
+        width: 100%;
+        max-width: 92%;
+        height: 70%;
+        
+        
+    }
+
+    .blog-content a {
+        /* text-decoration: none; */
+        color: grey;
+ 
+    }
+
+    .subscription-footer {
+        /* border: 1px solid yellow; */
+        display: flex;
+        margin-top: 10rem;
+      }
+
+
+
+      #subscription-footer a {
+          font-weight: lighter;
+          /* margin-top: 20%; */
+          text-decoration: none;
+          color: rgb(158, 150, 150);
+          font-size: 1rem;
+          
+      }
+
+      .sm-icon {
+        font-size: 1.2rem;
+        font-weight: 400;
+        
+      }
+
+      .quick-links {
+        font-size: 1.2rem;
+        font-weight: 400;
+      }
+
+      .footer-sm-icon-image {
+        display: flex;
+        gap: 1rem;
+        transform: translate(-10%);
+      }
+
+      .copy-right {
+        font-size: .5rem;
+
+      }
+
+      #mobile-linkedin {
+        
+        filter: invert(1);
+      }
+
+      #git {
+        filter: invert(1);
+        
+      }
+
+      @media (max-width: 768px) {
+        
+          .subscription-footer {
+            display: flex;
+            margin-top: 1rem;
+          }
+
+          .footer-sm-icon-image {
+            margin-left: 20px;
+          }
+
+         
+          .CW {
+            font-size: 5rem;
+          }
+
+          .sm-icon {
+            margin-top: 2rem;
+          }
+
+          .sm-icon img {
+            width: 1.5rem;
+          }
+
+          #mobile-twitter {
+            width: 1.6rem;
+          }
+
+          #git {
+            margin-left: 20px;
+          }
+    
+      }
+
+        
+
+       
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar">
+        <div class="logo-container">
+         
+          <div  onclick="ryamazingw()" class="logo">ryamazingw<span class="trade-mark">&#8482;</span></div>
+         
+         </div>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="hamburger">&#9776;</label>
+        <ul id="news-letter-links" class="nav-links">
+         
+            <li><a href="home.html">Home</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+       
+            <div id="sm-logo-links" class="home-icons">
+                <a class="box" href="mailto:mohammadryanmwalloh@gmail.com" target="_blank"><img src="../assets/images/icons/email.png"></a>
+                <a id="instagram" class="box" href="https://www.instagram.com/ryamazingw/" target="_blank"><img src="../assets/images/icons/instagram.png"></a>
+                <a id="twitter" class="box" href="https://twitter.com/pursuitofakhira" target="_blank"><img src="../assets/images/icons/twitter.png"></a>
+            </div>
+        </ul>
+       
+    </nav>
+
+    <div class="blog-header">
+        <h1 class="blog">Personal <h1 class="blog2">Blog</h1></h1>
+    </div>
+
+    <div class="blog-card-container">
+
+        <div class="blog-card">
+            <img class="card-header" src="../assets/images/blog/dawn.jpg" alt="Ryan Walloh">
+            <div class="author">
+                <img class="author-profile" src="../assets/images/about/profile.jpg" alt="Ryan Walloh" onclick="about()">
+                <section class="author-section">
+                    <h3  onclick="about()">Ryan Walloh</h3>
+                    <p>October 28, 2024</p>
+                </section>
+            </div>
+            <div class="blog-content">
+                <h1>Cold</h1>
+                <p id="blog-modal">Read More</p>
+            </div>
+        </div>
+
+        <div class="blog-card">
+            <img class="card-header" src="../assets/images/blog/dariday.webp" alt="Ryan Walloh"> 
+            <div class="author">
+                <img class="author-profile" src="../assets/images/about/profile.jpg" alt="Ryan Walloh"  onclick="about()">
+                <section class="author-section">
+                    <h3 onclick="about()" >Ryan Walloh</h3>
+                    <p>October 28, 2024</p>
+                </section>
+            </div>
+            <div class="blog-content">
+                <h1>Story Behind</h1>
+                <a href="blog1.html">Read More</a>
+            </div>
+        </div>
+
+        <div class="blog-card">
+            <img class="card-header" src="../assets/images/about/about1.jpg" alt="Ryan Walloh">
+            <div class="author">
+                <img class="author-profile" src="../assets/images/about/profile.jpg" alt="Ryan Walloh"  onclick="about()">
+                <section class="author-section">
+                    <h3 onclick="about()">Ryan Walloh</h3>
+                    <p>October 28, 2024</p>
+                </section>
+            </div>
+            <div class="blog-content">
+                <h1>First Blog!</h1>
+                <a href="blog1.html">Read More</a>
+            </div>
+        </div>
+    </div>
+
+    <footer id="subscription-footer" class="subscription-footer">
+      
+        <div class="footer-container">
+            <p class="cwf">ryamazingw</p>
+            <div class="quick-links">
+                <p>QUICK LINKS</p>
+                  <a href="home.html">Home</a>
+                  <a href="blog.html">Blog</a>
+                  <a href="about.html">About</a>
+                  <a href="newsletter.html">Newsletter</a>
+            </div>
+
+            
+
+            <div class="sm-icon">
+                <p>FOLLOW</p>
+                <div class="footer-sm-icon-image">
+                    <a href="https://www.instagram.com/ryamazingw" target="_blank">
+                        <img src="../assets/images/mobileicons/instagram.png">
+                    </a>
+                    <a href="https://twitter.com/pursuitofakhira">
+                       <img id="mobile-twitter" src="../assets/images/mobileicons/twitter.png">
+                    </a>
+                    <a href="https://github.com/ryanwalloh" target="_blank">
+                      <img id="git" src="../assets/images/mobileicons/git.png">
+                     </a>
+                    <a href="https://www.linkedin.com/in/ryan-walloh-4b2623289/" target="_blank">
+                       <img id="mobile-linkedin" src="../assets/images/mobileicons/in.png">
+                    </a>
+                </div>
+            </div>
+            <hr class="line-break">
+            <p class="copy-right">&copy; 2024, Ryan Walloh. All rights reserved.</p>
+        </div>
+
+        <div class="blog-modal" style="display: none;">
+            <h1>HI</h1>
+        </div>
+
+        
+    </footer>
+
+    <script>
+      function ryamazingw() {
+          window.location.href = 'index.html';
+      }
+      function about() {
+          window.location.href = 'about.html';
+      }
+  </script>
+</body>
+</html>

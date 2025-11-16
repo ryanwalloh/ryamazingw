@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal website of Ryan Walloh, a developer and photographer.">
+    <title>ryamazingw&#8482;</title>
+    <link rel="icon" type="image/png" href="../assets/favicon/w.png">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+
+    <style>
+   
+    .contact {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+       
+        
+    
+    }
+    .contact-bg {
+        width: 93vw;
+       
+        height: 40%;
+        /* background-color: red; */
+        display: flex;
+     
+        position: relative;
+        top: .1rem;
+     
+        /* border: 3px solid red; */
+        
+    }
+
+    .contact img {
+       object-fit: cover;
+       width: 100%; /* Make images responsive */
+       max-width: 33.3%; /* Limit image width to fit 3 images in a row */
+       height: auto; /* Maintain aspect ratio */
+       object-fit: cover; /* Ensure images are fully contained in the div */
+       
+    }
+
+    .CW {
+        position: absolute;
+        color: whitesmoke;
+        font-size: 6rem;
+        left: 1%;
+        top: 10%;
+        font-family: "Josefin Sans", sans-serif;
+        white-space: normal; /* Allow text to wrap */
+        overflow-wrap: break-word; /* Break long words if necessary */
+        word-wrap: break-word; /* For older browsers */
+        line-height: 1; /* Adjust line height */
+        max-width: 90%; /* Optional: set max width for the text */
+        
+        
+    }
+
+    .subscription-container {
+      margin-top: 1.5rem;
+    }
+
+
+
+    .subscription-input {
+        width: 90vw; /* Increase width for smaller screens */
+        max-width: 500px; /* Limit the maximum width */
+        margin: 0 auto; /* Center it */
+        padding: 20px;
+        margin-top: 0px;
+        position: relative;
+        /* position: relative;  */
+        /* background-color: red; */
+       
+      
+  
+    }
+
+ 
+
+    .container {
+      display: flex;
+      flex-direction: column;
+
+    }
+
+    h1 {
+        text-align: left;
+        color: #333;
+        margin-bottom: 5%;
+    }
+
+    p {
+        margin-bottom: 5%;
+    }
+
+    #first-name {
+        display: flex;
+        width: 48.5%;
+    }
+
+    #last-name {
+        display: flex;
+        width: 48.5%;
+        margin-left: 3%;
+    }
+
+    .name {
+      display: flex;
+      justify-content: space-between;
+    }
+    .subscription-input label {
+        font-weight: bold;
+        display: block;
+        margin: 10px 0 5px;
+    }
+
+    .subscription-input input[type="text"],
+    .subscription-input input[type="email"],
+    .subscription-input textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 5px 0 15px;
+        /* border-radius: 5px; */
+        /* border: 1px solid #ccc; */
+        font-size: 16px;
+    }
+
+    .subscription-input textarea {
+        height: 100px;
+        resize: vertical;
+    }
+
+    .subscription-input input[type="submit"] {
+        width: 20%;
+        background-color: rgb(207, 109, 109);
+        color: white;
+        border: none;
+        padding: 12px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+        margin-top: 10px;
+    }
+
+    .subscription-input input[type="submit"]:hover {
+        background-color: rgb(196, 179, 31);
+    }
+
+    .required {
+        color: rgb(207, 109, 109);
+        margin-left: 5px;
+    }
+
+    .subscription-footer {
+        /* border: 1px solid yellow; */
+        display: flex;
+        /* margin-top: 80%; */
+      }
+
+
+
+      #subscription-footer a {
+          font-weight: lighter;
+          /* margin-top: 20%; */
+          text-decoration: none;
+          color: rgb(158, 150, 150);
+          font-size: 1rem;
+          
+      }
+
+      .sm-icon {
+        font-size: 1.2rem;
+        font-weight: 400;
+        
+      }
+
+      .quick-links {
+        font-size: 1.2rem;
+        font-weight: 400;
+      }
+
+      .footer-sm-icon-image {
+        display: flex;
+        gap: 1rem;
+        transform: translate(-10%);
+      }
+
+      .copy-right {
+        font-size: .5rem;
+
+      }
+
+      #news-letter-links {
+        /* border: 1px solid red; */
+        transform: translate(7%);
+      }
+
+      #mobile-linkedin {
+        
+        filter: invert(1);
+      }
+
+      #git {
+        filter: invert(1);
+        
+      }
+
+      @media (max-width: 768px) {
+        #news-letter-links {
+          transform: translate(0);
+        }
+        .subscription-input {
+            width: 90vw; /* Full width on small screens */
+            padding: 10px; /* Adjust padding */
+        }
+
+
+        .subscription-input input[type="submit"] {
+            width: 100%; /* Full width submit button */
+            font-size: 1rem; /* Adjust font size */
+        }
+
+          .contact-bg {
+            position: relative;
+            z-index: 1;
+            /* border: 1px solid red; */
+            width: 90vw;
+            
+          }
+
+          .subscription-footer {
+            display: flex;
+            /* margin-top: 70rem; */
+          }
+
+          .subsimg2 {
+            display: none;
+          }
+
+          .subsimg3 {
+            display: none;
+          }
+
+          .subsimg1 img {
+            width: 100%;
+          }
+
+          .contact img {
+            max-width: 100%;
+          }
+
+          .subscription-input input[type="text"],
+          .subscription-input input[type="email"],
+          .subscription-input textarea {
+              width: 100%;
+              padding: 10px;
+              margin: 5px 0 15px;
+              /* border-radius: 5px; */
+              /* border: 1px solid #ccc; */
+              font-size: 16px;
+          }
+
+          input::placeholder {
+            font-size: smaller;
+          }
+
+          .CW {
+            font-size: 5rem;
+          }
+
+          .sm-icon {
+            margin-top: 2rem;
+          }
+
+          .sm-icon img {
+            width: 1.5rem;
+          }
+
+          #mobile-twitter {
+            width: 1.6rem;
+          }
+
+          .footer-sm-icon-image {
+            margin-left: 20px;
+          }
+
+          #git {
+            margin-left: 20px;
+          }
+
+      
+
+    
+      }
+
+
+    </style>
+</head>
+<body>
+<div>
+
+  <nav class="navbar">
+    <div class="logo-container">
+      
+      <div  onclick="ryamazingw()" class="logo">ryamazingw<span class="trade-mark">&#8482;</span></div>
+     
+     </div>
+    <input type="checkbox" id="menu-toggle">
+    <label for="menu-toggle" class="hamburger">&#9776;</label>
+    <ul class="nav-links">
+     
+        <li><a href="home.html">Home</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="newsletter.html">Newsletter</a></li>
+   
+        <div id="sm-logo-links" class="home-icons">
+            <a class="box" href="mailto:mohammadryanmwalloh@gmail.com" target="_blank"><img src="email.png"></a>
+            <a id="instagram" class="box" href="https://www.instagram.com/ryamazingw/" target="_blank"><img src="instagram.png"></a>
+            <a id="twitter" class="box" href="https://twitter.com/pursuitofakhira" target="_blank"><img src="twitter.png"></a>
+        </div>
+    </ul>
+   
+</nav>
+
+  <div class="container">
+    <div class="contact">
+      <div class="contact-bg">
+          <img class="subsimg1" src="subsimg2.webp">
+          <img class="subsimg2" src="subsimg1.webp">
+          <img class="subsimg3" src="subsimg3.webp">
+          <h1 class="CW">Ryan Walloh</h1>
+      </div>
+    </div>
+
+
+          <div class="subscription-container">
+            <div class="subscription-input">
+              <h1>SUBSCRIBE</h1>
+              <p>Feel free to reach out with any questions or request you have!</p>
+              <p>Or let's talk business!</p>
+              <form action="https://formspree.io/f/mblrnjpk" method="POST">
+              <label for="first-name">Name<span class="required">(required)</span></label>
+              <div class="name">
+      
+              <input type="text" id="first-name" name="first-name" placeholder="First Name" required>
+      
+              <input type="text" id="last-name" name="last-name" placeholder="Last Name" required>
+              </div>
+              <label for="email">Email Address<span class="required">(required)</span></label>
+              <input type="email" id="email" name="email" placeholder="Your Email Address" required>
+      
+              <label for="subject">Subject<span class="required">(required)</span></label>
+              <input type="text" id="subject" name="subject" placeholder="Subject" required>
+      
+              <label for="message">Message<span class="required">(required)</span></label>
+              <textarea id="message" name="message" placeholder="Your message here..." required></textarea>
+      
+              <input type="submit" value="Submit">
+              </form>
+            </div>
+          </div>
+   </div>
+   </div>
+    <footer id="subscription-footer" class="subscription-footer">
+      
+        <div class="footer-container">
+            <p class="cwf">ryamazingw</p>
+            <div class="quick-links">
+                <p>QUICK LINKS</p>
+                  <a href="home.html">Home</a>
+                  <a href="blog.html">Blog</a>
+                  <a href="about.html">About</a>
+                  <a href="newsletter.html">Newsletter</a>
+            </div>
+
+            
+
+            <div class="sm-icon">
+                <p>FOLLOW</p>
+                <div class="footer-sm-icon-image">
+                  <a href="https://www.instagram.com/ryamazingw" target="_blank">
+                      <img src="mobileicon/instagram.png">
+                  </a>
+                  <a href="https://twitter.com/pursuitofakhira">
+                     <img id="mobile-twitter" src="mobileicon/twitter.png">
+                  </a>
+                  <a href="https://github.com/ryanwalloh" target="_blank">
+                    <img id="git" src="mobileicon/git.png">
+                   </a>
+                  <a href="https://www.linkedin.com/in/ryan-walloh-4b2623289/" target="_blank">
+                     <img id="mobile-linkedin" src="mobileicon/in.png">
+                  </a>
+              </div>
+            </div>
+            <hr class="line-break">
+            <p class="copy-right">&copy; 2024, Ryan Walloh. All rights reserved.</p>
+        </div>
+
+        
+    </footer>
+
+    <script>
+      function ryamazingw() {
+          window.location.href = 'index.html';
+      }
+  </script>
+</body>
+</html>
