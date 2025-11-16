@@ -163,6 +163,13 @@
         margin-left: 5px;
     }
 
+    .optional {
+        color: #888;
+        margin-left: 5px;
+        font-weight: normal;
+        font-size: 0.9em;
+    }
+
     .subscription-footer {
         /* border: 1px solid yellow; */
         display: flex;
@@ -245,15 +252,16 @@
             /* margin-top: 70rem; */
           }
 
-          .../assets/images/misc/subsimg2 {
+          /* Hide extra subscription background images on mobile if needed */
+          .subsimg2 {
             display: none;
           }
 
-          .../assets/images/misc/subsimg3 {
+          .subsimg3 {
             display: none;
           }
 
-          .../assets/images/misc/subsimg1 img {
+          .subsimg1 img {
             width: 100%;
           }
 
@@ -352,21 +360,21 @@
               <p>Feel free to reach out with any questions or request you have!</p>
               <p>Or let's talk business!</p>
               <form action="https://formspree.io/f/mblrnjpk" method="POST">
-              <label for="first-name">Name<span class="required">(required)</span></label>
+              <label for="first-name">Name<span class="optional">(optional)</span></label>
               <div class="name">
       
-              <input type="text" id="first-name" name="first-name" placeholder="First Name" required>
+              <input type="text" id="first-name" name="first-name" placeholder="First Name">
       
-              <input type="text" id="last-name" name="last-name" placeholder="Last Name" required>
+              <input type="text" id="last-name" name="last-name" placeholder="Last Name">
               </div>
               <label for="email">Email Address<span class="required">(required)</span></label>
               <input type="email" id="email" name="email" placeholder="Your Email Address" required>
       
-              <label for="subject">Subject<span class="required">(required)</span></label>
-              <input type="text" id="subject" name="subject" placeholder="Subject" required>
+              <label for="subject">Subject<span class="optional">(optional)</span></label>
+              <input type="text" id="subject" name="subject" placeholder="Subject">
       
-              <label for="message">Message<span class="required">(required)</span></label>
-              <textarea id="message" name="message" placeholder="Your message here..." required></textarea>
+              <label for="message">Message<span class="optional">(optional)</span></label>
+              <textarea id="message" name="message" placeholder="Your message here..."></textarea>
       
               <input type="submit" value="Submit">
               </form>
@@ -400,7 +408,7 @@
                   <a href="https://github.com/ryanwalloh" target="_blank">
                     <img id="git" src="../assets/images/mobileicons/git.png">
                    </a>
-                  <a href="https://www.linkedin.com/in/ryan-walloh-4b2623289/" target="_blank">
+                  <a href="https://www.linkedin.com/in/ryanwalloh/?originalSubdomain=ph" target="_blank">
                      <img id="mobile-linkedin" src="../assets/images/mobileicons/in.png">
                   </a>
               </div>

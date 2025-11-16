@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="From Pixels to Purpose: A Lake City Developer's Journey to Building Something That Matters - A blog post by Ryan Walloh">
+    <title>From Pixels to Purpose | ryamazingw&#8482;</title>
+    <link rel="icon" type="image/png" href="../assets/favicon/w.png">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .blog-post-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .blog-header {
+            margin-bottom: 3rem;
+            padding-top: 2rem;
+        }
+
+        .blog-title {
+            font-family: "Josefin Sans", sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.2;
+            color: #2A5649;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        .meta-info {
+            flex: 1;
+        }
+
+        .author-name {
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 0.3rem;
+            cursor: pointer;
+        }
+
+        .publish-date {
+            font-family: "Open Sans", sans-serif;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .blog-content {
+            font-family: "Open Sans", sans-serif;
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #444;
+        }
+
+        .blog-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-content h2 {
+            font-family: "Josefin Sans", sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #2A5649;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .blog-content h3 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #2A5649;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .intro-section {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 3rem;
+            padding: 1.5rem;
+            background-color: #f8f9fa;
+            border-left: 4px solid #2A5649;
+            border-radius: 4px;
+        }
+
+        .blog-image {
+            width: 100%;
+            max-width: 100%;
+            max-height: 600px;
+            height: auto;
+            object-fit: contain;
+            border-radius: 8px;
+            margin: 2.5rem 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-image-caption {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+            margin-top: 0.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2.5rem 0;
+            border-left: 4px solid #2A5649;
+        }
+
+        .highlight-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .highlight-box li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .highlight-box li::before {
+            content: "✨";
+            position: absolute;
+            left: 0;
+        }
+
+        .quote-section {
+            background-color: #f8f9fa;
+            padding: 2rem;
+            border-left: 4px solid #2A5649;
+            margin: 2.5rem 0;
+            border-radius: 4px;
+            font-style: italic;
+            color: #555;
+        }
+
+        .quote-section p {
+            margin-bottom: 0.5rem;
+        }
+
+        .quote-attribution {
+            text-align: right;
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 1rem;
+        }
+
+        .emoji-list {
+            list-style: none;
+            padding-left: 0;
+            margin: 2rem 0;
+        }
+
+        .emoji-list li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.05rem;
+        }
+
+        .emoji-list li::before {
+            content: attr(data-emoji);
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+        }
+
+        .author-signature {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 2px solid #e0e0e0;
+            margin-bottom: 3.5rem;
+        }
+
+        .author-signature h3 {
+            font-family: "Josefin Sans", sans-serif;
+            font-size: 1.3rem;
+            color: #2A5649;
+            margin-bottom: 0.5rem;
+        }
+
+        .author-signature p {
+            font-family: "Open Sans", sans-serif;
+            color: #666;
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .two-column-image {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2.5rem 0;
+        }
+
+        .two-column-image img {
+            width: 100%;
+            max-height: 500px;
+            height: auto;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .blog-post-container {
+                padding: 1rem;
+            }
+
+            .blog-title {
+                font-size: 2rem;
+            }
+
+            .blog-content {
+                font-size: 1rem;
+            }
+
+            .blog-content h2 {
+                font-size: 1.8rem;
+            }
+
+            .blog-content h3 {
+                font-size: 1.4rem;
+            }
+
+            .intro-section {
+                font-size: 1.05rem;
+                padding: 1rem;
+            }
+
+            .blog-image {
+                max-height: 400px;
+            }
+
+            .two-column-image {
+                grid-template-columns: 1fr;
+            }
+
+            .two-column-image img {
+                max-height: 350px;
+            }
+
+            .blog-meta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .subscribe-cta {
+                width: 100%;
+                text-align: center;
+                padding: 0.9rem 2rem;
+                font-size: 1rem;
+            }
+        }
+
+        .back-to-blog {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #2A5649;
+            text-decoration: none;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-to-blog:hover {
+            color: #1a3d32;
+        }
+
+        .back-to-blog::before {
+            content: "←";
+            font-size: 1.2rem;
+        }
+
+        .subscribe-cta {
+            display: inline-block;
+            margin: 2rem 0;
+            padding: 1rem 2.5rem;
+            background-color: #2A5649;
+            color: white;
+            text-decoration: none;
+            font-family: "Montserrat", sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(42, 86, 73, 0.2);
+        }
+
+        .subscribe-cta:hover {
+            background-color: #1a3d32;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(42, 86, 73, 0.3);
+        }
+
+        .subscribe-cta:active {
+            transform: translateY(0);
+        }
+
+        .newsletter-link {
+            color: #2A5649;
+            text-decoration: underline;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .newsletter-link:hover {
+            color: #1a3d32;
+        }
+
+        #mobile-linkedin {
+            filter: invert(1);
+        }
+
+        #git {
+            filter: invert(1);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo-container">
+            <div onclick="ryamazingw()" class="logo">ryamazingw<span class="trade-mark">&#8482;</span></div>
+        </div>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="hamburger">&#9776;</label>
+        <ul id="news-letter-links" class="nav-links">
+            <li><a href="home.html">Home</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="newsletter.html">Newsletter</a></li>
+            <div id="sm-logo-links" class="home-icons">
+                <a class="box" href="mailto:mohammadryanmwalloh@gmail.com" target="_blank"><img src="../assets/images/icons/email.png"></a>
+                <a id="instagram" class="box" href="https://www.instagram.com/ryamazingw/" target="_blank"><img src="../assets/images/icons/instagram.png"></a>
+                <a id="twitter" class="box" href="https://twitter.com/pursuitofakhira" target="_blank"><img src="../assets/images/icons/twitter.png"></a>
+            </div>
+        </ul>
+    </nav>
+
+    <div class="blog-post-container">
+        <a href="blog.html" class="back-to-blog">Back to Blog</a>
+
+        <div class="blog-header">
+            <h1 class="blog-title">From Pixels to Purpose: A Lake City Developer's Journey to Building Something That Matters</h1>
+            
+            <div class="blog-meta">
+                <img src="../assets/images/about/profile.jpg" alt="Ryan Walloh" class="author-avatar" onclick="about()">
+                <div class="meta-info">
+                    <div class="author-name" onclick="about()">Ryan Walloh</div>
+                    <div class="publish-date">November 17, 2025</div>
+                </div>
+            </div>
+        </div>
+
+        <article class="blog-content">
+            <div class="intro-section">
+                <p>Hey there, fellow wanderer of the internet! 👋</p>
+                <p>Welcome to my little corner of the digital world! I'm Ryan, or Mohammad Ryan Muto Walloh if we're being formal (but let's not, formality is overrated haha!). I'm a Son, friend, fur parent, and your friendly neighborhood web and app developer from the beautiful, humble lake city of Lanao Del Sur. And above all, A Muslim.</p>
+                <p>If you're wondering what you've stumbled upon, think of this blog as a creative playground where code meets storytelling, where tech talks blend with life lessons, and where every post is brewed with a mix of caffeine, curiosity, and a lot of trial and error.</p>
+            </div>
+
+            <h2>So, Who Is This Guy Anyway?</h2>
+            
+            <p>Let me paint you a picture (pun absolutely intended because I'm also a photographer and visual storyteller, so expect lots of those). I'm someone who sees the world through two lenses: the camera lens that captures fleeting moments, and the developer's lens that builds lasting solutions.</p>
+
+            <img src="../assets/images/blog/blog1media/pictureofme.webp" alt="Ryan Walloh - Developer and Photographer" class="blog-image">
+            <p class="blog-image-caption">Capturing moments, building solutions - through two different lenses</p>
+
+            <p>As a photographer, I'm obsessed with immortalizing moments. You know that bittersweet feeling when you look at old photographs of loved ones who are no longer with us? That's the magic and the reminder photography gives us. Dunya (this world) is temporary, but the stories we capture? Those echo forever. My style isn't just about snapping pretty pictures; it's about capturing souls, emotions, and narratives frozen in time. Every frame tells a story, and every story deserves to be told beautifully.</p>
+
+            <p>As a developer, I'm driven by purpose. Not just "let's build an app because it's cool" purpose, but "let's solve real problems for real people" purpose. I believe technology should serve communities, not just Silicon Valley unicorns. And that brings me to the project that's been consuming my brain cells (in the best way possible)...</p>
+
+            <h2>The Food Delivery Dream: Feeding Marawi, One Line of Code at a Time</h2>
+
+            <p>Picture this: You're in a city experiencing a food industry boom. Restaurants, cafes, bakeries, local eateries popping up left and right. It's a foodie's paradise! But here's the plot twist: we don't have a comprehensive food delivery service.</p>
+
+            <p>Yep, you heard that right. While the rest of the world is tapping away on FoodPanda and Uber Eats, Marawi City is still relying on social media posts and SMS orders. Some amazing restaurants are hidden gems, literally hidden because they're tucked away from the highway or in less accessible spots. Great food, poor visibility. Tragic, right?</p>
+
+            <p>That's when the lightbulb moment hit me during my freshman year: "What if I build the first-ever full-fledged food delivery platform for my city?"</p>
+
+            <img src="../assets/images/blog/blog1media/fooddelivery.webp" alt="Food Delivery Platform Development" class="blog-image">
+            <p class="blog-image-caption">Building the first comprehensive food delivery platform for Marawi City</p>
+
+            <p>Fast forward to now. I'm a graduating student, and that crazy freshman dream? It's becoming reality. We've got an MVP (Minimum Viable Product for the non-techies) with both web and mobile platforms. Is it perfect? Haha, far from it! But as we say in IT: one bit at a time.</p>
+
+            <h2>More Than Just Food: Building With Purpose</h2>
+
+            <p>Here's where it gets exciting. This isn't just about convenience; it's about impact:</p>
+
+            <div class="highlight-box">
+                <ul>
+                    <li><strong>For food business owners:</strong> A digital platform to showcase their delicious creations, reach more customers, and compete fairly regardless of location.</li>
+                    <li><strong>For job seekers:</strong> New opportunities, from company staff positions to delivery riders.</li>
+                    <li><strong>For tricycle drivers:</strong> Marawi has tons of tricycles (motorcycles with sidecars) operating as transportation. What if we invite some drivers to join the platform? They could potentially remove sidecars, create more road space, earn income, and maybe, just maybe, help ease our traffic situation a tiny bit? (Okay, I know traffic is complex, but hey, every journey starts with a single step, right? 😄)</li>
+                </ul>
+            </div>
+
+            <p>But wait, there's more! I'm working on integrating pharmacies into the system too. I actually built a multi-pharmacy delivery platform for my capstone project (yes, we passed that thesis beast!). Sounds simple? It's not. Try juggling prescription verification, valid ID checks for discounts, and UI/UX challenges that make your brain hurt. But damn, it was worth it!</p>
+
+            <div class="two-column-image">
+                <img src="../assets/images/blog/blog1media/fooddelivery.webp" alt="Food Delivery Platform">
+                <img src="../assets/images/blog/blog1media/riderapp.webp" alt="Rider App - Delivery Driver Platform">
+            </div>
+            <p class="blog-image-caption">From capstone to reality: Building platforms that serve real community needs</p>
+
+            <h2>Why Am I Doing This?</h2>
+
+            <div class="quote-section">
+                <p>"The most beloved people to Allah are those who are most beneficial to the people."</p>
+                <div class="quote-attribution">— Prophet Muhammad (PBUH) (Narrated by At-Tabarani in Al-Mu'jam al-Kabeer and classified as Sahih by Al-Albani)</div>
+            </div>
+
+            <p>I want to build something that genuinely helps my community, something that scales and reaches more communities, Inn Shaa Allah (God willing). Technology is powerful, but it's meaningless if it doesn't serve people.</p>
+
+            <h2>What to Expect on This Blog</h2>
+
+            <p>So what's in store for you here? Think of it as a behind-the-scenes pass to:</p>
+
+            <ul class="emoji-list">
+                <li data-emoji="📸">Photography adventures and the stories behind the shots</li>
+                <li data-emoji="💻">Development diaries from the trenches of building real-world apps</li>
+                <li data-emoji="🌙">Life lessons through the lens of faith, friendship, and travels</li>
+                <li data-emoji="🚀">The journey of building a purpose-driven platform for the lake city (with all the wins, fails, and "what was I thinking?" moments)</li>
+            </ul>
+
+            <p>Whether you're a fellow developer, a photography enthusiast, someone interested in social entrepreneurship, or just someone who enjoys reading about people trying to make a dent in the universe, you're in the right place.</p>
+
+            <h2>Let's Build This Story Together</h2>
+
+            <p>I'm inviting you to follow along as I document this wild ride of building something meaningful from scratch. There will be bugs (so many bugs), breakthroughs, setbacks, and hopefully, a platform that makes a real difference.</p>
+
+            <p>So subscribe to stay updated, or just bookmark this page and come back whenever you need a dose of creative chaos mixed with purposeful tech talk.</p>
+
+            <a href="blog.html#subscribe" class="subscribe-cta">Subscribe</a>
+
+            <p>Let's turn ideas into impact, one blog post at a time.</p>
+
+            <p><strong>Bismillah</strong> (In the name of Allah)</p>
+
+            <p><em>P.S. Got questions? Ideas? Or just want to say hi? You can send me a direct message using the <a href="newsletter.html" class="newsletter-link">newsletter</a>. I read every single one, and I promise I'm much friendlier than my code's error messages. 😄</em></p>
+
+            <div class="author-signature">
+                <h3>Ryan Walloh</h3>
+                <p>Web & App Developer | Photographer | Visual Storyteller</p>
+                <p>Building purpose-driven tech from the Lake City</p>
+            </div>
+        </article>
+    </div>
+
+    <footer id="subscription-footer" class="subscription-footer">
+        <div class="footer-container">
+            <p class="cwf">ryamazingw</p>
+            <div class="quick-links">
+                <p>QUICK LINKS</p>
+                <a href="home.html">Home</a>
+                <a href="blog.html">Blog</a>
+                <a href="about.html">About</a>
+                <a href="newsletter.html">Newsletter</a>
+            </div>
+
+            <div class="sm-icon">
+                <p>FOLLOW</p>
+                <div class="footer-sm-icon-image">
+                    <a href="https://www.instagram.com/ryamazingw" target="_blank">
+                        <img src="../assets/images/mobileicons/instagram.png">
+                    </a>
+                    <a href="https://twitter.com/pursuitofakhira">
+                        <img id="mobile-twitter" src="../assets/images/mobileicons/twitter.png">
+                    </a>
+                    <a href="https://github.com/ryanwalloh" target="_blank">
+                        <img id="git" src="../assets/images/mobileicons/git.png">
+                    </a>
+                    <a href="https://www.linkedin.com/in/ryanwalloh/?originalSubdomain=ph" target="_blank">
+                        <img id="mobile-linkedin" src="../assets/images/mobileicons/in.png">
+                    </a>
+                </div>
+            </div>
+            <hr class="line-break">
+            <p class="copy-right">&copy; 2024, Ryan Walloh. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function ryamazingw() {
+            window.location.href = '../index.html';
+        }
+        function about() {
+            window.location.href = 'about.html';
+        }
+    </script>
+</body>
+</html>
+
