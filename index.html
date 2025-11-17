@@ -14,25 +14,13 @@
     <script src="assets/js/script.js"></script>
     
    <style>
-        body {
-            overflow: hidden;
+        :root {
+            --index-safe-space: 0px;
         }
 
-        @media (max-width: 768px) {
-            body {
-                overflow: hidden;
-                overflow-x: hidden;
-            }
-
-            #index-home-icons{
-            
-      
-               
-                transform: translate(-56%, 300%);
-                width: 30vw;
-            }
-
-
+        body {
+            overflow: hidden;
+            padding-bottom: var(--index-safe-space);
         }
 
         #index-home-icons-container {
@@ -46,6 +34,37 @@
             position: relative;
             overflow: hidden;
             height: 100vh; 
+            padding-bottom: var(--index-safe-space);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                overflow: hidden;
+                overflow-x: hidden;
+            }
+
+            :root {
+                --index-safe-space: 24px;
+            }
+
+            #index-home-icons{
+                transform: translate(-56%, 300%);
+                width: 30vw;
+            }
+        }
+
+        @supports (padding-bottom: env(safe-area-inset-bottom)) {
+            :root {
+                --index-safe-space: env(safe-area-inset-bottom);
+            }
+        }
+
+        @media (max-width: 768px) {
+            @supports (padding-bottom: env(safe-area-inset-bottom)) {
+                :root {
+                    --index-safe-space: calc(env(safe-area-inset-bottom) + 24px);
+                }
+            }
         }
 
         .content {

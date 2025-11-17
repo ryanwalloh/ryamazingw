@@ -247,8 +247,7 @@
         }
         .blog-card {
             width: 100%;
-            min-height: 500px;
-            height: auto;
+            height: 500px;
             overflow: hidden;
         }
 
@@ -276,8 +275,7 @@
 
         .blog-card {
             width: 100%;
-            min-height: 480px;
-            height: auto;
+            height: 480px;
             overflow: hidden;
         }
 
@@ -315,8 +313,7 @@
         display: flex;
         flex-direction: column;
         width: 100%;
-        min-height: 550px;
-        height: auto;
+        height: 550px;
         justify-content: flex-start;
         background-color: #EDEADE;
         color: black;
@@ -435,13 +432,12 @@
         color: #666;
         line-height: 1.6;
         margin-bottom: 15px;
-        flex-grow: 1;
+        flex: 1;
         overflow: hidden;
         display: -webkit-box;
         -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
         line-clamp: 3;
-        text-overflow: ellipsis;
+        -webkit-box-orient: vertical;
     }
 
     .blog-content a {
@@ -678,15 +674,15 @@
                 </div>
             <div class="blog-content">
                 <h1>First Blog!</h1>
-                <p class="blog-description" data-full-text="From Pixels to Purpose: A Lake City Developer's Journey to Building Something That Matters. Join me as I share my story of building purpose-driven tech for my community.">From Pixels to Purpose: A Lake City Developer's Journey to Building Something That Matters. Join me as I share my story of building purpose-driven tech for my community.</p>
+                <p class="blog-description">From Pixels to Purpose: A Lake City Developer's Journey to Building Something That Matters. Join me as I share my story of building purpose-driven tech for my community.</p>
                 <div class="blog-meta-chips">
-                    <span class="blog-chip blog-chip--time" data-word-count="1071" data-article-path="articles/article1.html">10 min read</span>
+                    <span class="blog-chip blog-chip--time" data-word-count="1985">10 min read</span>
                     <span class="blog-chip blog-chip--category">Development</span>
                     <span class="blog-chip blog-chip--category">Community</span>
                     <span class="blog-chip blog-chip--category">Photography</span>
                 </div>
                 <div class="blog-card-footer">
-                    <a class="blog-read-more" href="articles/article1.html" onclick="event.stopPropagation();">Read More</a>
+                    <a class="blog-read-more" href="article1.html" onclick="event.stopPropagation();">Read More</a>
                 </div>
             </div>
             </div>
@@ -775,84 +771,40 @@
           window.location.href = 'about.html';
       }
           function goToFirstBlog() {
-          window.location.href = 'articles/article1.html';
+          window.location.href = 'article1.html';
       }
 
       // Hero subscription handler
       document.addEventListener('DOMContentLoaded', function() {
-          const defaultMaxChars = 220;
           document.querySelectorAll('.blog-description').forEach(function(desc) {
               const rawText = (desc.dataset.fullText || desc.textContent).trim();
               desc.dataset.fullText = rawText;
               const requestedMax = parseInt(desc.dataset.maxChars || '', 10);
-              const limit = Number.isFinite(requestedMax) && requestedMax > 0 ? requestedMax : defaultMaxChars;
-              const needsTrim = rawText.length > limit;
+              const hasLimit = Number.isFinite(requestedMax) && requestedMax > 0;
+              const limit = hasLimit ? requestedMax : Infinity;
+              const needsTrim = hasLimit && rawText.length > limit;
               let displayText = needsTrim ? rawText.slice(0, limit).trimEnd() : rawText;
               if (!displayText.endsWith('...')) {
                   displayText = displayText.replace(/\.*$/, '') + '...';
               }
               desc.textContent = displayText;
-              desc.title = rawText;
           });
 
           const readingTimeConfig = {
-              fastWpm: 250,
-              slowWpm: 200,
-              defaultBufferMinutes: 1,
-              imageSecondsPerImage: 8
+              fastWpm: 240,
+              slowWpm: 200
           };
 
-          const articleBufferCache = new Map();
-
-          function formatMinutes(minMinutes, maxMinutes) {
-              return minMinutes === maxMinutes
-                  ? `${maxMinutes} MIN READ`
-                  : `${minMinutes}-${maxMinutes} MIN READ`;
-          }
-
-          async function getBufferMinutes(chip) {
-              const articlePath = chip.dataset.articlePath;
-              if (!articlePath) {
-                  return readingTimeConfig.defaultBufferMinutes;
-              }
-              if (articleBufferCache.has(articlePath)) {
-                  return articleBufferCache.get(articlePath);
-              }
-              try {
-                  const response = await fetch(articlePath);
-                  if (!response.ok) {
-                      throw new Error(`Failed to fetch ${articlePath}`);
-                  }
-                  const html = await response.text();
-                  const parser = new DOMParser();
-                  const doc = parser.parseFromString(html, 'text/html');
-                  const container = doc.querySelector('.blog-post-container') || doc.body;
-                  const imageCount = container ? container.querySelectorAll('img').length : 0;
-                  const bufferMinutes = imageCount > 0
-                      ? Math.max(1, Math.ceil((imageCount * readingTimeConfig.imageSecondsPerImage) / 60))
-                      : readingTimeConfig.defaultBufferMinutes;
-                  articleBufferCache.set(articlePath, bufferMinutes);
-                  return bufferMinutes;
-              } catch (error) {
-                  console.error('Reading time buffer error:', error);
-                  articleBufferCache.set(articlePath, readingTimeConfig.defaultBufferMinutes);
-                  return readingTimeConfig.defaultBufferMinutes;
-              }
-          }
-
-          async function updateReadingChip(chip) {
+          document.querySelectorAll('.blog-chip--time').forEach(function(chip) {
               const wordCount = parseInt(chip.dataset.wordCount || chip.dataset.words, 10);
               if (!Number.isFinite(wordCount) || wordCount <= 0) {
                   return;
               }
-              const bufferMinutes = await getBufferMinutes(chip);
-              const fastMinutes = Math.ceil(wordCount / readingTimeConfig.fastWpm) + bufferMinutes;
-              const slowMinutes = Math.ceil(wordCount / readingTimeConfig.slowWpm) + bufferMinutes;
-              chip.textContent = formatMinutes(Math.min(fastMinutes, slowMinutes), Math.max(fastMinutes, slowMinutes));
-          }
-
-          document.querySelectorAll('.blog-chip--time').forEach(function(chip) {
-              updateReadingChip(chip);
+              const fastMinutes = Math.max(1, Math.floor(wordCount / readingTimeConfig.fastWpm));
+              const slowMinutes = Math.max(fastMinutes, Math.ceil(wordCount / readingTimeConfig.slowWpm));
+              chip.textContent = fastMinutes === slowMinutes
+                  ? `${slowMinutes} MIN READ`
+                  : `${fastMinutes}-${slowMinutes} MIN READ`;
           });
 
           const subscribeBtn = document.getElementById('hero-subscribe-btn');
