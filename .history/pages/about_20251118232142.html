@@ -162,55 +162,6 @@
         text-align: justify;
     }
 
-    .video-section {
-        max-width: 800px;
-        margin: 4rem auto 3rem;
-        padding: 0 20px;
-    }
-
-    .video-intro {
-        margin-bottom: 1.5rem;
-        text-align: center;
-    }
-
-    .video-intro-text {
-        font-size: 1rem;
-        color: #888;
-        font-style: italic;
-        margin: 0;
-        line-height: 1.6;
-    }
-
-    .video-container {
-        max-width: 100%;
-        margin: 0 auto;
-    }
-
-    .video-message {
-        text-align: center;
-        font-size: 1.2rem;
-        font-style: italic;
-        color: #666;
-        margin-bottom: 1.5rem;
-        line-height: 1.6;
-    }
-
-    .video-wrapper {
-        position: relative;
-        padding-bottom: 56.25%; /* 16:9 aspect ratio */
-        height: 0;
-        overflow: hidden;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .video-wrapper iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-    }
 
     @media (max-width: 768px) {
         #avatar {
@@ -366,20 +317,6 @@
             /* background-color: red; */
             width: 94%;
         }
-
-        .video-section {
-            margin: 3rem auto 2rem;
-            padding: 0 15px;
-        }
-
-        .video-intro-text {
-            font-size: 0.9rem;
-        }
-
-        .video-message {
-            font-size: 1rem;
-            margin-bottom: 1rem;
-        }
     
       }
 </style>
@@ -438,29 +375,9 @@
             I’m on a mission to build software and web applications that bring advanced tools and innovation to my community. If you’re reading this, feel free to say "Hi!" in the <a href="newsletter.html">newsletter</a> section – we can chat casually or talk business!
         </p>
         <p>
-            Join me on this magical journey in tech. Let's make a difference together! ✨
+            Join me on this magical journey in tech. Let’s make a difference together! ✨
         </p>
           
-    </div>
-
-    <div class="video-section">
-        <div class="video-intro">
-            <p class="video-intro-text">A glimpse into the process—photographs and code, moments captured in motion:</p>
-        </div>
-        <div class="video-container">
-            <p class="video-message">
-                Life is messy, wild, and unpredictable. Don't decode it, experience it.
-            </p>
-        <div class="video-wrapper">
-            <iframe 
-                src="https://www.youtube.com/embed/_o5CvOQbU50" 
-                title="Ryan Walloh - Photographs and Coding Session" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                allowfullscreen>
-            </iframe>
-        </div>
-        </div>
     </div>
     
     <footer id="subscription-footer" class="subscription-footer">
@@ -582,7 +499,7 @@
             webDesigner2.style.zIndex = '0';
 
             photographer2.style.zIndex = '10';
-            photographer2.style.webkitTextStroke = '2px white';
+            photographer2.style.webkitTextStroke = '1px white';
             photographer2.style.webkitTextFillColor = 'transparent';
             console.log('huhu');
         });
@@ -620,7 +537,7 @@
 
             webD.style.color = '#E23D4D';
             webDesigner2.style.zIndex = '10';
-            webDesigner2.style.webkitTextStroke = '2px white';
+            webDesigner2.style.webkitTextStroke = '3px white';
             webDesigner2.style.webkitTextFillColor = 'transparent';
             console.log('huhu');
         });
