@@ -215,6 +215,48 @@
 
    
 
+    .nav-newsletter-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.45rem 1.4rem;
+        background-color: #FFD84D;
+        color: #2A5649 !important;
+        border-radius: 999px;
+        font-family: "Montserrat", sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+        letter-spacing: 0.5px;
+        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        border: 2px solid transparent;
+    }
+
+    .nav-newsletter-btn:hover {
+        background-color: #F7C631;
+        color: #1a3d32 !important;
+        box-shadow: 0 6px 18px rgba(247, 198, 49, 0.35);
+        transform: translateY(-1px);
+    }
+
+    .nav-newsletter-btn:active {
+        transform: translateY(0);
+        box-shadow: 0 4px 12px rgba(247, 198, 49, 0.3);
+    }
+
+    .nav-newsletter-btn:focus-visible {
+        outline: 3px solid rgba(255, 216, 77, 0.6);
+        outline-offset: 3px;
+    }
+
+    @media (max-width: 768px) {
+        .nav-newsletter-btn {
+            width: 100%;
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+    }
+
 
     .featured-blogs-section {
         width: min(1200px, 90vw);
@@ -634,16 +676,13 @@
          
          </div>
         <input type="checkbox" id="menu-toggle">
-        <label for="menu-toggle" class="hamburger" aria-label="Toggle navigation" aria-controls="news-letter-links">
-            <span></span>
-            <span></span>
-        </label>
+        <label for="menu-toggle" class="hamburger">&#9776;</label>
         <ul id="news-letter-links" class="nav-links">
          
             <li><a href="home.html">Home</a></li>
             <li><a href="blog.html">Blog</a></li>
             <li><a href="about.html">About</a></li>
-            <li><a href="newsletter.html">Newsletter</a></li>
+            <li><a href="newsletter.html" class="nav-newsletter-btn">Newsletter</a></li>
        
             <div id="sm-logo-links" class="home-icons">
                 <a class="box" href="mailto:mohammadryanmwalloh@gmail.com" target="_blank"><img src="../assets/images/icons/email.png"></a>
