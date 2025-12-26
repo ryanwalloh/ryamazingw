@@ -3,8 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Personal website of Ryan Walloh, a developer and photographer.">
-    <title>ryamazingw&#8482;</title>
+    <meta name="description" content="Ryan Walloh (ryamazingw) - Developer and photographer capturing the vibrant streets and captivating people of Mindanao. Explore visual stories from the northern parts of the Philippines through stunning photography.">
+    <meta name="keywords" content="Ryan Walloh, ryamazingw, photographer, developer, Mindanao photography, Philippines photography, visual storytelling, street photography">
+    <meta name="author" content="Ryan Walloh">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ryanwalloh.github.io/ryamazingw/pages/home.html">
+    <meta property="og:title" content="Ryan Walloh (ryamazingw) - Developer & Photographer">
+    <meta property="og:description" content="Visual stories from Mindanao. Developer and photographer capturing the vibrant streets and captivating people of the northern Philippines.">
+    <meta property="og:image" content="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735075/misc/images/misc/marawi.webp">
+    <meta property="og:site_name" content="ryamazingw">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://ryanwalloh.github.io/ryamazingw/pages/home.html">
+    <meta name="twitter:title" content="Ryan Walloh (ryamazingw) - Developer & Photographer">
+    <meta name="twitter:description" content="Visual stories from Mindanao. Developer and photographer capturing the vibrant streets and captivating people of the northern Philippines.">
+    <meta name="twitter:image" content="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735075/misc/images/misc/marawi.webp">
+    <meta name="twitter:creator" content="@pursuitofakhira">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ryanwalloh.github.io/ryamazingw/pages/home.html">
+    
+    <title>Ryan Walloh (ryamazingw) - Developer & Photographer | Visual Stories from Mindanao</title>
     <link rel="icon" type="image/png" href="../assets/favicon/w.png">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/lightbox.css">
@@ -20,7 +43,121 @@
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <script src="../assets/js/script.js" defer></script>
 
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ryan Walloh",
+      "alternateName": "ryamazingw",
+      "url": "https://ryanwalloh.github.io/ryamazingw",
+      "image": "https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735076/misc/images/misc/ryan-walloh-mobile.webp",
+      "sameAs": [
+        "https://www.instagram.com/ryamazingw",
+        "https://twitter.com/pursuitofakhira",
+        "https://github.com/ryanwalloh",
+        "https://www.linkedin.com/in/ryanwalloh"
+      ],
+      "jobTitle": "Developer and Photographer",
+      "description": "Developer and photographer capturing visual stories from Mindanao, Philippines",
+      "knowsAbout": ["Photography", "Web Development", "Visual Storytelling", "Mindanao"],
+      "email": "mohammadryanmwalloh@gmail.com"
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "ryamazingw",
+      "alternateName": "Ryan Walloh",
+      "url": "https://ryanwalloh.github.io/ryamazingw",
+      "author": {
+        "@type": "Person",
+        "name": "Ryan Walloh"
+      },
+      "description": "Visual stories from Mindanao. Developer and photographer capturing the vibrant streets and captivating people of the northern Philippines."
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ImageGallery",
+      "name": "Ryan Walloh Photography Gallery",
+      "description": "Photography gallery featuring visual stories from Mindanao, Philippines",
+      "author": {
+        "@type": "Person",
+        "name": "Ryan Walloh"
+      }
+    }
+    </script>
+
     <style>
+        /* Creative Lazy Loading Styles */
+        .lazy-image {
+            opacity: 0;
+            filter: blur(10px);
+            transform: scale(1.05);
+            transition: opacity 0.8s ease-out, filter 0.8s ease-out, transform 0.8s ease-out;
+            will-change: opacity, filter, transform;
+        }
+
+        .lazy-image.loaded {
+            opacity: 1;
+            filter: blur(0);
+            transform: scale(1);
+        }
+
+        .lazy-image.loading {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
+        }
+
+        /* Staggered animation delays for gallery images */
+        .gallery .lazy-image:nth-child(1) { transition-delay: 0s; }
+        .gallery .lazy-image:nth-child(2) { transition-delay: 0.05s; }
+        .gallery .lazy-image:nth-child(3) { transition-delay: 0.1s; }
+        .gallery .lazy-image:nth-child(4) { transition-delay: 0.15s; }
+        .gallery .lazy-image:nth-child(5) { transition-delay: 0.2s; }
+        .gallery .lazy-image:nth-child(6) { transition-delay: 0.25s; }
+        .gallery .lazy-image:nth-child(7) { transition-delay: 0.3s; }
+        .gallery .lazy-image:nth-child(8) { transition-delay: 0.35s; }
+        .gallery .lazy-image:nth-child(9) { transition-delay: 0.4s; }
+        .gallery .lazy-image:nth-child(10) { transition-delay: 0.45s; }
+        .gallery .lazy-image:nth-child(11) { transition-delay: 0.5s; }
+        .gallery .lazy-image:nth-child(12) { transition-delay: 0.55s; }
+        .gallery .lazy-image:nth-child(13) { transition-delay: 0.6s; }
+        .gallery .lazy-image:nth-child(14) { transition-delay: 0.65s; }
+        .gallery .lazy-image:nth-child(15) { transition-delay: 0.7s; }
+        .gallery .lazy-image:nth-child(16) { transition-delay: 0.75s; }
+        .gallery .lazy-image:nth-child(17) { transition-delay: 0.8s; }
+        .gallery .lazy-image:nth-child(18) { transition-delay: 0.85s; }
+        .gallery .lazy-image:nth-child(19) { transition-delay: 0.9s; }
+        .gallery .lazy-image:nth-child(20) { transition-delay: 0.95s; }
+        .gallery .lazy-image:nth-child(21) { transition-delay: 1s; }
+        .gallery .lazy-image:nth-child(22) { transition-delay: 1.05s; }
+        .gallery .lazy-image:nth-child(23) { transition-delay: 1.1s; }
+        .gallery .lazy-image:nth-child(24) { transition-delay: 1.15s; }
+        .gallery .lazy-image:nth-child(25) { transition-delay: 1.2s; }
+        .gallery .lazy-image:nth-child(26) { transition-delay: 1.25s; }
+        .gallery .lazy-image:nth-child(27) { transition-delay: 1.3s; }
+
+        /* Header images - immediate load, no delay */
+        .headerimg .lazy-image {
+            transition-delay: 0s;
+        }
+
         .subscription-footer {
         /* border: 1px solid yellow; */
         display: flex;
@@ -128,9 +265,9 @@
             <li><a href="newsletter.html">Newsletter</a></li>
        
             <div id="sm-logo-links" class="home-icons">
-                <a id="email" class="box" href="mailto:mohammadryanmwalloh@gmail.com" target="_blank"><img src="../assets/images/icons/email.png"></a>
-                <a id="instagram" class="box" href="https://www.instagram.com/ryamazingw/" target="_blank"><img src="../assets/images/icons/instagram.png"></a>
-                <a id="twitter" class="box" href="https://twitter.com/pursuitofakhira" target="_blank"><img src="../assets/images/icons/twitter.png"></a>
+                <a id="email" class="box" href="mailto:mohammadryanmwalloh@gmail.com" target="_blank" aria-label="Email Ryan Walloh"><img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735026/icons/images/icons/email.png" alt="Email icon"></a>
+                <a id="instagram" class="box" href="https://www.instagram.com/ryamazingw/" target="_blank" aria-label="Follow Ryan Walloh on Instagram"><img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735026/icons/images/icons/instagram.png" alt="Instagram icon"></a>
+                <a id="twitter" class="box" href="https://twitter.com/pursuitofakhira" target="_blank" aria-label="Follow Ryan Walloh on Twitter"><img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735027/icons/images/icons/twitter.png" alt="Twitter icon"></a>
             </div>
         </ul>
        
@@ -138,8 +275,8 @@
 
     <section class="headerimg">
         <div class="headerimg-container">
-            <img src="../assets/images/misc/marawi.webp" alt="Marawi Siege Aftermath" class="headerPic">
-            <img src="../assets/images/misc/phonebg.jpg" alt="Ryan Walloh" class="mobile-header-pic">
+            <img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735075/misc/images/misc/marawi.webp" alt="Marawi Siege Aftermath" class="headerPic" loading="eager">
+            <img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735076/misc/images/misc/ryan-walloh-mobile.webp" alt="Ryan Walloh" class="mobile-header-pic" loading="eager">
         </div>
     </section>
 
@@ -159,101 +296,101 @@
         
 
         <div class="gallery">
-            <a href="../assets/images/gallery/1.webp" data-lightbox="models" data-title="We see the world through glass windows.">
-                <img src="../assets/images/gallery/1.webp">
+            <a href="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766734996/gallery/images/gallery/bridge-of-friendship.webp" data-lightbox="models" data-title="We see the world through glass windows.">
+                <img class="lazy-image" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766734996/gallery/images/gallery/bridge-of-friendship.webp" alt="Bridge of Friendship - Photography by Ryan Walloh" loading="lazy">
             </a>
       
-            <a href="../assets/images/gallery/2.webp" data-lightbox="models" data-title="They're here.">
-                <img src="../assets/images/gallery/2.webp">
+            <a href="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735025/gallery/images/gallery/they-are-here.webp" data-lightbox="models" data-title="They're here.">
+                <img class="lazy-image" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735025/gallery/images/gallery/they-are-here.webp" alt="They're here - Photography by Ryan Walloh" loading="lazy">
             </a>
      
-            <a href="../assets/images/gallery/3.webp" data-lightbox="models" data-title="Resilience.">
-                <img src="../assets/images/gallery/3.webp">
+            <a href="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735015/gallery/images/gallery/resilience.webp" data-lightbox="models" data-title="Resilience.">
+                <img class="lazy-image" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735015/gallery/images/gallery/resilience.webp" alt="Resilience - Photography by Ryan Walloh" loading="lazy">
             </a>
      
-            <a href="../assets/images/gallery/4.webp" data-lightbox="models" data-title="Feast of Sacrifice.">
-                <img src="../assets/images/gallery/4.webp">
+            <a href="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735003/gallery/images/gallery/feast-of-sacrifice.webp" data-lightbox="models" data-title="Feast of Sacrifice.">
+                <img class="lazy-image" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735003/gallery/images/gallery/feast-of-sacrifice.webp" alt="Feast of Sacrifice - Photography by Ryan Walloh" loading="lazy">
             </a>
  
-            <a href="../assets/images/gallery/5.webp" data-lightbox="models" data-title="Infamous LA.">
-                <img src="../assets/images/gallery/5.webp">
+            <a href="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735011/gallery/images/gallery/lancaf.webp" data-lightbox="models" data-title="The place that keeps the city safe.">
+                <img class="lazy-image" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735011/gallery/images/gallery/lancaf.webp" alt="Lancaf - The place that keeps the city safe - Photography by Ryan Walloh" loading="lazy">
             </a>
   
-            <a href="../assets/images/gallery/6.webp" data-lightbox="models" data-title="The willows.">
-                <img src="../assets/images/gallery/6.webp">
+            <a href="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735024/gallery/images/gallery/the-willows.webp" data-lightbox="models" data-title="The willows.">
+                <img class="lazy-image" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735024/gallery/images/gallery/the-willows.webp" alt="The Willows - Photography by Ryan Walloh" loading="lazy">
             </a>
  
-            <a href="../assets/images/gallery/7.webp" data-lightbox="models" data-title="The traveller">
-                <img src="../assets/images/gallery/7.webp">
+            <a href="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735023/gallery/images/gallery/the-traveller.webp" data-lightbox="models" data-title="Caught between day and dream">
+                <img class="lazy-image" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735023/gallery/images/gallery/the-traveller.webp" alt="The Traveller - Caught between day and dream - Photography by Ryan Walloh" loading="lazy">
             </a>
     
-            <a href="../assets/images/gallery/8.webp" data-lightbox="models" data-title="In the mist, no one hears you coming.">
-                <img src="../assets/images/gallery/8.webp">
+            <a href="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735007/gallery/images/gallery/grainfall.webp" data-lightbox="models" data-title="Where I go from here is anybody's guess.">
+                <img class="lazy-image" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735007/gallery/images/gallery/grainfall.webp" alt="Grainfall - Photography by Ryan Walloh" loading="lazy">
             </a>
-            <a href="../assets/images/gallery/9.webp" data-lightbox="models" data-title="Ink Empowered.">
-                <img src="../assets/images/gallery/9.webp">
+            <a href="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735010/gallery/images/gallery/ink-bound.webp" data-lightbox="models" data-title="Ink Empowered.">
+                <img class="lazy-image" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735010/gallery/images/gallery/ink-bound.webp" alt="Ink Bound - Photography by Ryan Walloh" loading="lazy">
             </a>
            
-            <a href="../assets/images/gallery/10.webp" data-lightbox="models" data-title="Power Unites.">
-                <img src="../assets/images/gallery/10.webp">
+            <a href="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766734995/gallery/images/gallery/akhira.webp" data-lightbox="models" data-title="The weight of many, carried as one.">
+                <img class="lazy-image" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766734995/gallery/images/gallery/akhira.webp" alt="Akhira - The weight of many, carried as one - Photography by Ryan Walloh" loading="lazy">
             </a>
 
-            <a href="../assets/images/gallery/11.webp" data-lightbox="models" data-title="Innocence Found.">
-                <img src="../assets/images/gallery/11.webp">
+            <a href="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735008/gallery/images/gallery/homefront.webp" data-lightbox="models" data-title="Curiosity framed by shelter.">
+                <img class="lazy-image" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735008/gallery/images/gallery/homefront.webp" alt="Homefront - Curiosity framed by shelter - Photography by Ryan Walloh" loading="lazy">
             </a>
 
-            <a href="../assets/images/gallery/12.webp" data-lightbox="models" data-title="Playing in the rain brings the kids in us.">
-                <img src="../assets/images/gallery/12.webp">
+            <a href="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735019/gallery/images/gallery/storm-kids.webp" data-lightbox="models" data-title="Playing in the rain brings the kids in us.">
+                <img class="lazy-image" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735019/gallery/images/gallery/storm-kids.webp" alt="Storm Kids - Playing in the rain - Photography by Ryan Walloh" loading="lazy">
             </a>
-            <a href="../assets/images/gallery/13.webp" data-lightbox="models" data-title="Engine Secrets.">
-                <img src="../assets/images/gallery/13.webp">
+            <a href="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735002/gallery/images/gallery/engine-secrets.webp" data-lightbox="models" data-title="Engine Secrets.">
+                <img class="lazy-image" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735002/gallery/images/gallery/engine-secrets.webp" alt="Engine Secrets - Photography by Ryan Walloh" loading="lazy">
             </a>
-            <a href="../assets/images/gallery/14.webp" data-lightbox="models" data-title="The Arrival">
-                <img src="../assets/images/gallery/14.webp">
+            <a href="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735021/gallery/images/gallery/the-arrival.webp" data-lightbox="models" data-title="We've Arrived">
+                <img class="lazy-image" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735021/gallery/images/gallery/the-arrival.webp" alt="The Arrival - Photography by Ryan Walloh" loading="lazy">
             </a>
-            <a href="../assets/images/gallery/15.webp" data-lightbox="models" data-title="Shared Shelter.">
-                <img src="../assets/images/gallery/15.webp">
+            <a href="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735017/gallery/images/gallery/shared-shelter.webp" data-lightbox="models" data-title="Shared Shelter.">
+                <img class="lazy-image" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735017/gallery/images/gallery/shared-shelter.webp" alt="Shared Shelter - Photography by Ryan Walloh" loading="lazy">
             </a>
-            <a href="../assets/images/gallery/16.webp" data-lightbox="models" data-title="Power in Stillness.">
-                <img src="../assets/images/gallery/16.webp">
-            </a>
-           
-            <a href="../assets/images/gallery/17.webp" data-lightbox="models" data-title="Whispers in Flames.">
-                <img src="../assets/images/gallery/17.webp">
+            <a href="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735018/gallery/images/gallery/stillness.webp" data-lightbox="models" data-title="Power in Stillness.">
+                <img class="lazy-image" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735018/gallery/images/gallery/stillness.webp" alt="Stillness - Power in Stillness - Photography by Ryan Walloh" loading="lazy">
             </a>
            
-            <a href="../assets/images/gallery/18.webp" data-lightbox="models" data-title="Silhouette Symphony.">
-                <img src="../assets/images/gallery/18.webp">
-            </a>
-            <a href="../assets/images/gallery/19.webp" data-lightbox="models" data-title="Storm's Quiet Canvas.">
-                <img src="../assets/images/gallery/19.webp">
+            <a href="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766734998/gallery/images/gallery/dancin-fire.webp" data-lightbox="models" data-title="Livin on the edge of the fire, not inside it">
+                <img class="lazy-image" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766734998/gallery/images/gallery/dancin-fire.webp" alt="Dancing Fire - Photography by Ryan Walloh" loading="lazy">
             </a>
            
-            <a href="../assets/images/gallery/20.webp" data-lightbox="models" data-title="Nostalgic Heartbeat.">
-                <img src="../assets/images/gallery/20.webp">
+            <a href="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735018/gallery/images/gallery/silhouette-symphony.webp" data-lightbox="models" data-title="Silhouette Symphony.">
+                <img class="lazy-image" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735018/gallery/images/gallery/silhouette-symphony.webp" alt="Silhouette Symphony - Photography by Ryan Walloh" loading="lazy">
             </a>
-            <a href="../assets/images/gallery/21.webp" data-lightbox="models" data-title="The Director.">
-                <img src="../assets/images/gallery/21.webp">
-            </a>
-           
-            <a href="../assets/images/gallery/22.webp" data-lightbox="models" data-title="Driven by Culture.">
-                <img src="../assets/images/gallery/22.webp">
+            <a href="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735020/gallery/images/gallery/storms-canvas.webp" data-lightbox="models" data-title="Storm's Quiet Canvas.">
+                <img class="lazy-image" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735020/gallery/images/gallery/storms-canvas.webp" alt="Storm's Canvas - Photography by Ryan Walloh" loading="lazy">
             </a>
            
-            <a href="../assets/images/gallery/23.webp" data-lightbox="models" data-title="Sometimes it feels like I'm the only one here.">
-                <img src="../assets/images/gallery/23.webp">
+            <a href="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766734999/gallery/images/gallery/down-the-stairs.webp" data-lightbox="models" data-title="I slow myself here, like the past might catch up.">
+                <img class="lazy-image" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766734999/gallery/images/gallery/down-the-stairs.webp" alt="Down the Stairs - Photography by Ryan Walloh" loading="lazy">
             </a>
-            <a href="../assets/images/gallery/24.webp" data-lightbox="models" data-title="A path I remember vaguely.">
-                <img src="../assets/images/gallery/24.webp">
+            <a href="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735022/gallery/images/gallery/the-director.webp" data-lightbox="models" data-title="The Director.">
+                <img class="lazy-image" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735022/gallery/images/gallery/the-director.webp" alt="The Director - Photography by Ryan Walloh" loading="lazy">
             </a>
-            <a href="../assets/images/gallery/25.webp" data-lightbox="models" data-title="I’ll endure the storm, so you don't have to.">
-                <img src="../assets/images/gallery/25.webp">
+           
+            <a href="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735000/gallery/images/gallery/driven-by-speed.webp" data-lightbox="models" data-title="Driven by Culture.">
+                <img class="lazy-image" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735000/gallery/images/gallery/driven-by-speed.webp" alt="Driven by Speed - Photography by Ryan Walloh" loading="lazy">
             </a>
-            <a href="../assets/images/gallery/26.webp" data-lightbox="models" data-title="In the last light, the journey continues.">
-                <img src="../assets/images/gallery/26.webp">
+           
+            <a href="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735004/gallery/images/gallery/fighters-gathering.webp" data-lightbox="models" data-title="Sometimes it feels like I'm the only one here.">
+                <img class="lazy-image" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735004/gallery/images/gallery/fighters-gathering.webp" alt="Fighters Gathering - Photography by Ryan Walloh" loading="lazy">
             </a>
-            <a href="../assets/images/gallery/27.webp" data-lightbox="models" data-title="With every mile, the light paints a story I’m part of.">
-                <img src="../assets/images/gallery/27.webp">
+            <a href="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735013/gallery/images/gallery/misty-road.webp" data-lightbox="models" data-title="A path I remember vaguely.">
+                <img class="lazy-image" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735013/gallery/images/gallery/misty-road.webp" alt="Misty Road - Photography by Ryan Walloh" loading="lazy">
+            </a>
+            <a href="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735005/gallery/images/gallery/for-living.webp" data-lightbox="models" data-title="I'll be out here, so you don't have to.">
+                <img class="lazy-image" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735005/gallery/images/gallery/for-living.webp" alt="For Living - Photography by Ryan Walloh" loading="lazy">
+            </a>
+            <a href="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766734997/gallery/images/gallery/chasing-sunsets.webp" data-lightbox="models" data-title="In the last light, the journey continues.">
+                <img class="lazy-image" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766734997/gallery/images/gallery/chasing-sunsets.webp" alt="Chasing Sunsets - Photography by Ryan Walloh" loading="lazy">
+            </a>
+            <a href="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735012/gallery/images/gallery/light-painting.webp" data-lightbox="models" data-title="With every mile, the light paints a story I'm part of.">
+                <img class="lazy-image" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735012/gallery/images/gallery/light-painting.webp" alt="Light Painting - Photography by Ryan Walloh" loading="lazy">
             </a>
            
            
@@ -278,17 +415,17 @@
             <div class="sm-icon">
                 <p>FOLLOW</p>
                 <div class="footer-sm-icon-image">
-                    <a href="https://www.instagram.com/ryamazingw" target="_blank">
-                        <img src="../assets/images/mobileicons/instagram.png">
+                    <a href="https://www.instagram.com/ryamazingw" target="_blank" aria-label="Follow Ryan Walloh on Instagram">
+                        <img class="lazy-image" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735078/icons/images/mobileicons/instagram.png" alt="Instagram icon" loading="lazy">
                     </a>
-                    <a href="https://twitter.com/pursuitofakhira">
-                       <img id="mobile-twitter" src="../assets/images/mobileicons/twitter.png">
+                    <a href="https://twitter.com/pursuitofakhira" aria-label="Follow Ryan Walloh on Twitter">
+                       <img id="mobile-twitter" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735079/icons/images/mobileicons/twitter.png" alt="Twitter icon">
                     </a>
-                    <a href="https://github.com/ryanwalloh" target="_blank">
-                      <img id="git" src="../assets/images/mobileicons/git.png">
+                    <a href="https://github.com/ryanwalloh" target="_blank" aria-label="View Ryan Walloh on GitHub">
+                      <img id="git" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735077/icons/images/mobileicons/git.png" alt="GitHub icon">
                      </a>
-                    <a href="https://www.linkedin.com/in/ryanwalloh/?originalSubdomain=ph" target="_blank">
-                       <img id="mobile-linkedin" src="../assets/images/mobileicons/in.png">
+                    <a href="https://www.linkedin.com/in/ryanwalloh/?originalSubdomain=ph" target="_blank" aria-label="Connect with Ryan Walloh on LinkedIn">
+                       <img id="mobile-linkedin" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735077/icons/images/mobileicons/in.png" alt="LinkedIn icon">
                     </a>
                 </div>
             </div>
@@ -304,6 +441,19 @@
     </button>
 
     <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const images = document.querySelectorAll(".lazy-image");
+
+        images.forEach(img => {
+            if (img.complete) {
+                img.classList.add("loaded");
+            } else {
+                img.addEventListener("load", () => {
+                    img.classList.add("loaded");
+                });
+            }
+        });
+    });
       function ryamazingw() {
           window.location.href = '../index.html';
       }
