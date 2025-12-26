@@ -3,15 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Personal website of Ryan Walloh, a developer and photographer.">
-    <title>ryamazingw&#8482;</title>
+    <meta name="description" content="Ryan Walloh (ryamazingw) - Developer and photographer. Live to tell stories through visual storytelling. Explore photography collections from Mindanao, Philippines.">
+    <meta name="keywords" content="Ryan Walloh, ryamazingw, photographer, developer, visual storyteller, Mindanao photography, Philippines photography, photography portfolio">
+    <meta name="author" content="Ryan Walloh">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ryanwalloh.github.io/ryamazingw/">
+    <meta property="og:title" content="Ryan Walloh (ryamazingw) - Visual Story Teller | Live to Tell Stories">
+    <meta property="og:description" content="Developer and photographer capturing visual stories from Mindanao, Philippines. Live to tell stories through photography.">
+    <meta property="og:image" content="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766759311/slideshow/images/slideshow/ryan-walloh-1.webp">
+    <meta property="og:site_name" content="ryamazingw">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://ryanwalloh.github.io/ryamazingw/">
+    <meta name="twitter:title" content="Ryan Walloh (ryamazingw) - Visual Story Teller | Live to Tell Stories">
+    <meta name="twitter:description" content="Developer and photographer capturing visual stories from Mindanao, Philippines. Live to tell stories through photography.">
+    <meta name="twitter:image" content="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766759311/slideshow/images/slideshow/ryan-walloh-1.webp">
+    <meta name="twitter:creator" content="@pursuitofakhira">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ryanwalloh.github.io/ryamazingw/">
+    
+    <title>Ryan Walloh (ryamazingw) - Visual Story Teller | Live to Tell Stories</title>
     <link rel="icon" type="image/png" href="assets/favicon/w.png">
     <!-- <link rel="icon" type="image/svg+xml" href="assets/favicon/w.svg"> -->
+    <link rel="preload" as="image" href="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766772750/logo/ryamazingwhite.png" fetchpriority="high">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <script src="assets/js/script.js"></script>
+    
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ryan Walloh",
+      "alternateName": "ryamazingw",
+      "url": "https://ryanwalloh.github.io/ryamazingw",
+      "image": "https://res.cloudinary.com/dwqrkobq1/image/upload/v1766759311/slideshow/images/slideshow/ryan-walloh-1.webp",
+      "sameAs": [
+        "https://www.instagram.com/ryamazingw",
+        "https://twitter.com/pursuitofakhira",
+        "https://github.com/ryanwalloh",
+        "https://www.linkedin.com/in/ryanwalloh",
+        "https://www.facebook.com/mohammadryan.walloh"
+      ],
+      "jobTitle": "Developer and Photographer",
+      "description": "Visual storyteller and developer capturing stories from Mindanao, Philippines",
+      "knowsAbout": ["Photography", "Web Development", "Visual Storytelling", "Mindanao"],
+      "slogan": "Live to Tell Stories"
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "ryamazingw",
+      "alternateName": "Ryan Walloh",
+      "url": "https://ryanwalloh.github.io/ryamazingw",
+      "author": {
+        "@type": "Person",
+        "name": "Ryan Walloh"
+      },
+      "description": "Visual storyteller and developer. Live to tell stories through photography from Mindanao, Philippines."
+    }
+    </script>
     
    <style>
         :root {
@@ -21,6 +83,7 @@
         body {
             overflow: hidden;
             padding-bottom: var(--index-safe-space);
+            background: #ffffff; /* page background is white */
         }
 
         #index-home-icons-container {
@@ -33,13 +96,14 @@
         .content-wrapper {
             position: relative;
             overflow: hidden;
-            height: 100vh; 
+            height: 100vh;
+            width: 100vw;
             padding-bottom: var(--index-safe-space);
+            background: transparent; /* allow body to show after doors open */
         }
 
         @media (max-width: 768px) {
             body {
-                overflow: hidden;
                 overflow-x: hidden;
             }
 
@@ -78,37 +142,202 @@
             opacity: 1; 
         }
 
-        .content-wrapper::before,
-        .content-wrapper::after {
-            content: '';
+        /* =========================
+        SLIDING DOOR WRAPPER
+        ========================= */
+
+        .sliding-door-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: #111; /* black behind doors for drama */
+            transition: background 0.3s ease-out 0.3s; /* transition as doors open */
+        }
+
+        .sliding-door-wrapper.doors-open {
+            background: transparent; /* allow body white background to show through */
+        }
+
+        .sliding-door-wrapper .index-container {
+            opacity: 0;
+            transition: opacity 0.3s ease-in 0.2s;
+        }
+
+        .sliding-door-wrapper.doors-open .index-container {
+            opacity: 1;
+        }
+
+        /* =========================
+        LOGO ON BLACK SCREEN - Loads before wrapper
+        ========================= */
+
+        .door-logo {
+            position: fixed;
+            bottom: 10%;
+            right: 5%;
+            width: clamp(350px, 25vw, 450px);
+            height: auto;
+            z-index: 100;
+            opacity: 1 !important;
+            pointer-events: none;
+            display: block !important;
+            visibility: visible !important;
+            filter: brightness(1);
+            /* Ensure logo appears immediately, even before wrapper */
+            background: transparent;
+            /* Initial state - no transform */
+            transform: translateX(0);
+            transition: transform 2.5s cubic-bezier(0.95, 0.05, 0.4, 1), 
+                        opacity 0.3s ease-out 2.2s;
+        }
+
+        /* Logo slides away when doors open - synchronized with door animation */
+        .door-logo.logo-slide-away {
+            /* Slide to the right, matching the right door's direction */
+            /* Starts immediately when doors open, same timing as doors */
+            transform: translateX(150%);
+            opacity: 0;
+            transition: transform 2.5s cubic-bezier(0.95, 0.05, 0.4, 1),
+                        opacity 0.3s ease-out 2.2s;
+        }
+
+        @media (max-width: 768px) {
+            .door-logo {
+                width: clamp(100px, 25vw, 180px);
+                bottom: 8%;
+                right: 8%;
+            }
+        }
+
+        /* =========================
+        DOORS
+        ========================= */
+
+        .door-left,
+        .door-right {
             position: absolute;
             top: 0;
             left: 0;
+            width: 100%;              /* full width for proper overlap */
             height: 100%;
-            width: 100%;
-            background: black;
-            z-index: 0; 
-            transform-origin: center; 
-            transition: transform 0.8s ease; 
+            background: #111; /* black doors */
+            z-index: 10;
+            transition: transform 2.5s cubic-bezier(0.95, 0.05, 0.4, 1);
+            will-change: transform;
+            pointer-events: none;
         }
 
-  
-        .content-wrapper::before {
-            transform: translateY(-100%) skewX(-45deg); 
+        .door-left {
+            transform-origin: left center;
+            clip-path: polygon(
+                0 0,
+                90% 0,
+                50% 100%,
+                0 100%
+            );
         }
 
-        .content-wrapper::after {
-            transform: translateY(100%) skewX(45deg); 
+        .door-right {
+            transform-origin: right center;
+            clip-path: polygon(
+                50% 0,
+                100% 0,
+                100% 100%,
+                10% 100%
+            );
         }
 
-     
-        .content-wrapper.loading::before {
-            transform: translateY(0) skewX(-45deg); 
+        /* =========================
+        ANIMATION
+        ========================= */
+
+        .sliding-door-wrapper.doors-open .door-left {
+            transform: translateX(-100%);
         }
 
-        .content-wrapper.loading::after {
-            transform: translateY(0) skewX(45deg); 
+        .sliding-door-wrapper.doors-open .door-right {
+            transform: translateX(100%);
         }
+
+        /* =========================
+        DIAGONAL HIGHLIGHT
+        ========================= */
+
+        .door-left::after,
+        .door-right::after {
+            content: '';
+            position: absolute;
+            top: -20.71%;
+            width: 3px;
+            height: 141.42%;
+            transform-origin: center;
+        }
+
+        .door-left::after {
+            left: calc(62% - 1.5px);
+            transform: rotate(20deg);
+            background: linear-gradient(
+                to bottom,
+                rgba(17,17,17,0.8) 0%,
+                rgba(17,17,17,0.6) 35%,
+                rgba(17,17,17,0.6) 65%,
+                rgba(17,17,17,0.8) 100%
+            );
+        }
+
+        .door-right::after {
+            left: calc(42% - 1.5px);
+            transform: rotate(-20deg);
+            background: linear-gradient(
+                to bottom,
+                rgba(17,17,17,0.8) 0%,
+                rgba(17,17,17,0.6) 35%,
+                rgba(17,17,17,0.6) 65%,
+                rgba(17,17,17,0.8) 100%
+            );
+        }
+
+        /* Header images - immediate load */
+        .headerimg .lazy-image {
+            transition-delay: 0s;
+        }
+
+        /* =========================
+        INDEX PAGE LOGO IMAGE
+        ========================= */
+        
+        .index-logo {
+            cursor: default;
+            transform: none;
+        }
+        
+        #index-logo {
+            width: clamp(250px, 20vw, 350px);
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            .index-logo {
+                transform: none;
+                z-index: auto;
+            }
+            
+            #index-logo {
+                width: clamp(150px, 30vw, 280px);
+            }
+        }
+
+        @media (min-width: 1920px) {
+            #index-logo {
+                width: clamp(250px, 20vw, 350px);
+                height: auto;
+            }
+        }
+
+
+
 
       
     </style>
@@ -116,23 +345,26 @@
 </head>
 <body data-src="content.html">
     <div class="content-wrapper">
-        <div class="index-container">
+        <div class="sliding-door-wrapper">
+            <div class="index-container">
             <div class="slider-frame">
                 <div class="slider-images">
             
-                        <img src="assets/images/slideshow/ryan-walloh-1.webp" alt="Ryan Walloh" width="950px" height="950px">
-                        <img src="assets/images/slideshow/ryan-walloh-2.webp" alt="Ryan Walloh" width="950px" height="950px">
-                        <img src="assets/images/slideshow/ryan-walloh-4.webp" alt="Ryan Walloh" width="950px" height="950px">
-                        <img src="assets/images/slideshow/ryan-walloh-5.webp" alt="Ryan Walloh" width="950px" height="950px">
-                        <img src="assets/images/slideshow/ryan-walloh-6.webp" alt="Ryan Walloh" width="950px" height="950px">
-                        <img src="assets/images/slideshow/ryan-walloh-7.webp" alt="Ryan Walloh" width="950px" height="950px">
+                        <img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766759311/slideshow/images/slideshow/ryan-walloh-1.webp" alt="Ryan Walloh - Visual Story Teller" width="950px" height="950px" loading="eager" fetchpriority="high">
+                        <img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766759312/slideshow/images/slideshow/ryan-walloh-2.webp" alt="Ryan Walloh - Photography Portfolio" width="950px" height="950px" loading="lazy">
+                        <img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766759314/slideshow/images/slideshow/ryan-walloh-4.webp" alt="Ryan Walloh - Developer and Photographer" width="950px" height="950px" loading="lazy">
+                        <img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766759316/slideshow/images/slideshow/ryan-walloh-5.webp" alt="Ryan Walloh - Visual Storytelling" width="950px" height="950px" loading="lazy">
+                        <img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766759317/slideshow/images/slideshow/ryan-walloh-6.webp" alt="Ryan Walloh - Mindanao Photography" width="950px" height="950px" loading="lazy">
+                        <img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766759318/slideshow/images/slideshow/ryan-walloh-7.webp" alt="Ryan Walloh - Photography Collection" width="950px" height="950px" loading="lazy">
                 
                 </div>
             </div>
 
             <div class="right-page">
                 <div class="right-page-container">
-                    <div class="logo">ryamazingw<span class="trade-mark">&#8482;</span></div>
+                    <div class="index-logo">
+                        <img id="index-logo" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766772751/logo/ryamazingwblack.png" alt="ryamazingw logo">
+                    </div>
                 </div>
                 <section class="live-to-tell-stories">
                     <h1>LIVE TO TELL STORIES</h1>
@@ -142,18 +374,170 @@
 
                 <div id="index-home-icons-container">
                     <div id="index-home-icons" class="home-icons">
-                        <a id="facebook" class="box" href="https://www.facebook.com/mohammadryan.walloh/" target="_blank"><img src="assets/images/icons/icon1.png"></a>
-                        <a id="instagram" class="box" href="https://www.instagram.com/ryamazingw/" target="_blank"><img src="assets/images/icons/icon3.png"></a>
-                        <a id="twitter" class="box" href="https://twitter.com/pursuitofakhira" target="_blank"><img src="assets/images/icons/icon2.png"></a>
-                        <a id="linkedin" class="box" href="https://www.linkedin.com/in/ryanwalloh/?originalSubdomain=ph" target="_blank"><img src="assets/images/icons/icon4.png"></a>
-                        <a id="github" class="box" href="https://github.com/ryanwalloh" target="_blank"><img src="assets/images/icons/icon5.png"></a>
+                        <a id="facebook" class="box" href="https://www.facebook.com/mohammadryan.walloh/" target="_blank" aria-label="Follow Ryan Walloh on Facebook"><img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766759304/icons/images/icons/icon1.png" alt="Facebook icon"></a>
+                        <a id="instagram" class="box" href="https://www.instagram.com/ryamazingw/" target="_blank" aria-label="Follow Ryan Walloh on Instagram"><img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766759306/icons/images/icons/icon3.png" alt="Instagram icon"></a>
+                        <a id="twitter" class="box" href="https://twitter.com/pursuitofakhira" target="_blank" aria-label="Follow Ryan Walloh on Twitter"><img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766759305/icons/images/icons/icon2.png" alt="Twitter icon"></a>
+                        <a id="linkedin" class="box" href="https://www.linkedin.com/in/ryanwalloh/?originalSubdomain=ph" target="_blank" aria-label="Connect with Ryan Walloh on LinkedIn"><img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766759308/icons/images/icons/icon4.png" alt="LinkedIn icon"></a>
+                        <a id="github" class="box" href="https://github.com/ryanwalloh" target="_blank" aria-label="View Ryan Walloh on GitHub"><img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766759309/icons/images/icons/icon5.png" alt="GitHub icon"></a>
                     </div>
             </div>
             </div>
+            <div class="door-left"></div>
+            <div class="door-right"></div>
         </div>
+        <!-- Logo loads first, outside sliding door wrapper for priority -->
+        <img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766772750/logo/ryamazingwhite.png" alt="ryamazingw logo" class="door-logo" loading="eager" fetchpriority="high" style="display: block; opacity: 1; visibility: visible;" onerror="console.error('Logo failed to load'); this.style.border='3px solid red';" onload="console.log('Logo loaded successfully'); this.style.opacity='1'; this.style.visibility='visible';">
     </div>    
 
     <script>
+        // Sliding Door Effect for Full Page
+        document.addEventListener("DOMContentLoaded", () => {
+            const slidingDoorWrapper = document.querySelector(".sliding-door-wrapper");
+            const firstImage = document.querySelector(".slider-images img");
+            let imageLoaded = false;
+            let doorsOpened = false;
+            
+            // Function to verify image is fully loaded and rendered
+            const isImageReady = () => {
+                if (!firstImage) return false;
+                // Check if image is complete, has dimensions, and is actually rendered
+                const ready = firstImage.complete && 
+                             firstImage.naturalHeight !== 0 && 
+                             firstImage.naturalWidth !== 0 &&
+                             firstImage.offsetWidth > 0 &&
+                             firstImage.offsetHeight > 0;
+                
+                // Additional check: verify image src is actually loaded (not just placeholder)
+                if (ready) {
+                    // Check if image has actual pixel data
+                    const canvas = document.createElement('canvas');
+                    try {
+                        const ctx = canvas.getContext('2d');
+                        canvas.width = 1;
+                        canvas.height = 1;
+                        ctx.drawImage(firstImage, 0, 0, 1, 1);
+                        const imageData = ctx.getImageData(0, 0, 1, 1);
+                        // If all pixels are transparent or same color, might not be loaded
+                        return imageData.data[3] > 0; // Check alpha channel
+                    } catch (e) {
+                        return ready; // Fallback to basic check
+                    }
+                }
+                return false;
+            };
+            
+            // Function to open doors - only called when image is confirmed ready
+            const openDoors = () => {
+                if (doorsOpened || !slidingDoorWrapper) return; // Prevent multiple triggers
+                
+                // Double-check image is ready before opening
+                if (isImageReady() || imageLoaded) {
+                    doorsOpened = true;
+                    // Wait 1.2 seconds before starting the animation
+                    setTimeout(() => {
+                        slidingDoorWrapper.classList.add("doors-open");
+                        // Trigger logo sliding animation - synchronized with doors
+                        const doorLogo = document.querySelector(".door-logo");
+                        if (doorLogo) {
+                            doorLogo.classList.add("logo-slide-away");
+                        }
+                    }, 1200);
+                }
+            };
+            
+            // Function to wait for image to be fully ready
+            const waitForImageReady = () => {
+                if (!firstImage) {
+                    // If no image found, open doors anyway after a delay
+                    setTimeout(() => {
+                        imageLoaded = true;
+                        openDoors();
+                    }, 500);
+                    return;
+                }
+
+                // Check immediately first (for cached images)
+                if (isImageReady()) {
+                    imageLoaded = true;
+                    // Small delay to ensure rendering is complete
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            openDoors();
+                        });
+                    });
+                    return;
+                }
+                
+                // Image not ready, set up listeners
+                const handleImageLoad = () => {
+                    imageLoaded = true;
+                    // Use requestAnimationFrame to ensure image is fully rendered
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            // Verify one more time before opening
+                            if (isImageReady()) {
+                                openDoors();
+                            } else {
+                                // If still not ready, wait a bit more
+                                setTimeout(() => {
+                                    if (isImageReady()) {
+                                        openDoors();
+                                    } else {
+                                        // Force open after verification attempt
+                                        openDoors();
+                                    }
+                                }, 100);
+                            }
+                        });
+                    });
+                };
+                
+                // Listen for load event (primary method)
+                firstImage.addEventListener("load", handleImageLoad, { once: true });
+                
+                // Also listen for error (open doors anyway after delay)
+                firstImage.addEventListener("error", () => {
+                    setTimeout(() => {
+                        imageLoaded = true;
+                        openDoors();
+                    }, 500);
+                }, { once: true });
+                
+                // Fallback: periodic check in case load event doesn't fire properly
+                let attempts = 0;
+                const maxAttempts = 50; // 5 seconds max wait
+                const checkInterval = setInterval(() => {
+                    attempts++;
+                    if (isImageReady()) {
+                        imageLoaded = true;
+                        clearInterval(checkInterval);
+                        openDoors();
+                    } else if (attempts >= maxAttempts) {
+                        // Timeout after max attempts - open doors anyway
+                        clearInterval(checkInterval);
+                        imageLoaded = true;
+                        openDoors();
+                    }
+                }, 100);
+                
+                // Safety fallback: Force open after 3 seconds if still not ready
+                setTimeout(() => {
+                    if (!doorsOpened) {
+                        imageLoaded = true;
+                        openDoors();
+                    }
+                }, 3000);
+            };
+            
+            // Only start waiting when page is fully loaded and active
+            if (document.readyState === 'complete') {
+                waitForImageReady();
+            } else {
+                window.addEventListener('load', waitForImageReady, { once: true });
+            }
+        });
+
+        // Original content loading script
         document.addEventListener("DOMContentLoaded", function () {
             const body = document.querySelector("body");
             const contentWrapper = document.querySelector(".content-wrapper");

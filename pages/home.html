@@ -29,6 +29,7 @@
     
     <title>Ryan Walloh (ryamazingw) - Developer & Photographer | Visual Stories from Mindanao</title>
     <link rel="icon" type="image/png" href="../assets/favicon/w.png">
+    <link rel="preload" as="image" href="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766772750/logo/ryamazingwhite.png" fetchpriority="high">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/lightbox.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -94,6 +95,74 @@
     </script>
 
     <style>
+        /* Main Container System - Align Navbar and Header Images */
+        .main-content-container {
+            width: 95%;
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .main-content-container {
+                width: 90%;
+            }
+        }
+
+        /* Navbar Alignment - Use container width, remove padding that causes misalignment */
+        .navbar {
+            width: 100%;
+            padding-left: 0 !important;
+            padding-right: 0 !important;
+        }
+
+        /* Override logo-container margin to align with header image edge */
+        .navbar .logo-container {
+            margin-left: 0 !important;
+        }
+
+        /* Remove nav-links right margin to align right edge with header image */
+        .navbar .nav-links {
+            margin-right: 0 !important;
+        }
+
+        /* Remove navbar padding that causes offset */
+        @media screen and (min-width: 768px) {
+            .navbar {
+                padding: 1rem 0 !important;
+            }
+        }
+
+        /* Mobile view - ensure alignment with header images */
+        @media (max-width: 768px) {
+            /* Remove navbar padding on mobile */
+            .navbar {
+                padding: 1rem 0 !important;
+                justify-content: space-between !important;
+            }
+
+            /* Remove hamburger margin-right to align with right edge */
+            .navbar .hamburger {
+                margin-right: 0 !important;
+                transform: none !important;
+                margin-left: auto;
+            }
+
+            /* Ensure logo aligns with left edge on mobile */
+            .navbar .logo {
+                transform: none !important;
+            }
+
+            /* Ensure logo-container has no margin on mobile */
+            .navbar .logo-container {
+                margin-left: 0 !important;
+            }
+        }
+
+        /* Ensure header images use the same container system */
+        .headerimg-container {
+            width: 100%;
+        }
+
         /* Creative Lazy Loading Styles */
         .lazy-image {
             opacity: 0;
@@ -153,9 +222,212 @@
         .gallery .lazy-image:nth-child(26) { transition-delay: 1.25s; }
         .gallery .lazy-image:nth-child(27) { transition-delay: 1.3s; }
 
-        /* Header images - immediate load, no delay */
+       /* Sliding Door Effect for Header Images */
+        .headerimg-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .sliding-door-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: block;
+            margin: 0 auto;
+            background: transparent;
+        }
+
+        /* Desktop header wrapper */
+        .desktop-header-wrapper {
+            display: block;
+            width: 100%;
+        }
+
+        /* Mobile header wrapper */
+        .mobile-header-wrapper {
+            display: none;
+            width: 100%;
+        }
+
+        .sliding-door-wrapper img {
+            display: block;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.3s ease-in 0.2s;
+        }
+
+        .sliding-door-wrapper .headerPic,
+        .sliding-door-wrapper .mobile-header-pic {
+            width: 100%;
+            margin: 0;
+        }
+
+        .sliding-door-wrapper img.loaded {
+            opacity: 1;
+        }
+
+        /* =========================
+        DOORS (FIXED)
+        ========================= */
+        
+
+        .door-left,
+        .door-right {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;              /* 🔑 FIX: full width */
+            height: 100%;
+            background: #111111;
+            z-index: 10;
+            transition: transform 2.5s cubic-bezier(0.95, 0.05, 0.4, 1);
+            will-change: transform;
+            pointer-events: none;
+        }
+
+        /* LEFT DOOR
+        90% coverage at top center
+        50% coverage at bottom center */
+        .door-left {
+            transform-origin: left center;
+            clip-path: polygon(
+                0 0,
+                90% 0,
+                50% 100%,
+                0 100%
+            );
+        }
+
+        /* RIGHT DOOR
+        50% coverage at top center
+        10% coverage at bottom center */
+        .door-right {
+            transform-origin: right center;
+            clip-path: polygon(
+                50% 0,
+                100% 0,
+                100% 100%,
+                10% 100%
+            );
+        }
+
+        /* =========================
+        ANIMATION
+        ========================= */
+
+        .sliding-door-wrapper.doors-open .door-left {
+            transform: translateX(-100%);
+        }
+
+        .sliding-door-wrapper.doors-open .door-right {
+            transform: translateX(100%);
+        }
+
+        /* =========================
+        DIAGONAL HIGHLIGHT
+        ========================= */
+
+        .door-left::after {
+            content: '';
+            position: absolute;
+            top: -20.71%;
+            left: calc(52% - 1.5px);
+            width: 3px;
+            height: 141.42%;
+            /* Blend with door color (#111111) */
+            background: linear-gradient(
+                to bottom,
+                rgba(17, 17, 17, 0.8) 0%,
+                rgba(17, 17, 17, 0.6) 35%,
+                rgba(17, 17, 17, 0.6) 65%,
+                rgba(17, 17, 17, 0.8) 100%
+            );
+            transform: rotate(20deg);
+            transform-origin: center;
+        }
+
+        .door-right::after {
+            content: '';
+            position: absolute;
+            top: -20.71%;
+            left: calc(52% - 1.5px);
+            width: 3px;
+            height: 141.42%;
+            /* Blend with door color (#111111) */
+            background: linear-gradient(
+                to bottom,
+                rgba(17, 17, 17, 0.8) 0%,
+                rgba(17, 17, 17, 0.6) 35%,
+                rgba(17, 17, 17, 0.6) 65%,
+                rgba(17, 17, 17, 0.8) 100%
+            );
+            transform: rotate(-20deg);
+            transform-origin: center;
+        }
+
+        /* =========================
+        LOGO ON BLACK SCREEN - Loads before wrapper
+        ========================= */
+
+        .door-logo {
+            position: absolute;
+            bottom: 5%;
+            right: 5%;
+            width: clamp(150px, 15vw, 150px);
+            height: auto;
+            z-index: 15;
+            opacity: 1 !important;
+            pointer-events: none;
+            display: block !important;
+            visibility: visible !important;
+            filter: brightness(1);
+            background: transparent;
+            /* Initial state - no transform */
+            transform: translateX(0);
+            transition: transform 2.5s cubic-bezier(0.95, 0.05, 0.4, 1), 
+                        opacity 0.3s ease-out 2.2s;
+        }
+
+        /* Logo slides away when doors open - synchronized with door animation */
+        .door-logo.logo-slide-away {
+            /* Slide to the right, matching the right door's direction */
+            /* Starts immediately when doors open, same timing as doors */
+            transform: translateX(150%);
+            opacity: 0;
+            transition: transform 2.5s cubic-bezier(0.95, 0.05, 0.4, 1),
+                        opacity 0.3s ease-out 2.2s,
+                        visibility 0s linear 2.8s;
+            visibility: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .door-logo {
+                width: clamp(100px, 25vw, 180px);
+                bottom: 8%;
+                right: 8%;
+            }
+        }
+
+        .sliding-door-wrapper.doors-open .door-logo {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        /* Header images - immediate load */
         .headerimg .lazy-image {
             transition-delay: 0s;
+        }
+
+        /* Mobile view - show mobile header, hide desktop header */
+        @media (max-width: 768px) {
+            .desktop-header-wrapper {
+                display: none;
+            }
+
+            .mobile-header-wrapper {
+                display: block;
+            }
         }
 
         .subscription-footer {
@@ -246,12 +518,12 @@
 </head>
 <body>
 
+    <div class="main-content-container">
     <nav class="navbar">
-        <div class="logo-container">
-      
-          <div  onclick="ryamazingw()" class="logo">ryamazingw<span class="trade-mark">&#8482;</span></div>
-         
-         </div>
+        <div class="index-logo">
+          <img onclick="ryamazingw()" id="index-logo2" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766772751/logo/ryamazingwblack.png" alt="ryamazingw logo">  
+        </div>
+
         <input type="checkbox" id="menu-toggle">
         <label for="menu-toggle" class="hamburger" aria-label="Toggle navigation" aria-controls="news-letter-links">
             <span></span>
@@ -272,13 +544,28 @@
         </ul>
        
     </nav>
+    </div>
 
+    <div class="main-content-container">
     <section class="headerimg">
         <div class="headerimg-container">
-            <img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735075/misc/images/misc/marawi.webp" alt="Marawi Siege Aftermath" class="headerPic" loading="eager">
-            <img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735076/misc/images/misc/ryan-walloh-mobile.webp" alt="Ryan Walloh" class="mobile-header-pic" loading="eager">
+            <!-- Desktop Header Image with Sliding Door Effect -->
+            <div class="sliding-door-wrapper desktop-header-wrapper">
+                <img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735075/misc/images/misc/marawi.webp" alt="Marawi Siege Aftermath" class="headerPic" loading="eager" fetchpriority="high">
+                <div class="door-left"></div>
+                <div class="door-right"></div>
+                <img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766772750/logo/ryamazingwhite.png" alt="ryamazingw logo" id="index-logo2" class="door-logo" loading="eager" fetchpriority="high" style="display: block; opacity: 1; visibility: visible;" onerror="console.error('Logo failed to load'); this.style.border='3px solid red';" onload="console.log('Logo loaded successfully'); this.style.opacity='1'; this.style.visibility='visible';">
+            </div>
+            <!-- Mobile Header Image with Sliding Door Effect -->
+            <div class="sliding-door-wrapper mobile-header-wrapper">
+                <img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735076/misc/images/misc/ryan-walloh-mobile.webp" alt="Ryan Walloh" class="mobile-header-pic" loading="eager" fetchpriority="high">
+                <div class="door-left"></div>
+                <div class="door-right"></div>
+                <img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766772750/logo/ryamazingwhite.png" alt="ryamazingw logo" id="index-logo2" class="door-logo" loading="eager" fetchpriority="high" style="display: block; opacity: 1; visibility: visible;" onerror="console.error('Logo failed to load'); this.style.border='3px solid red';" onload="console.log('Logo loaded successfully'); this.style.opacity='1'; this.style.visibility='visible';">
+            </div>
         </div>
     </section>
+    </div>
 
     <article class="foto">
         <p class="theme">The Visual Odyssey: Unveiling Life's Canvas
@@ -419,13 +706,13 @@
                         <img class="lazy-image" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735078/icons/images/mobileicons/instagram.png" alt="Instagram icon" loading="lazy">
                     </a>
                     <a href="https://twitter.com/pursuitofakhira" aria-label="Follow Ryan Walloh on Twitter">
-                       <img id="mobile-twitter" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735079/icons/images/mobileicons/twitter.png" alt="Twitter icon">
+                       <img id="mobile-twitter" class="lazy-image" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735079/icons/images/mobileicons/twitter.png" alt="Twitter icon" loading="lazy">
                     </a>
                     <a href="https://github.com/ryanwalloh" target="_blank" aria-label="View Ryan Walloh on GitHub">
-                      <img id="git" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735077/icons/images/mobileicons/git.png" alt="GitHub icon">
+                      <img id="git" class="lazy-image" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735077/icons/images/mobileicons/git.png" alt="GitHub icon" loading="lazy">
                      </a>
                     <a href="https://www.linkedin.com/in/ryanwalloh/?originalSubdomain=ph" target="_blank" aria-label="Connect with Ryan Walloh on LinkedIn">
-                       <img id="mobile-linkedin" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735077/icons/images/mobileicons/in.png" alt="LinkedIn icon">
+                       <img id="mobile-linkedin" class="lazy-image" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735077/icons/images/mobileicons/in.png" alt="LinkedIn icon" loading="lazy">
                     </a>
                 </div>
             </div>
@@ -441,22 +728,211 @@
     </button>
 
     <script>
+    // Sliding Door Effect for Header Images
     document.addEventListener("DOMContentLoaded", () => {
-        const images = document.querySelectorAll(".lazy-image");
-
-        images.forEach(img => {
-            if (img.complete) {
-                img.classList.add("loaded");
-            } else {
-                img.addEventListener("load", () => {
+        const slidingDoorWrappers = document.querySelectorAll(".sliding-door-wrapper");
+        
+        slidingDoorWrappers.forEach(wrapper => {
+            const img = wrapper.querySelector("img");
+            let imageLoaded = false;
+            let doorsOpened = false;
+            
+            // Function to verify image is fully loaded and rendered
+            const isImageReady = () => {
+                // Check if image is complete, has dimensions, and is actually rendered
+                const ready = img.complete && 
+                             img.naturalHeight !== 0 && 
+                             img.naturalWidth !== 0 &&
+                             img.offsetWidth > 0 &&
+                             img.offsetHeight > 0;
+                
+                // Additional check: verify image src is actually loaded (not just placeholder)
+                if (ready) {
+                    // Check if image has actual pixel data
+                    const canvas = document.createElement('canvas');
+                    try {
+                        const ctx = canvas.getContext('2d');
+                        canvas.width = 1;
+                        canvas.height = 1;
+                        ctx.drawImage(img, 0, 0, 1, 1);
+                        const imageData = ctx.getImageData(0, 0, 1, 1);
+                        // If all pixels are transparent or same color, might not be loaded
+                        return imageData.data[3] > 0; // Check alpha channel
+                    } catch (e) {
+                        return ready; // Fallback to basic check
+                    }
+                }
+                return false;
+            };
+            
+            // Function to open doors - only called when image is confirmed ready
+            const openDoors = () => {
+                if (doorsOpened) return; // Prevent multiple triggers
+                
+                // Double-check image is ready before opening
+                if (isImageReady() || imageLoaded) {
+                    doorsOpened = true;
+                    wrapper.classList.add("doors-open");
                     img.classList.add("loaded");
-                });
+                    // Trigger logo sliding animation - synchronized with doors
+                    const doorLogos = wrapper.querySelectorAll(".door-logo");
+                    doorLogos.forEach(logo => {
+                        logo.classList.add("logo-slide-away");
+                        // Hide logo completely after animation finishes (2.5s + 0.3s fade)
+                        setTimeout(() => {
+                            logo.style.visibility = "hidden";
+                            logo.style.display = "none";
+                        }, 2800);
+                    });
+                }
+            };
+            
+            // Function to wait for image to be fully ready
+            const waitForImageReady = () => {
+                // Check immediately first (for cached images)
+                if (isImageReady()) {
+                    imageLoaded = true;
+                    // Small delay to ensure rendering is complete
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            openDoors();
+                        });
+                    });
+                    return;
+                }
+                
+                // Image not ready, set up listeners
+                const handleImageLoad = () => {
+                    imageLoaded = true;
+                    // Use requestAnimationFrame to ensure image is fully rendered
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            // Verify one more time before opening
+                            if (isImageReady()) {
+                                openDoors();
+                            } else {
+                                // If still not ready, wait a bit more
+                                setTimeout(() => {
+                                    if (isImageReady()) {
+                                        openDoors();
+                                    } else {
+                                        // Force open after verification attempt
+                                        openDoors();
+                                    }
+                                }, 100);
+                            }
+                        });
+                    });
+                };
+                
+                // Listen for load event (primary method)
+                img.addEventListener("load", handleImageLoad, { once: true });
+                
+                // Also listen for error (open doors anyway after delay)
+                img.addEventListener("error", () => {
+                    setTimeout(() => {
+                        imageLoaded = true;
+                        openDoors();
+                    }, 500);
+                }, { once: true });
+                
+                // Fallback: periodic check in case load event doesn't fire properly
+                let attempts = 0;
+                const maxAttempts = 50; // 5 seconds max wait
+                const checkInterval = setInterval(() => {
+                    attempts++;
+                    if (isImageReady()) {
+                        imageLoaded = true;
+                        clearInterval(checkInterval);
+                        openDoors();
+                    } else if (attempts >= maxAttempts) {
+                        // Timeout after max attempts - open doors anyway
+                        clearInterval(checkInterval);
+                        imageLoaded = true;
+                        openDoors();
+                    }
+                }, 100);
+                
+                // Safety fallback: Force open after 3 seconds if still not ready
+                setTimeout(() => {
+                    if (!doorsOpened) {
+                        imageLoaded = true;
+                        openDoors();
+                    }
+                }, 3000);
+            };
+            
+            // Only start waiting when page is fully loaded and active
+            if (document.readyState === 'complete') {
+                waitForImageReady();
+            } else {
+                window.addEventListener('load', waitForImageReady, { once: true });
             }
         });
     });
-      function ryamazingw() {
-          window.location.href = '../index.html';
-      }
+    
+    // Creative Lazy Loading with Intersection Observer
+    document.addEventListener("DOMContentLoaded", () => {
+        const images = document.querySelectorAll(".lazy-image");
+
+        // Check if Intersection Observer is supported
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        
+                        // Add loading state
+                        img.classList.add("loading");
+                        
+                        // When image loads, remove loading and add loaded class
+                        if (img.complete) {
+                            img.classList.remove("loading");
+                            img.classList.add("loaded");
+                        } else {
+                            img.addEventListener("load", () => {
+                                img.classList.remove("loading");
+                                img.classList.add("loaded");
+                            }, { once: true });
+                            
+                            // Fallback for images that fail to load
+                            img.addEventListener("error", () => {
+                                img.classList.remove("loading");
+                                img.style.opacity = "0.5";
+                            }, { once: true });
+                        }
+                        
+                        // Stop observing once loaded
+                        observer.unobserve(img);
+                    }
+                });
+            }, {
+                // Start loading images 100px before they enter viewport
+                rootMargin: '100px',
+                threshold: 0.01
+            });
+
+            // Observe all lazy images
+            images.forEach(img => {
+                imageObserver.observe(img);
+            });
+        } else {
+            // Fallback for browsers without Intersection Observer
+            images.forEach(img => {
+                if (img.complete) {
+                    img.classList.add("loaded");
+                } else {
+                    img.addEventListener("load", () => {
+                        img.classList.add("loaded");
+                    });
+                }
+            });
+        }
+    });
+    
+    function ryamazingw() {
+        window.location.href = '../index.html';
+    }
   </script>
 </body>
 </html>

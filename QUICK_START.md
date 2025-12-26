@@ -5,9 +5,9 @@
 Create a `.env` file in the project root:
 
 ```env
-CLOUDINARY_CLOUD_NAME=dwqrkobq1
-CLOUDINARY_API_KEY=971572751775647
-CLOUDINARY_API_SECRET=m9005UklJxpQ53IgE5opAYDU2dc
+CLOUDINARY_CLOUD_NAME=your_cloud_name_here
+CLOUDINARY_API_KEY=your_api_key_here
+CLOUDINARY_API_SECRET=your_api_secret_here
 ```
 
 ## Step 2: Install dependencies
