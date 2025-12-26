@@ -1,0 +1,107 @@
+Scanning assets and checking for usage...
+
+Found 225 asset files
+Searching in 519 code files
+
+
+============================================================
+RESULTS: 91 unused assets found
+============================================================
+
+UNUSED ASSETS:
+------------------------------------------------------------
+assets/images/about/about2.jpg
+assets/images/about/about3.jpg
+assets/images/about/aboutBG2.png
+assets/images/blog/cold.jpg
+assets/images/blog/image1.jpg
+assets/images/gallery/20210927061112_IMG_9260 (1).webp
+assets/images/gallery/20211005095212_IMG_9462.webp
+assets/images/gallery/20211124012351_IMG_5435 (2).webp
+assets/images/gallery/IMG_20190830_153314.webp
+assets/images/gallery/IMG_20200714_183103 (1).webp
+assets/images/gallery/IMG_20201104_192447_816.webp
+assets/images/gallery/IMG_20210108_174845_007 (1).webp
+assets/images/gallery/IMG_20210108_175226 (1).webp
+assets/images/gallery/IMG_20210108_175309.webp
+assets/images/gallery/IMG_20210108_175312.webp
+assets/images/gallery/IMG_20210118_142335.webp
+assets/images/gallery/IMG_20210118_202821 (2).webp
+assets/images/gallery/IMG_20210210_170610 (1).webp
+assets/images/gallery/IMG_20210210_174843.webp
+assets/images/gallery/IMG_20210210_175636.webp
+assets/images/gallery/IMG_20210316_161227.webp
+assets/images/gallery/IMG_20210719_174601 (1).webp
+assets/images/gallery/IMG_20210910_182630 (6).webp
+assets/images/gallery/IMG_20211110_184033.webp
+assets/images/gallery/IMG_20211204_193607.webp
+assets/images/gallery/IMG_20211216_212305.webp
+assets/images/gallery/IMG_20220225_194236 (1).webp
+assets/images/gallery/IMG_20220407_163224_738.webp
+assets/images/gallery/IMG_20220407_203451.webp
+assets/images/gallery/IMG_20220717_165237 (1).webp
+assets/images/gallery/IMG_2059 (1).webp
+assets/images/gallery/PicsArt_12-29-05.29.39 (1).webp
+assets/images/gallery/Picsart_22-11-16_17-30-32-487.webp
+assets/images/gallery/blogMaybe.webp
+assets/images/gallery/erk.webp
+assets/images/gallery/nahh.webp
+assets/images/gallery/nope.webp
+assets/images/gallery/not today.webp
+assets/images/gallery/uhm, nope.webp
+assets/images/gallery/yeah but nope.webp
+assets/images/icons/tiktok.png
+assets/images/misc/20210908015045_IMG_6594.jpg
+assets/images/misc/20210917040004_IMG_8363 (1).jpg
+assets/images/misc/20210919235925_IMG_8503.jpg
+assets/images/misc/20210921034128_IMG_8793 (1).jpg
+assets/images/misc/20211015051903_IMG_0742.jpg
+assets/images/misc/20211107053840_IMG_3384 (1).jpg
+assets/images/misc/BW1.jpg
+assets/images/misc/BW2.jpg
+assets/images/misc/IMG_20201115_150150 (1).jpg
+assets/images/misc/IMG_20210103_001647.jpg
+assets/images/misc/IMG_20210308_192352.jpg
+assets/images/misc/IMG_20210308_203653.jpg
+assets/images/misc/IMG_20210316_161749.jpg
+assets/images/misc/IMG_20210325_072410 (1).jpg
+assets/images/misc/IMG_20210806_174905_158462180110716.jpg
+assets/images/misc/IMG_20210806_175006.jpg
+assets/images/misc/IMG_20210815_193432.jpg
+assets/images/misc/IMG_20210821_154845 (1).jpg
+assets/images/misc/IMG_20210904_172226.jpg
+assets/images/misc/IMG_20210911_161040 (6).jpg
+assets/images/misc/IMG_20211109_162251.jpg
+assets/images/misc/IMG_20211110_183110.jpg
+assets/images/misc/IMG_20211115_162348.jpg
+assets/images/misc/IMG_20211120_145622 (1).jpg
+assets/images/misc/IMG_20211202_043405.jpg
+assets/images/misc/IMG_20211215_220707 (2).jpg
+assets/images/misc/IMG_20220407_203451 (2).jpg
+assets/images/misc/IMG_20220714_194023.jpg
+assets/images/misc/IMG_20220717_171043.jpg
+assets/images/misc/IMG_20220717_171139.jpg
+assets/images/misc/IMG_20220717_181036.jpg
+assets/images/misc/IMG_20220717_181118.jpg
+assets/images/misc/IMG_20220730_171837.jpg
+assets/images/misc/IMG_20221019_181624.jpg
+assets/images/misc/IMG_20221021_172252.jpg
+assets/images/misc/IMG_20221026_184323.jpg
+assets/images/misc/IMG_20241013_081624 (1).jpg
+assets/images/misc/IMG_20241013_081624.jpg
+assets/images/misc/ayayay.jpg
+assets/images/misc/director.jpg
+assets/images/misc/iliganstreet.jpg
+assets/images/misc/mosque.jpg
+assets/images/misc/nope.jpg
+assets/images/misc/photoframe.jpg
+assets/images/misc/sayang.jpg
+assets/images/misc/subsimg11.jpg
+assets/images/misc/subsimg21.jpg
+assets/images/misc/subsimg33.jpg
+assets/images/misc/subsimg34.jpg
+assets/images/mobileicons/linkedin (2).png
+
+============================================================
+Summary: 134 used, 91 unused
+============================================================

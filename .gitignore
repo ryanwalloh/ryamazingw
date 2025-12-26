@@ -1,0 +1,19 @@
+# Unused assets (moved from assets directory to reduce repository size)
+unused_assets/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# Scripts (optional - remove if you want to track these)
+# find_unused_assets.py
+# organize_unused_assets.py
+# unused_assets_list.txt
+
