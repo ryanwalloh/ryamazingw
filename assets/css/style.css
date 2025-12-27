@@ -191,6 +191,8 @@ nav {
 
 }
 
+
+
 .index-logo {
     cursor: default;
     transform: none;
@@ -199,8 +201,14 @@ nav {
 #index-logo2 {
     width: clamp(250px, 25vw, 250px);
     height: auto;
+    cursor: pointer;
 }
 
+#index-logo3 {
+    width: clamp(350px, 35vw, 350px);
+    height: auto;
+    cursor: pointer;
+}
 @media (max-width: 768px) {
     .index-logo2 {
         transform: none;
@@ -781,8 +789,13 @@ footer {
     position: absolute;
     /* width: 50%;
     height: 50%; */
-    /* border: 1px solid yellow; */
+    /* border: 1px solid red; */
     margin-top: -40%;
+    padding: 3vw;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .right-page .home-icons {

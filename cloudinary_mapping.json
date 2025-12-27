@@ -36,5 +36,19 @@
   "../assets/images/mobileicons/instagram.png": "https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735078/icons/images/mobileicons/instagram.png",
   "../assets/images/mobileicons/twitter.png": "https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735079/icons/images/mobileicons/twitter.png",
   "assets/logo/ryamazingwhite.png": "https://res.cloudinary.com/dwqrkobq1/image/upload/v1766772750/logo/ryamazingwhite.png",
-  "assets/logo/ryamazingwblack.png": "https://res.cloudinary.com/dwqrkobq1/image/upload/v1766772751/logo/ryamazingwblack.png"
+  "assets/logo/ryamazingwblack.png": "https://res.cloudinary.com/dwqrkobq1/image/upload/v1766772751/logo/ryamazingwblack.png",
+  "../assets/images/about/profile.webp": "https://res.cloudinary.com/dwqrkobq1/image/upload/v1766799292/images/about/profile.webp",
+  "../assets/images/about/ryan-walloh.webp": "https://res.cloudinary.com/dwqrkobq1/image/upload/v1766799293/images/about/ryan-walloh.webp",
+  "../assets/images/blog/dariday.webp": "https://res.cloudinary.com/dwqrkobq1/image/upload/v1766799290/images/blog/dariday.webp",
+  "../assets/images/blog/dawn.webp": "https://res.cloudinary.com/dwqrkobq1/image/upload/v1766799289/images/blog/dawn.webp",
+  "../assets/images/blog/ryan-walloh.webp": "https://res.cloudinary.com/dwqrkobq1/image/upload/v1766799285/images/blog/ryan-walloh.webp",
+  "../../assets/images/blog/blog1media/pictureofme.webp": "https://res.cloudinary.com/dwqrkobq1/image/upload/v1766799600/images/blog/blog1media/pictureofme.webp",
+  "../../assets/images/blog/blog1media/fooddelivery.webp": "https://res.cloudinary.com/dwqrkobq1/image/upload/v1766799604/images/blog/blog1media/fooddelivery.webp",
+  "../../assets/images/blog/blog1media/riderapp.webp": "https://res.cloudinary.com/dwqrkobq1/image/upload/v1766799605/images/blog/blog1media/riderapp.webp",
+  "../../assets/images/blog/blog1media/capstone.webp": "https://res.cloudinary.com/dwqrkobq1/image/upload/v1766799607/images/blog/blog1media/capstone.webp",
+  "../assets/images/about/about-bg.webp": "https://res.cloudinary.com/dwqrkobq1/image/upload/v1766800497/images/about/about-bg.webp",
+  "../assets/images/about/ryan-walloh-avatar.webp": "https://res.cloudinary.com/dwqrkobq1/image/upload/v1766800500/images/about/ryan-walloh-avatar.webp",
+  "../assets/images/misc/subsimg1.webp": "https://res.cloudinary.com/dwqrkobq1/image/upload/v1766800755/images/misc/subsimg1.webp",
+  "../assets/images/misc/subsimg2.webp": "https://res.cloudinary.com/dwqrkobq1/image/upload/v1766800759/images/misc/subsimg2.webp",
+  "../assets/images/misc/subsimg3.webp": "https://res.cloudinary.com/dwqrkobq1/image/upload/v1766800762/images/misc/subsimg3.webp"
 }

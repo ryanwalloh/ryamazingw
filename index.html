@@ -172,12 +172,23 @@
         /* =========================
         LOGO ON BLACK SCREEN - Loads before wrapper
         ========================= */
+        @media (max-width: 768px) {
+            .door-logo {
+                transform: none;
+                z-index: auto;
+            }
+            
+            #door-logo {
+                width: clamp(250px, 35vw, 380px);
+                bottom: 20%;
+            }
+        }
 
         .door-logo {
             position: fixed;
             bottom: 10%;
             right: 5%;
-            width: clamp(350px, 25vw, 450px);
+            width: clamp(450px, 30vw, 550px);
             height: auto;
             z-index: 100;
             opacity: 1 !important;
@@ -308,9 +319,27 @@
         INDEX PAGE LOGO IMAGE
         ========================= */
         
+        /* Make right-page-container act as a window with overflow hidden */
+        .right-page-container {
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
         .index-logo {
             cursor: default;
-            transform: none;
+            /* Initially positioned completely off-screen to the left (outside container viewport) */
+            /* Use a large negative value to ensure logo starts completely hidden behind left edge */
+            transform: translateX(-200%);
+            transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            /* Ensure logo is visible so it can peek through as it slides */
+            opacity: 1;
+        }
+        
+        /* Logo slides in when this class is added - ends up centered in container */
+        .index-logo.logo-slide-in {
+            transform: translateX(0);
         }
         
         #index-logo {
@@ -320,12 +349,11 @@
 
         @media (max-width: 768px) {
             .index-logo {
-                transform: none;
                 z-index: auto;
             }
             
             #index-logo {
-                width: clamp(150px, 30vw, 280px);
+                width: clamp(200px, 35vw, 300px);
             }
         }
 
@@ -386,7 +414,7 @@
             <div class="door-right"></div>
         </div>
         <!-- Logo loads first, outside sliding door wrapper for priority -->
-        <img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766772750/logo/ryamazingwhite.png" alt="ryamazingw logo" class="door-logo" loading="eager" fetchpriority="high" style="display: block; opacity: 1; visibility: visible;" onerror="console.error('Logo failed to load'); this.style.border='3px solid red';" onload="console.log('Logo loaded successfully'); this.style.opacity='1'; this.style.visibility='visible';">
+        <img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766772750/logo/ryamazingwhite.png" alt="ryamazingw logo" id="door-logo" class="door-logo" loading="eager" fetchpriority="high" style="display: block; opacity: 1; visibility: visible;" onerror="console.error('Logo failed to load'); this.style.border='3px solid red';" onload="console.log('Logo loaded successfully'); this.style.opacity='1'; this.style.visibility='visible';">
     </div>    
 
     <script>
@@ -441,6 +469,13 @@
                         if (doorLogo) {
                             doorLogo.classList.add("logo-slide-away");
                         }
+                        // Trigger index-logo slide-in animation after doors finish opening (2.5s transition)
+                        setTimeout(() => {
+                            const indexLogo = document.querySelector(".index-logo");
+                            if (indexLogo) {
+                                indexLogo.classList.add("logo-slide-in");
+                            }
+                        }, 1200); // Wait for door animation to complete (2.5s)
                     }, 1200);
                 }
             };

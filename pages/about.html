@@ -3,8 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Personal website of Ryan Walloh, a developer and photographer.">
-    <title>ryamazingw&#8482;</title>
+    <meta name="description" content="About Ryan Walloh (ryamazingw) - Web designer, developer, and photographer from Lanao Del Sur, Philippines. Building software and web applications to bring innovation to his community.">
+    <meta name="keywords" content="Ryan Walloh, ryamazingw, web designer, web developer, photographer, Lanao Del Sur, Philippines, developer portfolio, software developer, visual storyteller, community development">
+    <meta name="author" content="Ryan Walloh">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ryanwalloh.github.io/ryamazingw/pages/about.html">
+    <meta property="og:title" content="About Ryan Walloh (ryamazingw) - Web Designer & Photographer">
+    <meta property="og:description" content="Web designer, developer, and photographer from Lanao Del Sur, Philippines. Building software and web applications to bring innovation to my community.">
+    <meta property="og:image" content="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766800500/images/about/ryan-walloh-avatar.webp">
+    <meta property="og:site_name" content="ryamazingw">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://ryanwalloh.github.io/ryamazingw/pages/about.html">
+    <meta name="twitter:title" content="About Ryan Walloh (ryamazingw) - Web Designer & Photographer">
+    <meta name="twitter:description" content="Web designer, developer, and photographer from Lanao Del Sur, Philippines. Building software and web applications to bring innovation to my community.">
+    <meta name="twitter:image" content="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766800500/images/about/ryan-walloh-avatar.webp">
+    <meta name="twitter:creator" content="@pursuitofakhira">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ryanwalloh.github.io/ryamazingw/pages/about.html">
+    
+    <title>About Ryan Walloh (ryamazingw) - Web Designer & Photographer | Developer from Lanao Del Sur</title>
     <link rel="icon" type="image/png" href="../assets/favicon/w.png">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,14 +44,137 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@100..700&display=swap" rel="stylesheet">
     <script src="../assets/js/script.js"></script>
+    
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "name": "About Ryan Walloh",
+      "description": "About Ryan Walloh (ryamazingw) - Web designer, developer, and photographer from Lanao Del Sur, Philippines",
+      "url": "https://ryanwalloh.github.io/ryamazingw/pages/about.html",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Ryan Walloh",
+        "alternateName": "ryamazingw",
+        "jobTitle": "Web Designer, Developer and Photographer",
+        "description": "Web designer, developer, and photographer from Lanao Del Sur, Philippines. Building software and web applications to bring innovation to my community.",
+        "image": "https://res.cloudinary.com/dwqrkobq1/image/upload/v1766800500/images/about/ryan-walloh-avatar.webp",
+        "url": "https://ryanwalloh.github.io/ryamazingw",
+        "sameAs": [
+          "https://www.instagram.com/ryamazingw",
+          "https://twitter.com/pursuitofakhira",
+          "https://github.com/ryanwalloh",
+          "https://www.linkedin.com/in/ryanwalloh",
+          "https://www.facebook.com/mohammadryan.walloh"
+        ],
+        "email": "mohammadryanmwalloh@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Lanao Del Sur",
+          "addressRegion": "Mindanao",
+          "addressCountry": "Philippines"
+        },
+        "knowsAbout": ["Web Design", "Web Development", "Photography", "Visual Storytelling", "Software Development", "Community Development"]
+      }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ryan Walloh",
+      "alternateName": "ryamazingw",
+      "url": "https://ryanwalloh.github.io/ryamazingw",
+      "image": "https://res.cloudinary.com/dwqrkobq1/image/upload/v1766800500/images/about/ryan-walloh-avatar.webp",
+      "sameAs": [
+        "https://www.instagram.com/ryamazingw",
+        "https://twitter.com/pursuitofakhira",
+        "https://github.com/ryanwalloh",
+        "https://www.linkedin.com/in/ryanwalloh",
+        "https://www.facebook.com/mohammadryan.walloh"
+      ],
+      "jobTitle": "Web Designer, Developer and Photographer",
+      "description": "Web designer, developer, and photographer from Lanao Del Sur, Philippines. Building software and web applications to bring innovation to my community.",
+      "email": "mohammadryanmwalloh@gmail.com",
+      "knowsAbout": ["Web Design", "Web Development", "Photography", "Visual Storytelling", "Software Development", "Community Development"]
+    }
+    </script>
 </head>
 
 <style>
+    /* Main Container System - Align Navbar and Contact Section */
+    .main-content-container {
+        width: 95%;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+        .main-content-container {
+            width: 90%;
+        }
+    }
+
+    /* Navbar Alignment - Use container width, remove padding that causes misalignment */
+    .navbar {
+        width: 100%;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* Override index-logo margin to align with contact container edge */
+    .navbar .index-logo {
+        margin-left: 0 !important;
+    }
+
+    /* Remove nav-links right margin to align right edge with contact container */
+    .navbar .nav-links {
+        margin-right: 0 !important;
+    }
+
+    /* Remove navbar padding that causes offset */
+    @media screen and (min-width: 768px) {
+        .navbar {
+            padding: 1rem 0 !important;
+        }
+    }
+
+    /* Mobile view - ensure alignment with contact container */
+    @media (max-width: 768px) {
+        /* Remove navbar padding on mobile */
+        .navbar {
+            padding: 1rem 0 !important;
+            justify-content: space-between !important;
+        }
+
+        /* Remove hamburger margin-right and transform to align with right edge */
+        .navbar .hamburger {
+            margin-right: 0 !important;
+            transform: none !important;
+            margin-left: auto;
+        }
+
+        /* Ensure logo aligns with left edge on mobile */
+        .navbar .index-logo {
+            transform: none !important;
+        }
+    }
+
+    /* Desktop view - ensure hamburger alignment is correct (though it's hidden) */
+    @media screen and (min-width: 769px) {
+        .navbar .hamburger {
+            margin-right: 0 !important;
+        }
+    }
+
     .contact {
         justify-content: center;
         align-items: center;
         display: flex;
         position: relative;
+        width: 100%;
     }
 
     .contact-bg {
@@ -36,10 +182,10 @@
         flex-direction: column; 
         justify-content: flex-end; 
         align-items: center;
-        width: 95%;
-        height: 75%;
+        width: 100%;
+        height: 100%;
         position: relative; 
-        overflow: hidden; 
+        overflow: hidden;
     }
 
     .contact img {
@@ -375,6 +521,289 @@
         }
     
       }
+
+
+    /* =========================
+    SLIDING DOOR EFFECT FOR ABOUT PAGE
+    ========================= */
+    .sliding-door-wrapper {
+        position: relative;
+        overflow: hidden;
+        display: block;
+        width: 100%;
+        height: 75%;
+        background: #111; /* black behind doors for drama */
+        transition: background 0.3s ease-out 0.3s;
+    }
+
+    .sliding-door-wrapper.doors-open {
+        background: transparent;
+    }
+
+    .sliding-door-wrapper .contact-bg-content {
+        opacity: 0;
+        transition: opacity 0.3s ease-in 0.2s;
+        position: relative;
+        z-index: 1;
+    }
+
+    .sliding-door-wrapper.doors-open .contact-bg-content {
+        opacity: 1;
+    }
+
+    /* =========================
+    DOORS
+    ========================= */
+    .door-left,
+    .door-right {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #111;
+        z-index: 10;
+        transition: transform 2.5s cubic-bezier(0.95, 0.05, 0.4, 1);
+        will-change: transform;
+        pointer-events: none;
+    }
+
+    .door-left {
+        transform-origin: left center;
+        clip-path: polygon(
+            0 0,
+            90% 0,
+            50% 100%,
+            0 100%
+        );
+    }
+
+    .door-right {
+        transform-origin: right center;
+        clip-path: polygon(
+            50% 0,
+            100% 0,
+            100% 100%,
+            10% 100%
+        );
+    }
+
+    /* =========================
+    ANIMATION
+    ========================= */
+    .sliding-door-wrapper.doors-open .door-left {
+        transform: translateX(-100%);
+    }
+
+    .sliding-door-wrapper.doors-open .door-right {
+        transform: translateX(100%);
+    }
+
+    /* =========================
+    DIAGONAL HIGHLIGHT
+    ========================= */
+    .door-left::after,
+    .door-right::after {
+        content: '';
+        position: absolute;
+        top: -20.71%;
+        width: 3px;
+        height: 141.42%;
+        transform-origin: center;
+    }
+
+    .door-left::after {
+        left: calc(62% - 1.5px);
+        transform: rotate(20deg);
+        background: linear-gradient(
+            to bottom,
+            rgba(17,17,17,0.8) 0%,
+            rgba(17,17,17,0.6) 35%,
+            rgba(17,17,17,0.6) 65%,
+            rgba(17,17,17,0.8) 100%
+        );
+    }
+
+    .door-right::after {
+        left: calc(42% - 1.5px);
+        transform: rotate(-20deg);
+        background: linear-gradient(
+            to bottom,
+            rgba(17,17,17,0.8) 0%,
+            rgba(17,17,17,0.6) 35%,
+            rgba(17,17,17,0.6) 65%,
+            rgba(17,17,17,0.8) 100%
+        );
+    }
+
+    /* =========================
+    LOGO ON BLACK SCREEN
+    ========================= */
+    .door-logo {
+        position: absolute;
+        bottom: 5%;
+        right: 5%;
+        width: clamp(150px, 15vw, 150px);
+        height: auto;
+        z-index: 20 !important;
+        opacity: 1 !important;
+        pointer-events: none;
+        display: block !important;
+        visibility: visible !important;
+        filter: brightness(1);
+        background: transparent;
+        transform: translateX(0);
+        transition: transform 2.5s cubic-bezier(0.95, 0.05, 0.4, 1), 
+                    opacity 0.3s ease-out 2.2s;
+    }
+
+    .door-logo.logo-slide-away {
+        transform: translateX(150%);
+        opacity: 0;
+        transition: transform 2.5s cubic-bezier(0.95, 0.05, 0.4, 1),
+                    opacity 0.3s ease-out 2.2s,
+                    visibility 0s linear 2.8s;
+        visibility: hidden;
+    }
+
+    @media (max-width: 768px) {
+        .sliding-door-wrapper {
+            height: 100%;
+        }
+        
+        .door-logo {
+            width: clamp(100px, 25vw, 180px);
+            bottom: 8%;
+            right: 8%;
+        }
+    }
+
+    .sliding-door-wrapper.doors-open .door-logo {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    /* =========================
+    WINDOW PEEK ANIMATION FOR H2 ELEMENTS
+    ========================= */
+    
+    /* Window container acts as clipping window - centered to constrain slide area */
+    .window-container {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: calc(100vw + 4vw); /* Full width + 2vw padding on each side */
+        height: 100%;
+        overflow: hidden;
+        pointer-events: none;
+        z-index: 5;
+    }
+
+    /* Duplicate h2 elements - match original styling exactly */
+    .webD-duplicate,
+    .PT1-duplicate {
+        font-family: 'RyanWalloh', sans-serif;
+        font-size: 12vw;
+        font-weight: 700;
+        color: white;
+        position: absolute;
+        text-align: center;
+        margin: 0;
+        left: 50%;
+        transform: translate(-50%, -10%);
+        width: 100vw;
+        z-index: 6;
+    }
+
+    .webD-duplicate {
+        top: 15%;
+    }
+
+    .PT1-duplicate {
+        top: 45%;
+    }
+
+    /* Initially hide duplicate h2s off-screen - slide from just outside container edges */
+    .webD-duplicate {
+        /* Start off-screen to the right - just outside container edge */
+        transform: translate(-50%, -10%) translateX(60vw);
+        opacity: 1;
+        transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    opacity 0.8s ease-out; /* Fade out transition */
+    }
+
+    .PT1-duplicate {
+        /* Start off-screen to the left - just outside container edge */
+        transform: translate(-50%, -10%) translateX(-60vw);
+        opacity: 1;
+        transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    opacity 0.8s ease-out; /* Fade out transition */
+    }
+
+    /* When animation is triggered, slide duplicates into view - end at same position as originals */
+    .window-container.animate .webD-duplicate {
+        transform: translate(-50%, -10%);
+    }
+
+    .window-container.animate .PT1-duplicate {
+        transform: translate(-50%, -10%);
+    }
+
+    /* Hide duplicate h2s when animate-complete class is added (after 3.7s) */
+    .window-container.animate-complete .webD-duplicate,
+    .window-container.animate-complete .PT1-duplicate {
+        opacity: 0;
+    }
+
+    /* Hide original h2s initially during door + window animation */
+    #webD,
+    #PT1,
+    #WD2,
+    #PT2 {
+        opacity: 0;
+        transition: opacity 0.8s ease-in; /* Fade in transition */
+    }
+
+    /* Show original h2s when text-container has animate-complete class (added via JS) */
+    .text-container.animate-complete #webD,
+    .text-container.animate-complete #PT1,
+    .text-container.animate-complete #WD2,
+    .text-container.animate-complete #PT2 {
+        opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+        .webD-duplicate {
+            font-size: 17vw;
+            /* Match mobile transform: translate(-50%, 300%) */
+            transform: translate(-50%, 300%);
+        }
+        
+        .PT1-duplicate {
+            font-size: 15vw;
+            /* Match mobile transform: translate(-50%, 200%) */
+            transform: translate(-50%, 200%);
+        }
+        
+        /* Initially hide duplicate h2s off-screen on mobile - slide from container edges */
+        .webD-duplicate {
+            transform: translate(-50%, 300%) translateX(60vw);
+        }
+
+        .PT1-duplicate {
+            transform: translate(-50%, 200%) translateX(-60vw);
+        }
+
+        /* When animation is triggered, slide duplicates into view on mobile */
+        .window-container.animate .webD-duplicate {
+            transform: translate(-50%, 300%);
+        }
+
+        .window-container.animate .PT1-duplicate {
+            transform: translate(-50%, 200%);
+        }
+    }
 </style>
 
 
@@ -382,6 +811,7 @@
 
 
 <body data-src="content.html">
+    <div class="main-content-container">
     <nav class="navbar">
         <div class="index-logo">
             <img onclick="ryamazingw()" id="index-logo2" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766772751/logo/ryamazingwblack.png" alt="ryamazingw logo">  
@@ -397,32 +827,45 @@
             <li><a href="about.html">About</a></li>
             <li><a href="newsletter.html">Newsletter</a></li>
             <div id="sm-logo-links" class="home-icons">
-                <a class="box" href="mailto:mohammadryanmwalloh@gmail.com" target="_blank"><img src="../assets/images/icons/email.png"></a>
-                <a id="instagram" class="box" href="https://www.instagram.com/ryamazingw/" target="_blank"><img src="../assets/images/icons/instagram.png"></a>
-                <a id="twitter" class="box" href="https://twitter.com/pursuitofakhira" target="_blank"><img src="../assets/images/icons/twitter.png"></a>
+                <a class="box" href="mailto:mohammadryanmwalloh@gmail.com" target="_blank" aria-label="Email Ryan Walloh"><img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735026/icons/images/icons/email.png" alt="Email icon"></a>
+                <a id="instagram" class="box" href="https://www.instagram.com/ryamazingw/" target="_blank" aria-label="Follow Ryan Walloh on Instagram"><img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735026/icons/images/icons/instagram.png" alt="Instagram icon"></a>
+                <a id="twitter" class="box" href="https://twitter.com/pursuitofakhira" target="_blank" aria-label="Follow Ryan Walloh on Twitter"><img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735027/icons/images/icons/twitter.png" alt="Twitter icon"></a>
             </div>
         </ul>
     </nav>
+    </div>
 
+    <div class="main-content-container">
     <div class="contact">
-        <div class="contact-bg">
-            <img class="subsimg1" alt="Ryan Walloh" src="../assets/images/about/about-bg.webp">
-            <div class="avatar-container">
-                 <img id="avatar" class="subsimg2" alt="Ryan M. Walloh" src="../assets/images/about/ryan-walloh-avatar.webp">
-            </div>
-            <div id="text-container" class="text-container">
-                <h1 id="cw" class="CW">Hi, I'm Ryan Walloh</h1>
-                
-                <h2 id="WD2" class="WD2">Web Designer</h2>
-                <h2 id="PT2" class="PT2">& Photographer</h2>
+        <div class="sliding-door-wrapper">
+            <div class="contact-bg contact-bg-content">
+                <img class="subsimg1" alt="Ryan Walloh - About Page Background" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766800497/images/about/about-bg.webp" loading="eager" fetchpriority="high">
+                <div class="avatar-container">
+                     <img id="avatar" class="subsimg2" alt="Ryan M. Walloh - Profile Avatar" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766800500/images/about/ryan-walloh-avatar.webp" loading="eager" fetchpriority="high">
+                </div>
+                <div id="text-container" class="text-container">
+                    <h1 id="cw" class="CW">Hi, I'm Ryan Walloh</h1>
+                    
+                    <h2 id="WD2" class="WD2">Web Designer</h2>
+                    <h2 id="PT2" class="PT2">& Photographer</h2>
 
-                <h2 id="webD" class="webD">Web Designer</h2>
-                <h2 id="PT1" class="PT1">& Photographer</h2>
-                
+                    <h2 id="webD" class="webD">Web Designer</h2>
+                    <h2 id="PT1" class="PT1">& Photographer</h2>
+                    
+                    <!-- Duplicate h2s for window slide animation -->
+                    <div id="window-container" class="window-container">
+                        <h2 id="webD-duplicate" class="webD-duplicate">Web Designer</h2>
+                        <h2 id="PT1-duplicate" class="PT1-duplicate">& Photographer</h2>
+                    </div>
+                </div>
             </div>
+            <div class="door-left"></div>
+            <div class="door-right"></div>
+            <img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766772750/logo/ryamazingwhite.png" alt="ryamazingw logo" id="index-logo3" class="door-logo" loading="eager" fetchpriority="high" style="display: block; opacity: 1; visibility: visible;" onerror="console.error('Logo failed to load'); this.style.border='3px solid red';" onload="console.log('Logo loaded successfully'); this.style.opacity='1'; this.style.visibility='visible';">
         </div>
 
        
+    </div>
     </div>
 
     <div class="about-me-container">
@@ -476,17 +919,17 @@
             <div class="sm-icon">
                 <p>FOLLOW</p>
                 <div class="footer-sm-icon-image">
-                  <a href="https://www.instagram.com/ryamazingw" target="_blank">
-                      <img src="../assets/images/mobileicons/instagram.png">
+                  <a href="https://www.instagram.com/ryamazingw" target="_blank" aria-label="Follow Ryan Walloh on Instagram">
+                      <img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735078/icons/images/mobileicons/instagram.png" alt="Instagram icon" loading="lazy">
                   </a>
-                  <a href="https://twitter.com/pursuitofakhira">
-                     <img id="mobile-twitter" src="../assets/images/mobileicons/twitter.png">
+                  <a href="https://twitter.com/pursuitofakhira" aria-label="Follow Ryan Walloh on Twitter">
+                     <img id="mobile-twitter" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735079/icons/images/mobileicons/twitter.png" alt="Twitter icon" loading="lazy">
                   </a>
-                  <a href="https://github.com/ryanwalloh" target="_blank">
-                    <img id="git" src="../assets/images/mobileicons/git.png">
+                  <a href="https://github.com/ryanwalloh" target="_blank" aria-label="View Ryan Walloh on GitHub">
+                    <img id="git" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735077/icons/images/mobileicons/git.png" alt="GitHub icon" loading="lazy">
                    </a>
-                  <a href="https://www.linkedin.com/in/ryanwalloh/?originalSubdomain=ph" target="_blank">
-                     <img id="mobile-linkedin" src="../assets/images/mobileicons/in.png">
+                  <a href="https://www.linkedin.com/in/ryanwalloh/?originalSubdomain=ph" target="_blank" aria-label="Connect with Ryan Walloh on LinkedIn">
+                     <img id="mobile-linkedin" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735077/icons/images/mobileicons/in.png" alt="LinkedIn icon" loading="lazy">
                   </a>
               </div>
             </div>
@@ -626,6 +1069,158 @@
             
         });
 
+    // Sliding Door Effect for About Page
+    document.addEventListener("DOMContentLoaded", () => {
+        const slidingDoorWrapper = document.querySelector(".sliding-door-wrapper");
+        if (!slidingDoorWrapper) return;
+        
+        const img = slidingDoorWrapper.querySelector(".subsimg1");
+        if (!img) return;
+        
+        let imageLoaded = false;
+        let doorsOpened = false;
+        
+        // Function to verify image is fully loaded and rendered
+        const isImageReady = () => {
+            if (!img) return false;
+            const ready = img.complete && 
+                         img.naturalHeight !== 0 && 
+                         img.naturalWidth !== 0 &&
+                         img.offsetWidth > 0 &&
+                         img.offsetHeight > 0;
+            
+            if (ready) {
+                const canvas = document.createElement('canvas');
+                try {
+                    const ctx = canvas.getContext('2d');
+                    canvas.width = 1;
+                    canvas.height = 1;
+                    ctx.drawImage(img, 0, 0, 1, 1);
+                    const imageData = ctx.getImageData(0, 0, 1, 1);
+                    return imageData.data[3] > 0;
+                } catch (e) {
+                    return ready;
+                }
+            }
+            return false;
+        };
+        
+        // Function to open doors
+        const openDoors = () => {
+            if (doorsOpened) return;
+            
+            if (isImageReady() || imageLoaded) {
+                doorsOpened = true;
+                slidingDoorWrapper.classList.add("doors-open");
+                
+                // Trigger logo sliding animation
+                const doorLogo = slidingDoorWrapper.querySelector(".door-logo");
+                if (doorLogo) {
+                    doorLogo.classList.add("logo-slide-away");
+                    setTimeout(() => {
+                        doorLogo.style.visibility = "hidden";
+                        doorLogo.style.display = "none";
+                    }, 2800);
+                }
+                
+                // Trigger window peek animation for duplicate h2s after doors finish opening (2.5s transition)
+                setTimeout(() => {
+                    const windowContainer = document.querySelector(".window-container");
+                    const textContainer = document.getElementById("text-container");
+                    if (windowContainer && textContainer) {
+                        windowContainer.classList.add("animate");
+                        
+                        // After door (2.5s) + window slide (1.2s) = 3.7s total, trigger fade transitions
+                        setTimeout(() => {
+                            windowContainer.classList.add("animate-complete");
+                            textContainer.classList.add("animate-complete");
+                        }, 1200); // Additional 1.2s for the window slide animation
+                    }
+                }, 1200); // Wait for door animation to complete (2.5s)
+            }
+        };
+        
+        // Function to wait for image to be fully ready
+        const waitForImageReady = () => {
+            if (!img) {
+                setTimeout(() => {
+                    imageLoaded = true;
+                    openDoors();
+                }, 500);
+                return;
+            }
+
+            // Check immediately first (for cached images)
+            if (isImageReady()) {
+                imageLoaded = true;
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        openDoors();
+                    });
+                });
+                return;
+            }
+            
+            // Image not ready, set up listeners
+            const handleImageLoad = () => {
+                imageLoaded = true;
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        if (isImageReady()) {
+                            openDoors();
+                        } else {
+                            setTimeout(() => {
+                                if (isImageReady()) {
+                                    openDoors();
+                                } else {
+                                    openDoors();
+                                }
+                            }, 100);
+                        }
+                    });
+                });
+            };
+            
+            img.addEventListener("load", handleImageLoad, { once: true });
+            img.addEventListener("error", () => {
+                setTimeout(() => {
+                    imageLoaded = true;
+                    openDoors();
+                }, 500);
+            }, { once: true });
+            
+            // Fallback: periodic check
+            let attempts = 0;
+            const maxAttempts = 50;
+            const checkInterval = setInterval(() => {
+                attempts++;
+                if (isImageReady()) {
+                    imageLoaded = true;
+                    clearInterval(checkInterval);
+                    openDoors();
+                } else if (attempts >= maxAttempts) {
+                    clearInterval(checkInterval);
+                    imageLoaded = true;
+                    openDoors();
+                }
+            }, 100);
+            
+            // Safety fallback
+            setTimeout(() => {
+                if (!doorsOpened) {
+                    imageLoaded = true;
+                    openDoors();
+                }
+            }, 3000);
+        };
+        
+        // Start waiting when page is fully loaded
+        if (document.readyState === 'complete') {
+            waitForImageReady();
+        } else {
+            window.addEventListener('load', waitForImageReady, { once: true });
+        }
+    });
         
     
     </script>
