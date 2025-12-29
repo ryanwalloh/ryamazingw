@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://ryanwalloh.github.io/ryamazingw/sitemap.xml
+
+# Exclude placeholder page
+Disallow: /pages/blog1.html
+

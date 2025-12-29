@@ -209,6 +209,18 @@ nav {
     height: auto;
     cursor: pointer;
 }
+
+#blog-door-logo {
+    width: clamp(350px, 35vw, 350px);
+    height: auto;
+    cursor: pointer;
+}
+
+#newsletter-door-logo {
+    width: clamp(350px, 35vw, 350px);
+    height: auto;
+    cursor: pointer;
+}
 @media (max-width: 768px) {
     .index-logo2 {
         transform: none;

@@ -3,32 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Ryan Walloh's blog - Developer and photographer sharing insights on web development, photography, and visual storytelling from Mindanao, Philippines.">
-    <meta name="keywords" content="Ryan Walloh, ryamazingw, developer blog, photography blog, web development, visual storytelling, Mindanao photography, Philippines, programming blog, tech blog">
+    <link rel="dns-prefetch" href="https://res.cloudinary.com">
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+    <meta name="description" content="Read insights on web development, photography, and visual storytelling from Mindanao, Philippines. Explore articles about building purpose-driven tech and capturing stories.">
     <meta name="author" content="Ryan Walloh">
     <meta name="robots" content="index, follow">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://ryanwalloh.github.io/ryamazingw/pages/blog.html">
-    <meta property="og:title" content="Ryan Walloh (ryamazingw) - Blog | Development & Photography">
+    <meta property="og:title" content="Blog | Ryan Walloh - Developer & Photographer">
     <meta property="og:description" content="Developer and photographer sharing insights on web development, photography, and visual storytelling. Read articles about building purpose-driven tech and capturing stories from Mindanao, Philippines.">
-    <meta property="og:image" content="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766799285/images/blog/ryan-walloh.webp">
+    <meta property="og:image" content="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766976133/OG-Image_sagzam.png">
     <meta property="og:site_name" content="ryamazingw">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://ryanwalloh.github.io/ryamazingw/pages/blog.html">
-    <meta name="twitter:title" content="Ryan Walloh (ryamazingw) - Blog | Development & Photography">
+    <meta name="twitter:title" content="Blog | Ryan Walloh - Developer & Photographer">
     <meta name="twitter:description" content="Developer and photographer sharing insights on web development, photography, and visual storytelling from Mindanao, Philippines.">
-    <meta name="twitter:image" content="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766799285/images/blog/ryan-walloh.webp">
+    <meta name="twitter:image" content="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766976133/OG-Image_sagzam.png">
     <meta name="twitter:creator" content="@pursuitofakhira">
     
     <!-- Canonical URL -->
     <link rel="canonical" href="https://ryanwalloh.github.io/ryamazingw/pages/blog.html">
     
-    <title>Ryan Walloh (ryamazingw) - Blog | Development & Photography</title>
-    <link rel="icon" type="image/png" href="../assets/favicon/w.png">
+    <title>Blog | Ryan Walloh - Developer & Photographer</title>
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766970953/w_txtp4f.png">
     
     <!-- Structured Data (JSON-LD) for SEO -->
     <script type="application/ld+json">
@@ -66,7 +67,7 @@
             "@type": "Person",
             "name": "Ryan Walloh"
           },
-          "datePublished": "2025-11-17",
+          "datePublished": "2024-11-17",
           "url": "https://ryanwalloh.github.io/ryamazingw/pages/articles/article1.html"
         }
       ]
@@ -89,6 +90,34 @@
       "jobTitle": "Developer and Photographer",
       "description": "Developer and photographer capturing visual stories from Mindanao, Philippines",
       "knowsAbout": ["Photography", "Web Development", "Visual Storytelling", "Mindanao"]
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "ryamazingw",
+      "alternateName": "Ryan Walloh",
+      "url": "https://ryanwalloh.github.io/ryamazingw",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://res.cloudinary.com/dwqrkobq1/image/upload/v1766973647/ryamazingwblackSEO_iypcel.png",
+        "width": 600,
+        "height": 60
+      },
+      "sameAs": [
+        "https://www.instagram.com/ryamazingw",
+        "https://twitter.com/pursuitofakhira",
+        "https://github.com/ryanwalloh",
+        "https://www.linkedin.com/in/ryanwalloh",
+        "https://www.facebook.com/mohammadryan.walloh"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "email": "mohammadryanmwalloh@gmail.com",
+        "contactType": "Personal Contact"
+      }
     }
     </script>
     <link rel="stylesheet" href="../assets/css/style.css">
@@ -116,6 +145,168 @@
         overflow: hidden;
     }
 
+    /* =========================
+    SLIDING DOOR EFFECT FOR BLOG PAGE
+    ========================= */
+    .sliding-door-wrapper {
+        position: relative;
+        overflow: hidden;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: #111; /* black behind doors for drama */
+        transition: background 0.3s ease-out 0.3s;
+    }
+
+    .sliding-door-wrapper.doors-open {
+        background: transparent;
+    }
+
+    .sliding-door-wrapper .blog-hero-content {
+        opacity: 0;
+        transition: opacity 0.3s ease-in 0.2s;
+        position: relative;
+        z-index: 1;
+    }
+
+    .sliding-door-wrapper.doors-open .blog-hero-content {
+        opacity: 1;
+    }
+
+    /* =========================
+    DOORS
+    ========================= */
+    .door-left,
+    .door-right {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #111;
+        z-index: 10;
+        transition: transform 2.5s cubic-bezier(0.95, 0.05, 0.4, 1);
+        will-change: transform;
+        pointer-events: none;
+    }
+
+    .door-left {
+        transform-origin: left center;
+        clip-path: polygon(
+            0 0,
+            90% 0,
+            50% 100%,
+            0 100%
+        );
+    }
+
+    .door-right {
+        transform-origin: right center;
+        clip-path: polygon(
+            50% 0,
+            100% 0,
+            100% 100%,
+            10% 100%
+        );
+    }
+
+    /* =========================
+    ANIMATION
+    ========================= */
+    .sliding-door-wrapper.doors-open .door-left {
+        transform: translateX(-100%);
+    }
+
+    .sliding-door-wrapper.doors-open .door-right {
+        transform: translateX(100%);
+    }
+
+    /* =========================
+    DIAGONAL HIGHLIGHT
+    ========================= */
+    .door-left::after,
+    .door-right::after {
+        content: '';
+        position: absolute;
+        top: -20.71%;
+        width: 3px;
+        height: 141.42%;
+        transform-origin: center;
+    }
+
+    .door-left::after {
+        left: calc(62% - 1.5px);
+        transform: rotate(20deg);
+        background: linear-gradient(
+            to bottom,
+            rgba(17,17,17,0.8) 0%,
+            rgba(17,17,17,0.6) 35%,
+            rgba(17,17,17,0.6) 65%,
+            rgba(17,17,17,0.8) 100%
+        );
+    }
+
+    .door-right::after {
+        left: calc(42% - 1.5px);
+        transform: rotate(-20deg);
+        background: linear-gradient(
+            to bottom,
+            rgba(17,17,17,0.8) 0%,
+            rgba(17,17,17,0.6) 35%,
+            rgba(17,17,17,0.6) 65%,
+            rgba(17,17,17,0.8) 100%
+        );
+    }
+
+    /* =========================
+    LOGO ON BLACK SCREEN
+    ========================= */
+    .door-logo {
+        position: absolute;
+        bottom: 5%;
+        right: 5%;
+        width: clamp(150px, 15vw, 150px);
+        height: auto;
+        z-index: 20 !important;
+        opacity: 1 !important;
+        pointer-events: none;
+        display: block !important;
+        visibility: visible !important;
+        filter: brightness(1);
+        background: transparent;
+        transform: translateX(0);
+        transition: transform 2.5s cubic-bezier(0.95, 0.05, 0.4, 1), 
+                    opacity 0.3s ease-out 2.2s;
+    }
+
+    .door-logo.logo-slide-away {
+        transform: translateX(150%);
+        opacity: 0;
+        transition: transform 2.5s cubic-bezier(0.95, 0.05, 0.4, 1),
+                    opacity 0.3s ease-out 2.2s,
+                    visibility 0s linear 2.8s;
+        visibility: hidden;
+    }
+
+    @media (max-width: 768px) {
+        .door-logo {
+            width: clamp(100px, 25vw, 180px);
+            bottom: 8%;
+            right: 8%;
+        }
+    }
+
+    .sliding-door-wrapper.doors-open .door-logo {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .blog-hero-content {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
     .hero-image {
         width: 100%;
         height: 100%;
@@ -123,7 +314,7 @@
         display: block;
     }
 
-    .blog-hero::before {
+    .blog-hero-content::before {
         content: '';
         position: absolute;
         top: 0;
@@ -738,15 +929,22 @@
     </nav>
 
     <div class="blog-hero">
-        <img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766799285/images/blog/ryan-walloh.webp" alt="Ryan Walloh - Blog Hero Image" class="hero-image" loading="eager" fetchpriority="high">
-        <div class="hero-content">
-            <p class="hero-subtitle1">WELCOME TO MY BLOG</p>
-            <h1 class="hero-title">We who pass,<br>write to remain.</h1>
-            <p class="hero-subtitle2">Here is a place where I share my writings about development and photography. Read, write & discuss with me.</p>
-            <div class="hero-subscribe">
-                <input type="email" id="hero-email" placeholder="Email" class="hero-email-input">
-                <button type="button" id="hero-subscribe-btn" class="hero-subscribe-btn">Subscribe</button>
+        <div class="sliding-door-wrapper">
+            <div class="blog-hero-content">
+                <img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766799285/images/blog/ryan-walloh.webp" alt="Ryan Walloh - Blog Hero Image" class="hero-image" loading="eager" fetchpriority="high">
+                <div class="hero-content">
+                    <p class="hero-subtitle1">WELCOME TO MY BLOG</p>
+                    <h1 class="hero-title">We who pass,<br>write to remain.</h1>
+                    <p class="hero-subtitle2">Here is a place where I share my writings about development and photography. Read, write & discuss with me.</p>
+                    <div class="hero-subscribe">
+                        <input type="email" id="hero-email" placeholder="Email" class="hero-email-input">
+                        <button type="button" id="hero-subscribe-btn" class="hero-subscribe-btn">Subscribe</button>
+                    </div>
+                </div>
             </div>
+            <div class="door-left"></div>
+            <div class="door-right"></div>
+            <img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766772750/logo/ryamazingwhite.png" alt="ryamazingw logo" id="blog-door-logo" class="door-logo" loading="eager" fetchpriority="high" style="display: block; opacity: 1; visibility: visible;" onerror="console.error('Logo failed to load'); this.style.border='3px solid red';" onload="console.log('Logo loaded successfully'); this.style.opacity='1'; this.style.visibility='visible';">
         </div>
     </div>
 
@@ -763,7 +961,7 @@
                     </section>
                 </div>
             <div class="blog-content">
-                <h1>First Blog!</h1>
+                <h3>First Blog!</h3>
                 <p class="blog-description" data-full-text="From Pixels to Purpose: A Lake City Developer's Journey to Building Something That Matters. Join me as I share my story of building purpose-driven tech for my community.">From Pixels to Purpose: A Lake City Developer's Journey to Building Something That Matters. Join me as I share my story of building purpose-driven tech for my community.</p>
                 <div class="blog-meta-chips">
                     <span class="blog-chip blog-chip--time" data-word-count="1071" data-article-path="articles/article1.html">10 min read</span>
@@ -788,7 +986,7 @@
                     </section>
                 </div>
                 <div class="blog-content">
-                    <h1>Cold</h1>
+                    <h3>Cold</h3>
                     <p id="blog-modal">Read More</p>
                 </div>
             </div>
@@ -804,7 +1002,7 @@
                     </section>
                 </div>
                 <div class="blog-content">
-                    <h1>Story Behind</h1>
+                    <h3>Story Behind</h3>
                     <a href="blog1.html">Read More</a>
                 </div>
             </div>
@@ -1025,6 +1223,144 @@
           const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
           return emailRegex.test(email);
       }
+
+    // Sliding Door Effect for Blog Page
+    document.addEventListener("DOMContentLoaded", () => {
+        const slidingDoorWrapper = document.querySelector(".sliding-door-wrapper");
+        if (!slidingDoorWrapper) return;
+        
+        const img = slidingDoorWrapper.querySelector(".hero-image");
+        if (!img) return;
+        
+        let imageLoaded = false;
+        let doorsOpened = false;
+        
+        // Function to verify image is fully loaded and rendered
+        const isImageReady = () => {
+            if (!img) return false;
+            const ready = img.complete && 
+                         img.naturalHeight !== 0 && 
+                         img.naturalWidth !== 0 &&
+                         img.offsetWidth > 0 &&
+                         img.offsetHeight > 0;
+            
+            if (ready) {
+                const canvas = document.createElement('canvas');
+                try {
+                    const ctx = canvas.getContext('2d');
+                    canvas.width = 1;
+                    canvas.height = 1;
+                    ctx.drawImage(img, 0, 0, 1, 1);
+                    const imageData = ctx.getImageData(0, 0, 1, 1);
+                    return imageData.data[3] > 0;
+                } catch (e) {
+                    return ready;
+                }
+            }
+            return false;
+        };
+        
+        // Function to open doors
+        const openDoors = () => {
+            if (doorsOpened) return;
+            
+            if (isImageReady() || imageLoaded) {
+                doorsOpened = true;
+                slidingDoorWrapper.classList.add("doors-open");
+                
+                // Trigger logo sliding animation
+                const doorLogo = slidingDoorWrapper.querySelector(".door-logo");
+                if (doorLogo) {
+                    doorLogo.classList.add("logo-slide-away");
+                    setTimeout(() => {
+                        doorLogo.style.visibility = "hidden";
+                        doorLogo.style.display = "none";
+                    }, 2800);
+                }
+            }
+        };
+        
+        // Function to wait for image to be fully ready
+        const waitForImageReady = () => {
+            if (!img) {
+                setTimeout(() => {
+                    imageLoaded = true;
+                    openDoors();
+                }, 500);
+                return;
+            }
+
+            // Check immediately first (for cached images)
+            if (isImageReady()) {
+                imageLoaded = true;
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        openDoors();
+                    });
+                });
+                return;
+            }
+            
+            // Image not ready, set up listeners
+            const handleImageLoad = () => {
+                imageLoaded = true;
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        if (isImageReady()) {
+                            openDoors();
+                        } else {
+                            setTimeout(() => {
+                                if (isImageReady()) {
+                                    openDoors();
+                                } else {
+                                    openDoors();
+                                }
+                            }, 100);
+                        }
+                    });
+                });
+            };
+            
+            img.addEventListener("load", handleImageLoad, { once: true });
+            img.addEventListener("error", () => {
+                setTimeout(() => {
+                    imageLoaded = true;
+                    openDoors();
+                }, 500);
+            }, { once: true });
+            
+            // Fallback: periodic check
+            let attempts = 0;
+            const maxAttempts = 50;
+            const checkInterval = setInterval(() => {
+                attempts++;
+                if (isImageReady()) {
+                    imageLoaded = true;
+                    clearInterval(checkInterval);
+                    openDoors();
+                } else if (attempts >= maxAttempts) {
+                    clearInterval(checkInterval);
+                    imageLoaded = true;
+                    openDoors();
+                }
+            }, 100);
+            
+            // Safety fallback
+            setTimeout(() => {
+                if (!doorsOpened) {
+                    imageLoaded = true;
+                    openDoors();
+                }
+            }, 3000);
+        };
+        
+        // Start waiting when page is fully loaded
+        if (document.readyState === 'complete') {
+            waitForImageReady();
+        } else {
+            window.addEventListener('load', waitForImageReady, { once: true });
+        }
+    });
   </script>
 </body>
 </html>
