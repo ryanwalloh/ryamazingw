@@ -315,6 +315,18 @@
         margin-top: 5rem;
     }
 
+    /* Lazy Loading Animation for Sections */
+    .fade-in-section {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in-section.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
     .about-me-container a {
         color: #0073e6;
         text-decoration: underline;
@@ -897,7 +909,7 @@
     </div>
     </div>
 
-    <div class="about-me-container">
+    <div class="about-me-container fade-in-section">
         <h1>ABOUT</h1>
         <p>
             Hi, Hooman, and Hello World! 🌍 I’m Ryan Walloh – a web designer and developer, and this is my humble personal website. It began as a simple photography portfolio, but I’m growing it into my main online presence, aiming to replace my social media with something uniquely my own.
@@ -911,7 +923,7 @@
           
     </div>
 
-    <div class="video-section">
+    <div class="video-section fade-in-section">
         <div class="video-intro">
             <p class="video-intro-text">A glimpse into the process—photographs and code, moments captured in motion:</p>
         </div>
@@ -1248,6 +1260,86 @@
             waitForImageReady();
         } else {
             window.addEventListener('load', waitForImageReady, { once: true });
+        }
+    });
+
+    // Lazy Loading for Sections with IntersectionObserver
+    document.addEventListener("DOMContentLoaded", function() {
+        const fadeInSections = document.querySelectorAll('.fade-in-section');
+        
+        if (fadeInSections.length === 0) return;
+
+        // Function to check if element is in viewport
+        const isInViewport = (element) => {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        };
+
+        // Function to check if element is near viewport (with threshold)
+        const isNearViewport = (element, threshold = 100) => {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top < window.innerHeight + threshold &&
+                rect.bottom > -threshold
+            );
+        };
+
+        // Function to show element
+        const showElement = (element) => {
+            element.classList.add('visible');
+        };
+
+        // Check if IntersectionObserver is supported
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        showElement(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null,
+                rootMargin: '50px',
+                threshold: 0.1
+            });
+
+            // Observe all fade-in sections
+            fadeInSections.forEach(section => {
+                // Check if already in viewport on initial load
+                if (isNearViewport(section, 50)) {
+                    // Use requestAnimationFrame to ensure DOM is ready
+                    requestAnimationFrame(() => {
+                        showElement(section);
+                    });
+                } else {
+                    observer.observe(section);
+                }
+            });
+        } else {
+            // Fallback for browsers without IntersectionObserver
+            const checkSections = () => {
+                fadeInSections.forEach(section => {
+                    if (isNearViewport(section, 100) && !section.classList.contains('visible')) {
+                        showElement(section);
+                    }
+                });
+            };
+
+            // Check on load
+            if (document.readyState === 'complete') {
+                checkSections();
+            } else {
+                window.addEventListener('load', checkSections);
+            }
+
+            // Check on scroll
+            window.addEventListener('scroll', checkSections, { passive: true });
         }
     });
         

@@ -50,7 +50,6 @@ body.nav-open {
 
 
 
-
 .headerPic {
     width: 95%;
     max-width: 100%;
@@ -135,6 +134,10 @@ body.nav-open {
 .box {
     cursor: pointer;
     transition: opacity 0.6s ease;
+    border: none;
+    padding: 0;
+    margin: 0;
+    background: transparent;
 
     filter: brightness(0) saturate(100%) invert(48%) sepia(5%) saturate(1974%) hue-rotate(53deg) brightness(60%) contrast(92%);
    
@@ -829,7 +832,7 @@ footer {
     align-items: center; 
     height: 100vh; 
     text-align: center; 
-    
+    position: relative;
 }
 
 .live-to-tell-stories h1 {
@@ -892,7 +895,11 @@ footer {
     }
     .right-page {
        width: 100vw;
-       height: 50vh;
+       min-height: 50vh;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       justify-content: flex-start;
         /* width: 50%;
         height: 50%; */
         /* border: 1px solid yellow; */
@@ -900,8 +907,16 @@ footer {
     }
 
     .right-page-container {
- 
-        margin-top: -60%;
+        position: relative;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        padding: 0;
+    }
+
+    .live-to-tell-stories {
+        height: auto;
+        min-height: auto;
+        padding: 1rem 20px;
     }
     
     .right-page .home-icons {

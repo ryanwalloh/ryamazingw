@@ -117,9 +117,72 @@
 
         #index-home-icons-container {
             display: flex;
-            position: absolute;
-            margin-top: 35%;
-            margin-right: 7.5%;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin-top: 2rem;
+            margin-bottom: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease-in 2.7s, visibility 0s linear 2.7s;
+        }
+
+        .sliding-door-wrapper.doors-open #index-home-icons-container {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.5s ease-in 2.7s, visibility 0s linear 0s;
+        }
+
+       
+        #index-home-icons {
+            display: flex !important;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            width: auto !important;
+            position: static !important;
+            margin: 0 !important;
+            opacity: 1 !important;
+            border: none;
+        }
+
+        #index-home-icons .box {
+            border: none !important;
+            padding: 0;
+            margin: 0;
+            background: transparent;
+        }
+
+        #index-home-icons img {
+            width: 1.2rem;
+            height: 1.2rem;
+        }
+
+        .live-to-tell-stories {
+            position: relative;
+        }
+
+        .live-to-tell-stories #index-home-icons-container {
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Desktop: Position icons at bottom of right-page */
+        @media (min-width: 769px) {
+            .live-to-tell-stories {
+                justify-content: center;
+                padding-bottom: 2rem;
+            }
+
+            .live-to-tell-stories #index-home-icons-container {
+                position: absolute;
+                bottom: 2rem;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100%;
+                margin-top: 0;
+                margin-bottom: 0;
+            }
         }
 
         .content-wrapper {
@@ -140,9 +203,53 @@
                 --index-safe-space: 24px;
             }
 
-            #index-home-icons{
-                transform: translate(-56%, 300%);
-                width: 30vw;
+            .content-wrapper {
+                overflow: visible;
+            }
+
+            #index-home-icons-container {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                margin-top: 0;
+                margin-bottom: 0;
+                padding: 1rem 0;
+                padding-left: max(1rem, env(safe-area-inset-left, 0px));
+                padding-right: max(1rem, env(safe-area-inset-right, 0px));
+                padding-bottom: max(1rem, calc(1rem + env(safe-area-inset-bottom, 0px)));
+                z-index: 100;
+                background: transparent;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.5s ease-in 2s, visibility 0s linear 2.7s;
+            }
+
+            .sliding-door-wrapper.doors-open #index-home-icons-container {
+                opacity: 1;
+                visibility: visible;
+                transition: opacity 0.5s ease-in 2.7s, visibility 0s linear 0s;
+            }
+
+            #index-home-icons {
+                display: flex !important;
+                gap: 0.5rem;
+                justify-content: center;
+                width: auto !important;
+                position: static !important;
+                margin: 0 !important;
+                opacity: 1 !important;
+            }
+
+            #index-home-icons img {
+                width: 16px;
+                height: 16px;
+            }
+
+            #index-home-icons .box {
+                border: none;
+                padding: 0;
+                margin: 0;
             }
         }
 
@@ -156,6 +263,12 @@
             @supports (padding-bottom: env(safe-area-inset-bottom)) {
                 :root {
                     --index-safe-space: calc(env(safe-area-inset-bottom) + 24px);
+                }
+
+                #index-home-icons-container {
+                    padding-left: max(1rem, env(safe-area-inset-left));
+                    padding-right: max(1rem, env(safe-area-inset-right));
+                    padding-bottom: max(1rem, calc(1rem + env(safe-area-inset-bottom)));
                 }
             }
         }
@@ -210,12 +323,13 @@
             #door-logo {
                 width: clamp(250px, 35vw, 380px);
                 bottom: 20%;
+         
             }
         }
 
         .door-logo {
             position: fixed;
-            bottom: 10%;
+         
             right: 5%;
             width: clamp(450px, 30vw, 550px);
             height: auto;
@@ -382,7 +496,34 @@
             }
             
             #index-logo {
-                width: clamp(200px, 35vw, 300px);
+                width: clamp(180px, 40vw, 280px);
+                padding-top: 35%;
+            }
+
+            .right-page-container {
+                position: relative;
+                margin-top: 0;
+                margin-bottom: 1rem;
+                padding: 0;
+            }
+
+            .live-to-tell-stories {
+                padding: 10px;
+                flex-direction: column;
+            }
+
+            .live-to-tell-stories h1 {
+                font-size: clamp(1.5rem, 6vw, 2rem);
+                margin-top: 0;
+            }
+
+            .live-to-tell-stories h2 {
+                font-size: clamp(0.75rem, 3vw, 1rem);
+            }
+
+            .live-to-tell-stories a {
+                font-size: clamp(0.7rem, 3vw, 0.85rem);
+                padding: 8px 16px;
             }
         }
 
@@ -420,24 +561,23 @@
             <div class="right-page">
                 <div class="right-page-container">
                     <div class="index-logo">
-                        <img id="index-logo" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766772751/logo/ryamazingwblack.png" alt="ryamazingw logo">
+                        <img id="index-logo" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1767103808/ryamazingwoff_xyxksa.png" alt="ryamazingw logo">
                     </div>
                 </div>
                 <section class="live-to-tell-stories">
                     <h1>LIVE TO TELL STORIES</h1>
                     <h2>VISUAL STORY TELLER</h2>
                     <a href="pages/home.html">VIEW COLLECTIONS</a>
-                </section>
-
-                <div id="index-home-icons-container">
-                    <div id="index-home-icons" class="home-icons">
-                        <a id="facebook" class="box" href="https://www.facebook.com/mohammadryan.walloh/" target="_blank" aria-label="Follow Ryan Walloh on Facebook"><img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766759304/icons/images/icons/icon1.png" alt="Facebook icon"></a>
-                        <a id="instagram" class="box" href="https://www.instagram.com/ryamazingw/" target="_blank" aria-label="Follow Ryan Walloh on Instagram"><img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766759306/icons/images/icons/icon3.png" alt="Instagram icon"></a>
-                        <a id="twitter" class="box" href="https://twitter.com/pursuitofakhira" target="_blank" aria-label="Follow Ryan Walloh on Twitter"><img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766759305/icons/images/icons/icon2.png" alt="Twitter icon"></a>
-                        <a id="linkedin" class="box" href="https://www.linkedin.com/in/ryanwalloh/?originalSubdomain=ph" target="_blank" aria-label="Connect with Ryan Walloh on LinkedIn"><img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766759308/icons/images/icons/icon4.png" alt="LinkedIn icon"></a>
-                        <a id="github" class="box" href="https://github.com/ryanwalloh" target="_blank" aria-label="View Ryan Walloh on GitHub"><img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766759309/icons/images/icons/icon5.png" alt="GitHub icon"></a>
+                    <div id="index-home-icons-container">
+                        <div id="index-home-icons" class="home-icons">
+                            <a id="facebook" class="box" href="https://www.facebook.com/mohammadryan.walloh/" target="_blank" aria-label="Follow Ryan Walloh on Facebook"><img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766759304/icons/images/icons/icon1.png" alt="Facebook icon"></a>
+                            <a id="instagram" class="box" href="https://www.instagram.com/ryamazingw/" target="_blank" aria-label="Follow Ryan Walloh on Instagram"><img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766759306/icons/images/icons/icon3.png" alt="Instagram icon"></a>
+                            <a id="twitter" class="box" href="https://twitter.com/pursuitofakhira" target="_blank" aria-label="Follow Ryan Walloh on Twitter"><img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766759305/icons/images/icons/icon2.png" alt="Twitter icon"></a>
+                            <a id="linkedin" class="box" href="https://www.linkedin.com/in/ryanwalloh/?originalSubdomain=ph" target="_blank" aria-label="Connect with Ryan Walloh on LinkedIn"><img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766759308/icons/images/icons/icon4.png" alt="LinkedIn icon"></a>
+                            <a id="github" class="box" href="https://github.com/ryanwalloh" target="_blank" aria-label="View Ryan Walloh on GitHub"><img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766759309/icons/images/icons/icon5.png" alt="GitHub icon"></a>
+                        </div>
                     </div>
-            </div>
+                </section>
             </div>
             <div class="door-left"></div>
             <div class="door-right"></div>
