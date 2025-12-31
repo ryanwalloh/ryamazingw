@@ -43,6 +43,40 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+    <!-- Redirect search engine visitors to index.html while preserving internal navigation -->
+    <script>
+        (function() {
+            // List of search engine domains to detect
+            const searchEngines = [
+                'google.com',
+                'bing.com',
+                'yahoo.com',
+                'duckduckgo.com',
+                'yandex.com',
+                'baidu.com',
+                'ask.com',
+                'ecosia.org'
+            ];
+            
+            // Get referrer
+            const referrer = document.referrer.toLowerCase();
+            const currentHost = window.location.hostname.toLowerCase();
+            
+            // Check if referrer is from a search engine
+            const isFromSearchEngine = searchEngines.some(engine => referrer.includes(engine));
+            
+            // Check if referrer is from our own domain (internal navigation)
+            const isInternalNavigation = referrer.includes(currentHost) || referrer === '';
+            
+            // Only redirect if coming from a search engine (not internal navigation)
+            if (isFromSearchEngine && !isInternalNavigation) {
+                // Redirect to index.html
+                window.location.replace('../index.html');
+            }
+        })();
+    </script>
+    
     <script src="../assets/js/script.js" defer></script>
 
     <!-- Structured Data (JSON-LD) for SEO -->
