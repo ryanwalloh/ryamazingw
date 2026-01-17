@@ -896,6 +896,251 @@
     
       }
 
+    /* Blog Card Skeleton Loader Styles - Matching Gallery Shimmer */
+    .blog-card.skeleton {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .blog-card.skeleton::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(90deg, #e8e8e8 0%, #f0f0f0 50%, #e8e8e8 100%);
+        background-size: 200% 100%;
+        animation: shimmer 2s ease-in-out infinite;
+        z-index: 1;
+        pointer-events: none;
+    }
+
+    .blog-card.skeleton::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+            90deg,
+            transparent 0%,
+            transparent 40%,
+            rgba(255, 255, 255, 0.9) 50%,
+            transparent 60%,
+            transparent 100%
+        );
+        background-size: 200% 100%;
+        animation: shimmer 2s ease-in-out infinite;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    /* Skeleton elements - hidden by default, positioned absolutely when skeleton is active */
+    .skeleton-header {
+        display: none;
+        background: #e0e0e0;
+        overflow: hidden;
+    }
+
+    .skeleton-author {
+        display: none;
+        flex-direction: row;
+        padding: 15px 20px;
+        background-color: #EDEADE;
+    }
+
+    .skeleton-author-profile {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: #e0e0e0;
+        flex-shrink: 0;
+    }
+
+    .skeleton-author-section {
+        padding-left: 15px;
+        padding-top: 5px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .skeleton-author-name {
+        height: 16px;
+        width: 120px;
+        background: #e0e0e0;
+        border-radius: 4px;
+    }
+
+    .skeleton-author-date {
+        height: 12px;
+        width: 90px;
+        background: #e0e0e0;
+        border-radius: 4px;
+    }
+
+    .skeleton-blog-content {
+        display: none;
+        flex-direction: column;
+        padding: 15px 20px 20px;
+        gap: 15px;
+    }
+
+    /* Skeleton title (1-2 thick lines) */
+    .skeleton-title {
+        height: 24px;
+        width: 85%;
+        background: #e0e0e0;
+        border-radius: 4px;
+    }
+
+    .skeleton-title-short {
+        height: 24px;
+        width: 60%;
+        background: #e0e0e0;
+        border-radius: 4px;
+    }
+
+    /* Skeleton excerpt (2-3 medium-width lines) */
+    .skeleton-excerpt {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 5px;
+    }
+
+    .skeleton-excerpt-line {
+        height: 14px;
+        background: #e0e0e0;
+        border-radius: 4px;
+    }
+
+    .skeleton-excerpt-line:nth-child(1) {
+        width: 100%;
+    }
+
+    .skeleton-excerpt-line:nth-child(2) {
+        width: 95%;
+    }
+
+    .skeleton-excerpt-line:nth-child(3) {
+        width: 75%;
+    }
+
+    /* Shimmer animation - same as gallery */
+    @keyframes shimmer {
+        0% {
+            background-position: -200% 0;
+        }
+        100% {
+            background-position: 200% 0;
+        }
+    }
+
+    /* Initially hide real content visually but keep in layout */
+    .blog-card.skeleton .card-header,
+    .blog-card.skeleton .author,
+    .blog-card.skeleton .blog-content {
+        opacity: 0;
+        visibility: hidden;
+        /* Keep in normal flow - do NOT change position, width, or height */
+    }
+
+    /* Skeleton elements overlay on top of real content - match exact dimensions */
+    .blog-card.skeleton .skeleton-header {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        /* Height matches .card-header exactly - 250px default, responsive below */
+        height: 250px;
+        z-index: 10;
+    }
+
+    .blog-card.skeleton .skeleton-author {
+        display: flex;
+        position: absolute;
+        /* Top position matches card-header height exactly */
+        top: 250px;
+        left: 0;
+        width: 100%;
+        /* Height auto - matches author content */
+        z-index: 10;
+    }
+
+    .blog-card.skeleton .skeleton-blog-content {
+        display: flex;
+        position: absolute;
+        /* Positioned after header + author */
+        top: calc(250px + 80px); /* Approximate: 250px header + ~80px author */
+        left: 0;
+        width: 100%;
+        /* Height auto - fills remaining space */
+        z-index: 10;
+    }
+
+    /* Hide skeleton when card is loaded */
+    .blog-card.loaded.skeleton::before,
+    .blog-card.loaded.skeleton::after {
+        display: none;
+    }
+
+    .blog-card.loaded .skeleton-header,
+    .blog-card.loaded .skeleton-author,
+    .blog-card.loaded .skeleton-author-profile,
+    .blog-card.loaded .skeleton-author-section,
+    .blog-card.loaded .skeleton-author-name,
+    .blog-card.loaded .skeleton-author-date,
+    .blog-card.loaded .skeleton-blog-content,
+    .blog-card.loaded .skeleton-title,
+    .blog-card.loaded .skeleton-title-short,
+    .blog-card.loaded .skeleton-excerpt,
+    .blog-card.loaded .skeleton-excerpt-line {
+        display: none;
+    }
+
+    /* Show real content when loaded - restore normal visibility */
+    .blog-card.loaded .card-header,
+    .blog-card.loaded .author,
+    .blog-card.loaded .blog-content {
+        opacity: 1;
+        visibility: visible;
+        transition: opacity 0.4s ease-in;
+    }
+
+    /* Mobile adjustments for skeleton - match responsive header heights */
+    @media (max-width: 1024px) {
+        .blog-card.skeleton .skeleton-header {
+            height: 200px;
+        }
+        .blog-card.skeleton .skeleton-author {
+            top: 200px;
+        }
+        .blog-card.skeleton .skeleton-blog-content {
+            top: calc(200px + 80px);
+        }
+    }
+
+    @media (max-width: 768px) {
+        .blog-card.skeleton .skeleton-header {
+            height: 180px;
+        }
+        .blog-card.skeleton .skeleton-author {
+            top: 180px;
+            padding: 12px 15px;
+        }
+        .blog-card.skeleton .skeleton-blog-content {
+            top: calc(180px + 76px); /* 180px header + approximate author height */
+            padding: 12px 15px 15px;
+        }
+    }
+
+    /* Skeleton does NOT modify blog card dimensions - it inherits from real content */
+
         
 
        
@@ -951,7 +1196,25 @@
     <div class="featured-blogs-section">
         <h2 class="featured-blogs-title">Featured Blogs</h2>
         <div class="blog-card-container">
-            <div class="blog-card" onclick="goToFirstBlog()">
+            <div class="blog-card skeleton" onclick="goToFirstBlog()">
+                <!-- Skeleton elements -->
+                <div class="skeleton-header"></div>
+                <div class="skeleton-author">
+                    <div class="skeleton-author-profile"></div>
+                    <div class="skeleton-author-section">
+                        <div class="skeleton-author-name"></div>
+                        <div class="skeleton-author-date"></div>
+                    </div>
+                </div>
+                <div class="skeleton-blog-content">
+                    <div class="skeleton-title"></div>
+                    <div class="skeleton-excerpt">
+                        <div class="skeleton-excerpt-line"></div>
+                        <div class="skeleton-excerpt-line"></div>
+                        <div class="skeleton-excerpt-line"></div>
+                    </div>
+                </div>
+                <!-- Real content -->
                 <img class="card-header" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766799293/images/about/ryan-walloh.webp" alt="Ryan Walloh - First Blog Post" loading="lazy">
                 <div class="author">
                     <img class="author-profile" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766799292/images/about/profile.webp" alt="Ryan Walloh profile picture" onclick="about()" loading="lazy">
@@ -975,8 +1238,24 @@
             </div>
             </div>
 
-            <div class="blog-card publishing-soon">
+            <div class="blog-card publishing-soon skeleton">
                 <div class="publishing-badge">Publishing Soon</div>
+                <!-- Skeleton elements -->
+                <div class="skeleton-header"></div>
+                <div class="skeleton-author">
+                    <div class="skeleton-author-profile"></div>
+                    <div class="skeleton-author-section">
+                        <div class="skeleton-author-name"></div>
+                        <div class="skeleton-author-date"></div>
+                    </div>
+                </div>
+                <div class="skeleton-blog-content">
+                    <div class="skeleton-title-short"></div>
+                    <div class="skeleton-excerpt">
+                        <div class="skeleton-excerpt-line"></div>
+                    </div>
+                </div>
+                <!-- Real content -->
                 <img class="card-header" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766799289/images/blog/dawn.webp" alt="Dawn - Photography by Ryan Walloh" loading="lazy">
                 <div class="author">
                     <img class="author-profile" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766799292/images/about/profile.webp" alt="Ryan Walloh profile picture" onclick="about()" loading="lazy">
@@ -991,8 +1270,24 @@
                 </div>
             </div>
 
-            <div class="blog-card publishing-soon">
+            <div class="blog-card publishing-soon skeleton">
                 <div class="publishing-badge">Publishing Soon</div>
+                <!-- Skeleton elements -->
+                <div class="skeleton-header"></div>
+                <div class="skeleton-author">
+                    <div class="skeleton-author-profile"></div>
+                    <div class="skeleton-author-section">
+                        <div class="skeleton-author-name"></div>
+                        <div class="skeleton-author-date"></div>
+                    </div>
+                </div>
+                <div class="skeleton-blog-content">
+                    <div class="skeleton-title-short"></div>
+                    <div class="skeleton-excerpt">
+                        <div class="skeleton-excerpt-line"></div>
+                    </div>
+                </div>
+                <!-- Real content -->
                 <img class="card-header" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766799290/images/blog/dariday.webp" alt="Dariday - Photography by Ryan Walloh" loading="lazy"> 
                 <div class="author">
                     <img class="author-profile" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766799292/images/about/profile.webp" alt="Ryan Walloh profile picture" onclick="about()" loading="lazy">
@@ -1163,6 +1458,85 @@
                   }, 500);
               }, 100);
           }
+          
+          // Blog Card Skeleton Loader - Remove skeleton when card images load
+          (function() {
+              function initBlogCardSkeletons() {
+                  const blogCards = document.querySelectorAll('.blog-card.skeleton');
+                  
+                  if (blogCards.length === 0) return;
+                  
+                  blogCards.forEach(function(card) {
+                      const cardHeaderImg = card.querySelector('.card-header');
+                      const authorProfileImg = card.querySelector('.author-profile');
+                      
+                      // Function to mark card as loaded
+                      function markCardLoaded() {
+                          if (card.classList.contains('skeleton') && !card.classList.contains('loaded')) {
+                              card.classList.remove('skeleton');
+                              card.classList.add('loaded');
+                          }
+                      }
+                      
+                      // Check if images are already loaded (cached or loaded before JS runs)
+                      let imagesLoaded = 0;
+                      const totalImages = (cardHeaderImg ? 1 : 0) + (authorProfileImg ? 1 : 0);
+                      
+                      // If no images, mark as loaded immediately
+                      if (totalImages === 0) {
+                          markCardLoaded();
+                          return;
+                      }
+                      
+                      function checkAllImagesLoaded() {
+                          imagesLoaded++;
+                          if (imagesLoaded >= totalImages) {
+                              // Use requestAnimationFrame for smooth transition
+                              requestAnimationFrame(function() {
+                                  markCardLoaded();
+                              });
+                          }
+                      }
+                      
+                      // Check images immediately (might already be loaded or cached)
+                      if (cardHeaderImg) {
+                          // Check if image is already loaded
+                          if (cardHeaderImg.complete && cardHeaderImg.naturalHeight !== 0) {
+                              checkAllImagesLoaded();
+                          } else {
+                              // Listen for load/error events
+                              cardHeaderImg.addEventListener('load', checkAllImagesLoaded, { once: true });
+                              cardHeaderImg.addEventListener('error', checkAllImagesLoaded, { once: true });
+                          }
+                      }
+                      
+                      if (authorProfileImg) {
+                          if (authorProfileImg.complete && authorProfileImg.naturalHeight !== 0) {
+                              checkAllImagesLoaded();
+                          } else {
+                              authorProfileImg.addEventListener('load', checkAllImagesLoaded, { once: true });
+                              authorProfileImg.addEventListener('error', checkAllImagesLoaded, { once: true });
+                          }
+                      }
+                      
+                      // Critical fallback: mark as loaded after 1 second
+                      // This ensures skeleton never blocks content indefinitely
+                      setTimeout(function() {
+                          if (card.classList.contains('skeleton')) {
+                              markCardLoaded();
+                          }
+                      }, 1000);
+                  });
+              }
+              
+              // Run immediately if DOM is already loaded
+              if (document.readyState === 'loading') {
+                  document.addEventListener('DOMContentLoaded', initBlogCardSkeletons);
+              } else {
+                  // DOM already loaded, run immediately
+                  initBlogCardSkeletons();
+              }
+          })();
           
           subscribeBtn.addEventListener('click', function() {
               const email = emailInput.value.trim();
