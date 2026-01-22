@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="dns-prefetch" href="https://res.cloudinary.com">
+    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin>
+    <meta name="description" content="Photo gallery featuring stunning visual stories. Explore a collection of photography showcasing diverse moments and perspectives through a beautiful justified grid layout.">
+    <meta name="author" content="Ryan Walloh">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ryanwalloh.github.io/ryamazingw/pages/gallery-phone3a.html">
+    <meta property="og:title" content="Shots on Nothing Phone 3a — Gallery — ryamazingw™">
+    <meta property="og:description" content="Photo gallery featuring stunning visual stories. Explore a collection of photography showcasing diverse moments and perspectives.">
+    <meta property="og:image" content="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766976133/OG-Image_sagzam.png">
+    <meta property="og:site_name" content="ryamazingw">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://ryanwalloh.github.io/ryamazingw/pages/gallery-phone3a.html">
+    <meta name="twitter:title" content="Shots on Nothing Phone 3a — Gallery — ryamazingw™">
+    <meta name="twitter:description" content="Photo gallery featuring stunning visual stories. Explore a collection of photography showcasing diverse moments and perspectives.">
+    <meta name="twitter:image" content="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766976133/OG-Image_sagzam.png">
+    <meta name="twitter:creator" content="@pursuitofakhira">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://ryanwalloh.github.io/ryamazingw/pages/gallery-phone3a.html">
+    
+    <title>Shots on Nothing Phone 3a — Gallery — ryamazingw™</title>
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766970953/w_txtp4f.png">
+    
+    <!-- Fancybox CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
+    
+    <!-- Site Styles -->
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+    
+    <!-- Structured Data (JSON-LD) for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ImageGallery",
+      "name": "Shots on Nothing Phone 3a — Photo Gallery — ryamazingw",
+      "description": "Photo gallery featuring stunning visual stories and photography collections",
+      "url": "https://ryanwalloh.github.io/ryamazingw/pages/gallery-phone3a.html",
+      "author": {
+        "@type": "Person",
+        "name": "Ryan Walloh",
+        "alternateName": "ryamazingw"
+      }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Ryan Walloh",
+      "alternateName": "ryamazingw",
+      "url": "https://ryanwalloh.github.io/ryamazingw",
+      "sameAs": [
+        "https://www.instagram.com/ryamazingw",
+        "https://twitter.com/pursuitofakhira",
+        "https://github.com/ryanwalloh",
+        "https://www.linkedin.com/in/ryanwalloh"
+      ],
+      "jobTitle": "Developer and Photographer"
+    }
+    </script>
+
+    <style>
+        /* Justified Gallery Layout - Adapted from Astro Photo Grid */
+        .justified-gallery {
+            --padding: max(2.5vw, 12px);
+            --space: 12px; /* Thin gap for frame-like appearance */
+            --min-height: clamp(200px, 20vw, 400px);
+
+            padding: var(--padding);
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space);
+            width: 100%;
+            margin: 0 auto;
+            background-color: #fff; /* White background to show frame gaps */
+        }
+
+        .justified-gallery a {
+            flex-grow: calc(var(--width) * (100000 / var(--height)));
+            flex-basis: calc(var(--min-height) * (var(--width) / var(--height)));
+            aspect-ratio: var(--width) / var(--height);
+            overflow: hidden;
+            opacity: 1;
+            transition: all 0.05s ease-in-out;
+            display: block;
+            will-change: transform;
+            transform: translateZ(0); /* Enable hardware acceleration */
+        }
+
+        .justified-gallery a img {
+            display: block;
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        /* Loading states */
+        .justified-gallery a.lazy-load {
+            background-color: #f0f0f0;
+            position: relative;
+        }
+
+        .justified-gallery a.lazy-load::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #f0f0f0 0%, #e0e0e0 50%, #f0f0f0 100%);
+            background-size: 200% 100%;
+            animation: loading 1.5s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .justified-gallery a.lazy-load img {
+            opacity: 0;
+        }
+
+        .justified-gallery a.loaded img {
+            opacity: 1;
+        }
+
+        @keyframes loading {
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        .justified-gallery a:focus-visible {
+            outline: 3px solid #2A5649;
+            outline-offset: 2px;
+            transform: scale(1.05);
+            z-index: 1;
+            border-radius: 2px;
+            box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .justified-gallery a.hidden {
+            transition: opacity 0.4s ease-in-out;
+            opacity: 0;
+        }
+
+        .justified-gallery::after {
+            content: " ";
+            flex-grow: 1000000000;
+        }
+
+        /* Gallery Page Specific Styles */
+        .gallery-page-container {
+            min-height: 100vh;
+            padding-top: 0.5rem;
+        }
+
+        /* Loading state */
+        .justified-gallery.loading a {
+            opacity: 0.5;
+        }
+
+        /* Hide captions and info to match astro-photo-grid minimalist style */
+        .fancybox__caption {
+            display: none !important;
+        }
+
+        .fancybox__infobar {
+            display: none !important;
+        }
+
+        /* Allow images to touch top edge and extend fully */
+        .fancybox__container {
+            padding-top: 0 !important;
+        }
+
+        .fancybox__content {
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+            margin-bottom: 2px;
+        }
+
+        .fancybox__slide {
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+            margin-bottom: 2px;
+        }
+
+        .fancybox__image {
+            margin-top: 0 !important;
+            padding-top: 0 !important;
+            margin-bottom: 2px;
+            max-height: calc(100vh - 60px) !important; /* Allow space for footer */
+        }
+
+        .fancybox__footer {
+            margin-top: 2px;
+            padding-top: 2px;
+            position: relative;
+        }
+
+        .fancybox__toolbar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 16px;
+        }
+
+        .fancybox__toolbar__items--right {
+            display: flex;
+        }
+
+        /* Hide any other buttons that might appear */
+        .fancybox__toolbar__items--left,
+        .fancybox__toolbar__items--middle {
+            display: none !important;
+        }
+
+        /* Increase transparency of backdrop/overlay */
+        .fancybox__backdrop {
+            background-color: rgba(255, 255, 255, 0.96) !important;
+        }
+
+        /* Target parent containers to ensure circular shape */
+        .fancybox__toolbar__items--right,
+        .fancybox__toolbar__items,
+        .fancybox__toolbar {
+            overflow: visible !important;
+        }
+
+        /* Circular wrapper for close button */
+        .fancybox-close-wrapper {
+            width: 44px !important;
+            height: 44px !important;
+            border-radius: 50% !important;
+            background-color: rgba(200, 200, 200, 0.5) !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            overflow: hidden !important;
+            box-sizing: border-box !important;
+            transition: background-color 0.2s ease !important;
+            flex-shrink: 0 !important;
+        }
+
+        .fancybox-close-wrapper:hover {
+            background-color: rgba(220, 220, 220, 0.7) !important;
+        }
+
+        .fancybox-close-wrapper .fancybox__button--close {
+            background-color: transparent !important;
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        /* Make close button circular with transparent grey background */
+        /* Target the button and all possible parent wrappers */
+        .fancybox__button--close,
+        button.fancybox__button--close,
+        .fancybox__toolbar .fancybox__button--close,
+        .fancybox__toolbar__items--right .fancybox__button--close,
+        .fancybox__toolbar__items .fancybox__button--close,
+        [data-fancybox-close],
+        button[data-fancybox-close] {
+            border-radius: 50% !important;
+            width: 44px !important;
+            height: 44px !important;
+            min-width: 44px !important;
+            min-height: 44px !important;
+            max-width: 44px !important;
+            max-height: 44px !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            background-color: rgba(24, 24, 24, 0.5) !important;
+            border: none !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            box-sizing: border-box !important;
+            transition: background-color 0.2s ease !important;
+            position: relative !important;
+            overflow: hidden !important;
+            flex-shrink: 0 !important;
+            clip-path: circle(50%) !important;
+            -webkit-clip-path: circle(50%) !important;
+        }
+
+        /* Ensure parent containers don't interfere */
+        .fancybox__toolbar__items--right > *,
+        .fancybox__toolbar__items > * {
+            border-radius: inherit !important;
+        }
+
+        /* Use pseudo-element to create circular wrapper background */
+        .fancybox__button--close::before,
+        button.fancybox__button--close::before,
+        .fancybox__toolbar .fancybox__button--close::before,
+        .fancybox__toolbar__items--right .fancybox__button--close::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            border-radius: 50% !important;
+            background-color: rgba(200, 200, 200, 0.5) !important;
+            z-index: -1 !important;
+            transition: background-color 0.2s ease !important;
+        }
+
+        .fancybox__button--close:hover,
+        button.fancybox__button--close:hover,
+        .fancybox__toolbar .fancybox__button--close:hover,
+        .fancybox__toolbar__items--right .fancybox__button--close:hover,
+        .fancybox__toolbar__items .fancybox__button--close:hover,
+        [data-fancybox-close]:hover,
+        button[data-fancybox-close]:hover {
+            background-color: rgba(235, 0, 0, 0.7) !important;
+            border-radius: 50% !important;
+            transform: none !important;
+        }
+
+        .fancybox__button--close:hover::before,
+        button.fancybox__button--close:hover::before,
+        .fancybox__toolbar .fancybox__button--close:hover::before,
+        .fancybox__toolbar__items--right .fancybox__button--close:hover::before {
+            background-color: rgba(220, 220, 220, 0.7) !important;
+        }
+
+        .fancybox__button--close:active,
+        button.fancybox__button--close:active,
+        .fancybox__toolbar .fancybox__button--close:active,
+        .fancybox__toolbar__items--right .fancybox__button--close:active {
+            background-color: rgba(148, 148, 148, 0.8) !important;
+            border-radius: 50% !important;
+        }
+
+        .fancybox__button--close:focus,
+        button.fancybox__button--close:focus,
+        .fancybox__toolbar .fancybox__button--close:focus,
+        .fancybox__toolbar__items--right .fancybox__button--close:focus {
+            border-radius: 50% !important;
+            outline: none !important;
+        }
+
+        .fancybox__button--close:focus-visible,
+        button.fancybox__button--close:focus-visible,
+        .fancybox__toolbar .fancybox__button--close:focus-visible,
+        .fancybox__toolbar__items--right .fancybox__button--close:focus-visible {
+            border-radius: 50% !important;
+            outline: 2px solid rgba(255, 255, 255, 0.5) !important;
+            outline-offset: 2px !important;
+        }
+
+        .fancybox__button--close svg,
+        button.fancybox__button--close svg,
+        .fancybox__toolbar .fancybox__button--close svg,
+        .fancybox__toolbar__items--right .fancybox__button--close svg {
+            width: 24px !important;
+            height: 24px !important;
+            margin: 0 !important;
+            display: block !important;
+            flex-shrink: 0 !important;
+        }
+
+        /* Override any Fancybox CSS custom properties that might interfere */
+        .fancybox__container {
+            --f-button-width: 44px !important;
+            --f-button-height: 44px !important;
+            --f-button-border-radius: 50% !important;
+        }
+
+        /* Thumbnail/Preview images styling */
+        .fancybox__thumbs .fancybox__thumb,
+        .fancybox__thumbs img,
+        .fancybox__nav .fancybox__thumb,
+        .fancybox__carousel .fancybox__thumb {
+            border-radius: 8px !important;
+        }
+
+        .fancybox__thumbs .fancybox__thumb img,
+        .fancybox__nav .fancybox__thumb img {
+            border-radius: 8px !important;
+        }
+
+        .fancybox__thumbs .fancybox__thumb {
+            overflow: hidden !important;
+        }
+
+        /* Mobile-specific: Images touch top, extend fully */
+        @media (max-width: 768px) {
+            .fancybox__container {
+                padding-top: 0 !important;
+            }
+
+            .fancybox__content {
+                margin-top: 0 !important;
+                padding-top: 0 !important;
+                margin-bottom: 2px !important;
+            }
+
+            .fancybox__slide {
+                margin-top: 0 !important;
+                padding-top: 0 !important;
+                margin-bottom: 2px !important;
+            }
+
+            .fancybox__image {
+                margin-top: 0 !important;
+                padding-top: 0 !important;
+                margin-bottom: 2px !important;
+                max-height: calc(100vh - 60px) !important; /* Allow space for footer */
+            }
+
+            .fancybox__footer {
+                margin-top: 2px !important;
+                padding-top: 2px !important;
+            }
+
+            /* Thumbnail border radius for mobile */
+            .fancybox__thumbs .fancybox__thumb,
+            .fancybox__thumbs img,
+            .fancybox__nav .fancybox__thumb,
+            .fancybox__carousel .fancybox__thumb {
+                border-radius: 8px !important;
+            }
+        }
+
+        /* Footer Styles */
+        .subscription-footer {
+            display: flex;
+            margin-top: 10rem;
+        }
+
+        #subscription-footer a {
+            font-weight: lighter;
+            text-decoration: none;
+            color: rgb(158, 150, 150);
+            font-size: 1rem;
+        }
+
+        .sm-icon {
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+
+        .quick-links {
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+
+        .footer-sm-icon-image {
+            display: flex;
+            gap: 1rem;
+            transform: translate(-10%);
+        }
+
+        .copy-right {
+            font-size: .5rem;
+        }
+
+        #mobile-linkedin {
+            filter: invert(1);
+        }
+
+        #git {
+            filter: invert(1);
+        }
+
+        @media (max-width: 768px) {
+            .subscription-footer {
+                display: flex;
+                margin-top: 1rem;
+            }
+
+            .footer-sm-icon-image {
+                margin-left: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-content-container">
+        <nav class="navbar">
+            <div class="index-logo">
+                <img onclick="ryamazingw()" id="index-logo2" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1767103808/ryamazingwoff_xyxksa.png" alt="ryamazingw logo">  
+            </div>
+
+            <input type="checkbox" id="menu-toggle">
+            <label for="menu-toggle" class="hamburger" aria-label="Toggle navigation" aria-controls="nav-links">
+                <span></span>
+                <span></span>
+            </label>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="newsletter.html">Newsletter</a></li>
+                <li><a href="gallery.html" class="active">Gallery</a></li>
+                <div id="sm-logo-links" class="home-icons">
+                    <a id="email" class="box" href="mailto:mohammadryanmwalloh@gmail.com" target="_blank" aria-label="Email Ryan Walloh"><img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735026/icons/images/icons/email.png" alt="Email icon"></a>
+                    <a id="instagram" class="box" href="https://www.instagram.com/ryamazingw/" target="_blank" aria-label="Follow Ryan Walloh on Instagram"><img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735026/icons/images/icons/instagram.png" alt="Instagram icon"></a>
+                    <a id="twitter" class="box" href="https://twitter.com/pursuitofakhira" target="_blank" aria-label="Follow Ryan Walloh on Twitter"><img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735027/icons/images/icons/twitter.png" alt="Twitter icon"></a>
+                </div>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="gallery-page-container">
+        <section class="justified-gallery" id="gallery">
+            <!-- Images will be dynamically inserted here by JavaScript -->
+        </section>
+    </div>
+
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        ↑ Top
+    </button>
+
+    <footer id="subscription-footer" class="subscription-footer">
+        <div class="footer-container">
+            <p class="cwf">ryamazingw</p>
+            <div class="quick-links">
+                <p>QUICK LINKS</p>
+                <a href="home.html">Home</a>
+                <a href="blog.html">Blog</a>
+                <a href="about.html">About</a>
+                <a href="newsletter.html">Newsletter</a>
+                <a href="gallery.html">Gallery</a>
+            </div>
+
+            <div class="sm-icon">
+                <p>FOLLOW</p>
+                <div class="footer-sm-icon-image">
+                    <a href="https://www.instagram.com/ryamazingw" target="_blank" aria-label="Follow Ryan Walloh on Instagram">
+                        <img src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735078/icons/images/mobileicons/instagram.png" alt="Instagram icon" loading="lazy">
+                    </a>
+                    <a href="https://twitter.com/pursuitofakhira" target="_blank" aria-label="Follow Ryan Walloh on Twitter">
+                        <img id="mobile-twitter" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735079/icons/images/mobileicons/twitter.png" alt="Twitter icon" loading="lazy">
+                    </a>
+                    <a href="https://github.com/ryanwalloh" target="_blank" aria-label="View Ryan Walloh on GitHub">
+                        <img id="git" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735077/icons/images/mobileicons/git.png" alt="GitHub icon" loading="lazy">
+                    </a>
+                    <a href="https://www.linkedin.com/in/ryanwalloh/?originalSubdomain=ph" target="_blank" aria-label="Connect with Ryan Walloh on LinkedIn">
+                        <img id="mobile-linkedin" src="https://res.cloudinary.com/dwqrkobq1/image/upload/v1766735077/icons/images/mobileicons/in.png" alt="LinkedIn icon" loading="lazy">
+                    </a>
+                </div>
+            </div>
+            <hr class="line-break">
+            <p class="copy-right">&copy; 2024, Ryan Walloh. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Fancybox JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    
+    <!-- Site Scripts -->
+    <script src="../assets/js/script.js" defer></script>
+
+    <script>
+        // Gallery images list - using Cloudinary URLs
+        const galleryImages = [
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896229/IMG_20250813_132806198_1_fxs7s3.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896223/IMG_20250811_130921578_1_zevedt.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896249/IMG_20250811_130805166_1_xxnnvf.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896230/IMG_20250811_115553388_1_1_unpqha.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896225/IMG_20250811_142055620_1_gsgmv5.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896237/IMG_20250811_135110894_1_bnmu2a.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896224/IMG_20250811_141834116_1_nu1oou.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896240/IMG_20250811_125712745_1_v8xdxj.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896232/IMG_20250811_131218883_1_of75n6.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896224/IMG_20250811_141523763_1_1_hychra.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896245/IMG_20250811_140958277_1_shs083.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896246/IMG_20250811_140417664_2_td82eo.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896250/IMG_20250813_131509517_1_2_tdg9s8.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896235/IMG_20250811_123130639_1_dtm8w6.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896236/IMG_20250811_120326138_1_xmdyc7.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896234/IMG_20250811_130248581_ajktmh.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896241/IMG_20250811_143028631_1_1_njzr8q.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896239/IMG_20250811_123945025_1_hvnoo2.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896229/IMG_20250811_132012673_2_ojqop1.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896248/IMG_20250811_140828315_2_vozh6b.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896236/IMG_20250811_132252918_1_dqqqv6.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896251/IMG_20250813_140805583_imoo8s.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896228/IMG_20250811_142259907_3_1_1_xqyzvv.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896248/IMG_20250811_140937868_1_qtdnfl.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896237/IMG_20250811_124206530_1_y5ietx.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896239/IMG_20250811_123824785_1_k5z68i.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896224/IMG_20250811_141227304_1_xtioch.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896227/IMG_20250811_131640990_1_tayslg.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896244/IMG_20250811_124516994_1_y90rg2.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896243/IMG_20250811_140632073_1_ghr3pn.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896237/IMG_20250811_123642651_1_op2bxz.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896230/IMG_20250813_144919712_1_bac69r.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896247/IMG_20250811_125748119_1_cm5ahm.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896227/IMG_20250813_131836872_1_hn1xcd.jpg',
+            'https://res.cloudinary.com/dwqrkobq1/image/upload/v1768896227/IMG_20250811_142207556_1_rlfm1k.jpg'
+        ];
+
+        // Helper function to optimize Cloudinary URLs
+        function optimizeCloudinaryUrl(url, options = {}) {
+            const { width, quality = 'auto', format = 'auto' } = options;
+            // Extract the path after /upload/
+            const uploadIndex = url.indexOf('/upload/');
+            if (uploadIndex === -1) return url;
+            
+            const basePath = url.substring(0, uploadIndex + 7); // '/upload'
+            const restOfPath = url.substring(uploadIndex + 7);
+            
+            // Check if transformations already exist
+            if (restOfPath.startsWith('/')) {
+                // Build transformation string
+                const transformations = [];
+                if (width) transformations.push(`w_${width}`);
+                if (quality) transformations.push(`q_${quality}`);
+                if (format) transformations.push(`f_${format}`);
+                
+                if (transformations.length > 0) {
+                    return `${basePath}/${transformations.join(',')}${restOfPath}`;
+                }
+            }
+            return url;
+        }
+
+        // Initialize gallery when DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            const gallery = document.getElementById('gallery');
+            const EAGER_LOAD_COUNT = 6; // Load first 6 images immediately
+            const LAZY_LOAD_THRESHOLD = '200px'; // Start loading 200px before image enters viewport
+
+            // Create image elements with optimized loading
+            galleryImages.forEach((imageUrl, index) => {
+                const link = document.createElement('a');
+                link.href = imageUrl; // Full quality for lightbox
+                link.setAttribute('data-fancybox', 'gallery');
+                link.className = 'gallery-item';
+                
+                const img = document.createElement('img');
+                img.alt = ''; // Empty alt to match astro-photo-grid
+                img.decoding = 'async'; // Improve performance
+                
+                // Use optimized thumbnail for initial display, full quality for lightbox
+                const isEagerLoad = index < EAGER_LOAD_COUNT;
+                
+                if (isEagerLoad) {
+                    // Load first few images immediately with optimized quality
+                    img.src = optimizeCloudinaryUrl(imageUrl, { 
+                        width: 800, 
+                        quality: 'auto:good', 
+                        format: 'auto' 
+                    });
+                    img.loading = 'eager';
+                    // Add fetchpriority for first 3 images
+                    if (index < 3) {
+                        img.fetchPriority = 'high';
+                    }
+                } else {
+                    // Use data-src for lazy loading with Intersection Observer
+                    img.dataset.src = optimizeCloudinaryUrl(imageUrl, { 
+                        width: 800, 
+                        quality: 'auto:good', 
+                        format: 'auto' 
+                    });
+                    img.loading = 'lazy';
+                    // Add placeholder/loading state
+                    link.classList.add('lazy-load');
+                }
+                
+                // Set dimensions when image loads
+                img.addEventListener('load', function() {
+                    link.style.setProperty('--width', this.naturalWidth);
+                    link.style.setProperty('--height', this.naturalHeight);
+                    link.classList.remove('lazy-load');
+                    link.classList.add('loaded');
+                });
+                
+                // Handle image load errors gracefully
+                img.addEventListener('error', function() {
+                    console.warn('Image failed to load:', imageUrl);
+                    link.style.display = 'none';
+                });
+                
+                link.appendChild(img);
+                gallery.appendChild(link);
+            });
+
+            // Intersection Observer for lazy loading
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target.querySelector('img');
+                            if (img && img.dataset.src) {
+                                img.src = img.dataset.src;
+                                img.removeAttribute('data-src');
+                                observer.unobserve(entry.target);
+                            }
+                        }
+                    });
+                }, {
+                    rootMargin: LAZY_LOAD_THRESHOLD,
+                    threshold: 0.01
+                });
+
+                // Observe all lazy-load items
+                const lazyItems = gallery.querySelectorAll('.lazy-load');
+                lazyItems.forEach(item => imageObserver.observe(item));
+            } else {
+                // Fallback for browsers without Intersection Observer
+                const lazyImages = gallery.querySelectorAll('img[data-src]');
+                lazyImages.forEach(img => {
+                    img.src = img.dataset.src;
+                    img.removeAttribute('data-src');
+                });
+            }
+
+            // Initialize Fancybox after images are added - matching astro-photo-grid exactly
+            if (typeof Fancybox !== 'undefined') {
+                Fancybox.bind("[data-fancybox]", {
+                    theme: "auto",
+                    mainStyle: {
+                        "--f-button-width": "44px",
+                        "--f-button-height": "44px",
+                        "--f-button-border-radius": "50%",
+                        "--f-toolbar-padding": "16px",
+                    },
+                    Carousel: {
+                        Arrows: false,
+                        Toolbar: {
+                            display: {
+                                left: [],
+                                middle: [],
+                                right: ["close"],
+                            },
+                        },
+                        transition: "slide",
+                    },
+                    // Hide captions/info to match minimalist style
+                    caption: false,
+                    Toolbar: {
+                        display: {
+                            left: [],
+                            middle: [],
+                            right: ["close"],
+                        },
+                    },
+                    Thumbs: {
+                        display: true,
+                    },
+                    Infobar: {
+                        display: false,
+                    },
+                    on: {
+                        reveal: (fancybox, slide) => {
+                            // Wrap close button in circular container when fancybox opens
+                            const closeButton = document.querySelector('.fancybox__button--close');
+                            if (closeButton && !closeButton.parentElement.classList.contains('fancybox-close-wrapper')) {
+                                const wrapper = document.createElement('div');
+                                wrapper.className = 'fancybox-close-wrapper';
+                                wrapper.style.cssText = 'width: 44px; height: 44px; border-radius: 50%; background-color: rgba(200, 200, 200, 0.5); display: flex; align-items: center; justify-content: center; overflow: hidden; box-sizing: border-box;';
+                                closeButton.parentNode.insertBefore(wrapper, closeButton);
+                                wrapper.appendChild(closeButton);
+                                closeButton.style.cssText = 'background-color: transparent !important; border-radius: 50% !important; width: 100% !important; height: 100% !important; padding: 0 !important; margin: 0 !important;';
+                            }
+                        }
+                    }
+                });
+
+                // Also wrap button immediately if it exists (for cases where it's already rendered)
+                function wrapCloseButton() {
+                    const closeButton = document.querySelector('.fancybox__button--close');
+                    if (closeButton && !closeButton.parentElement.classList.contains('fancybox-close-wrapper')) {
+                        const wrapper = document.createElement('div');
+                        wrapper.className = 'fancybox-close-wrapper';
+                        wrapper.style.cssText = 'width: 44px; height: 44px; border-radius: 50%; background-color: rgba(200, 200, 200, 0.5); display: flex; align-items: center; justify-content: center; overflow: hidden; box-sizing: border-box; transition: background-color 0.2s ease;';
+                        closeButton.parentNode.insertBefore(wrapper, closeButton);
+                        wrapper.appendChild(closeButton);
+                        closeButton.style.cssText = 'background-color: transparent !important; border-radius: 50% !important; width: 100% !important; height: 100% !important; padding: 0 !important; margin: 0 !important;';
+                        
+                        // Add hover effect to wrapper
+                        wrapper.addEventListener('mouseenter', function() {
+                            this.style.backgroundColor = 'rgba(220, 220, 220, 0.7)';
+                        });
+                        wrapper.addEventListener('mouseleave', function() {
+                            this.style.backgroundColor = 'rgba(200, 200, 200, 0.5)';
+                        });
+                    }
+                }
+
+                // Try to wrap immediately and also watch for button creation
+                setTimeout(wrapCloseButton, 100);
+                
+                // Use MutationObserver to watch for button creation
+                const observer = new MutationObserver(function(mutations) {
+                    wrapCloseButton();
+                });
+                
+                observer.observe(document.body, {
+                    childList: true,
+                    subtree: true
+                });
+            }
+        });
+
+        // Navigation function
+        function ryamazingw() {
+            window.location.href = '../index.html';
+        }
+    </script>
+</body>
+</html>
+
