@@ -197,6 +197,7 @@
         @media (max-width: 768px) {
             body {
                 overflow-x: hidden;
+                overflow-y: auto;
             }
 
             :root {
@@ -205,19 +206,21 @@
 
             .content-wrapper {
                 overflow: visible;
+                min-height: 100vh;
+            }
+
+            .right-page {
+                height: 50vh;
+                min-height: 50vh;
+                overflow: visible;
+                position: relative;
             }
 
             #index-home-icons-container {
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                margin-top: 0;
+                position: relative;
+                margin-top: 1.5rem;
                 margin-bottom: 0;
-                padding: 1rem 0;
-                padding-left: max(1rem, env(safe-area-inset-left, 0px));
-                padding-right: max(1rem, env(safe-area-inset-right, 0px));
-                padding-bottom: max(1rem, calc(1rem + env(safe-area-inset-bottom, 0px)));
+                padding: 0;
                 z-index: 10;
                 background: transparent;
                 opacity: 0;
@@ -236,7 +239,6 @@
             #index-home-icons-container #index-home-icons {
                 pointer-events: auto;
             }
-
 
             #index-home-icons {
                 display: flex !important;
@@ -270,12 +272,6 @@
             @supports (padding-bottom: env(safe-area-inset-bottom)) {
                 :root {
                     --index-safe-space: calc(env(safe-area-inset-bottom) + 24px);
-                }
-
-                #index-home-icons-container {
-                    padding-left: max(1rem, env(safe-area-inset-left));
-                    padding-right: max(1rem, env(safe-area-inset-right));
-                    padding-bottom: max(1rem, calc(1rem + env(safe-area-inset-bottom)));
                 }
             }
         }
@@ -500,29 +496,45 @@
         @media (max-width: 768px) {
             .index-logo {
                 z-index: auto;
+                overflow: visible;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
             
             #index-logo {
                 width: clamp(180px, 40vw, 280px);
-                padding-top: 35%;
+                padding-top: 0;
+                margin-top: 40px;
             }
 
             .right-page-container {
                 position: relative;
                 margin-top: 0;
                 margin-bottom: 1rem;
-                padding: 0;
+                padding: 1rem 0;
+                overflow: visible;
+                min-height: auto;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
             }
 
             .live-to-tell-stories {
                 padding: 10px;
                 flex-direction: column;
-                padding-bottom: calc(80px + max(1rem, env(safe-area-inset-bottom, 0px)));
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 isolation: isolate;
+                bottom: 12vw;
             }
 
             .live-to-tell-stories h1 {
-                font-size: clamp(1.5rem, 6vw, 2rem);
+                font-size: clamp(1.2rem, 5vw, 1.5rem);
                 margin-top: 0;
             }
 
@@ -531,7 +543,7 @@
             }
 
             .live-to-tell-stories a {
-                font-size: clamp(0.7rem, 3vw, 0.85rem);
+                font-size: clamp(0.7rem, 2vw, 0.85rem);
                 padding: 8px 16px;
                 position: relative;
                 z-index: 50;
