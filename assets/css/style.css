@@ -549,7 +549,7 @@ footer {
     #sm-logo-links {
         position: absolute;
         left: 50%;
-        bottom: 2.5rem;
+        bottom: 10%;
         transform: translateX(-50%);
         width: min(65%, 320px);
         display: flex;
