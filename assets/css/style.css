@@ -520,6 +520,7 @@ footer {
         grid-template-columns: 1fr;
     }
     .nav-links {
+        
         margin: 0;
         position: fixed;
         inset: 0;
@@ -549,7 +550,7 @@ footer {
     #sm-logo-links {
         position: absolute;
         left: 50%;
-        bottom: 10%;
+        bottom: 20%;
         transform: translateX(-50%);
         width: min(65%, 320px);
         display: flex;
@@ -558,6 +559,7 @@ footer {
         gap: 30px;
         margin: 0;
         padding-top: 1rem;
+   
     }
    
 
@@ -568,6 +570,7 @@ footer {
     
     .nav-links li {
         margin: 0;
+        
         
     }
 
