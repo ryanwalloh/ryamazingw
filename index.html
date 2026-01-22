@@ -218,18 +218,25 @@
                 padding-left: max(1rem, env(safe-area-inset-left, 0px));
                 padding-right: max(1rem, env(safe-area-inset-right, 0px));
                 padding-bottom: max(1rem, calc(1rem + env(safe-area-inset-bottom, 0px)));
-                z-index: 100;
+                z-index: 10;
                 background: transparent;
                 opacity: 0;
                 visibility: hidden;
                 transition: opacity 0.5s ease-in 2s, visibility 0s linear 2.7s;
+                pointer-events: none;
             }
 
             .sliding-door-wrapper.doors-open #index-home-icons-container {
                 opacity: 1;
                 visibility: visible;
                 transition: opacity 0.5s ease-in 2.7s, visibility 0s linear 0s;
+                pointer-events: auto;
             }
+
+            #index-home-icons-container #index-home-icons {
+                pointer-events: auto;
+            }
+
 
             #index-home-icons {
                 display: flex !important;
@@ -510,6 +517,8 @@
             .live-to-tell-stories {
                 padding: 10px;
                 flex-direction: column;
+                padding-bottom: calc(80px + max(1rem, env(safe-area-inset-bottom, 0px)));
+                isolation: isolate;
             }
 
             .live-to-tell-stories h1 {
@@ -524,6 +533,10 @@
             .live-to-tell-stories a {
                 font-size: clamp(0.7rem, 3vw, 0.85rem);
                 padding: 8px 16px;
+                position: relative;
+                z-index: 50;
+                pointer-events: auto;
+                isolation: isolate;
             }
         }
 
