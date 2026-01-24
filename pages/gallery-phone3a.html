@@ -111,39 +111,80 @@
             transition: opacity 0.3s ease-in-out;
         }
 
-        /* Loading states */
-        .justified-gallery a.lazy-load {
-            background-color: #f0f0f0;
+        /* Gallery Image Skeleton Loader Styles - Mobile Optimized */
+        .justified-gallery a {
             position: relative;
         }
 
-        .justified-gallery a.lazy-load::before {
+        /* Skeleton placeholder - shows while image loads, matches image dimensions */
+        .justified-gallery a::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, #f0f0f0 0%, #e0e0e0 50%, #f0f0f0 100%);
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(90deg, #e8e8e8 0%, #f0f0f0 50%, #e8e8e8 100%);
             background-size: 200% 100%;
-            animation: loading 1.5s ease-in-out infinite;
+            animation: shimmer 2s ease-in-out infinite;
             z-index: 1;
+            pointer-events: none;
         }
 
-        .justified-gallery a.lazy-load img {
+        /* Shimmer effect - highly visible animated sweep */
+        .justified-gallery a::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                90deg,
+                transparent 0%,
+                transparent 40%,
+                rgba(255, 255, 255, 0.9) 50%,
+                transparent 60%,
+                transparent 100%
+            );
+            background-size: 200% 100%;
+            animation: shimmer 2s ease-in-out infinite;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .justified-gallery a img {
             opacity: 0;
+            transition: opacity 0.4s ease-in;
+            position: relative;
+            z-index: 3;
         }
 
-        .justified-gallery a.loaded img {
+        .justified-gallery a img.loaded {
             opacity: 1;
         }
 
-        @keyframes loading {
+        /* Hide skeleton when image is loaded - using :has() selector */
+        .justified-gallery a:has(img.loaded)::before,
+        .justified-gallery a:has(img.loaded)::after {
+            display: none;
+        }
+
+        /* Shimmer animation - GPU optimized for mobile, visible left-to-right sweep */
+        @keyframes shimmer {
             0% {
-                background-position: 200% 0;
+                background-position: -200% 0;
             }
             100% {
-                background-position: -200% 0;
+                background-position: 200% 0;
+            }
+        }
+
+        /* Fallback for browsers without :has() support - uses JavaScript class */
+        @supports not selector(:has(*)) {
+            .justified-gallery a.skeleton-hidden::before,
+            .justified-gallery a.skeleton-hidden::after {
+                display: none;
             }
         }
 
@@ -694,6 +735,7 @@
                 const img = document.createElement('img');
                 img.alt = ''; // Empty alt to match astro-photo-grid
                 img.decoding = 'async'; // Improve performance
+                img.className = 'lazy-image'; // Add lazy-image class for skeleton loader
                 
                 // Use optimized thumbnail for initial display, full quality for lightbox
                 const isEagerLoad = index < EAGER_LOAD_COUNT;
@@ -718,55 +760,116 @@
                         format: 'auto' 
                     });
                     img.loading = 'lazy';
-                    // Add placeholder/loading state
-                    link.classList.add('lazy-load');
                 }
                 
                 // Set dimensions when image loads
                 img.addEventListener('load', function() {
                     link.style.setProperty('--width', this.naturalWidth);
                     link.style.setProperty('--height', this.naturalHeight);
-                    link.classList.remove('lazy-load');
-                    link.classList.add('loaded');
+                    // Add loaded class for skeleton loader
+                    this.classList.add('loaded');
                 });
                 
                 // Handle image load errors gracefully
                 img.addEventListener('error', function() {
                     console.warn('Image failed to load:', imageUrl);
-                    link.style.display = 'none';
+                    this.classList.add('loaded'); // Hide skeleton even on error
+                    this.style.opacity = '0.5';
                 });
                 
                 link.appendChild(img);
                 gallery.appendChild(link);
             });
 
-            // Intersection Observer for lazy loading
+            // Gallery Image Lazy Loading with Skeleton Loader
+            const galleryImageElements = gallery.querySelectorAll('.lazy-image');
+            // Check for :has() selector support
+            let hasSelectorSupport = false;
+            try {
+                hasSelectorSupport = CSS.supports('selector(:has(*))');
+            } catch (e) {
+                // Fallback if CSS.supports doesn't support selector() syntax
+                hasSelectorSupport = false;
+            }
+
+            // Function to handle image load and skeleton hide
+            const handleImageLoad = (img) => {
+                img.classList.add("loaded");
+                
+                // For browsers without :has() support, add class to parent <a>
+                if (!hasSelectorSupport) {
+                    const parentLink = img.closest('a');
+                    if (parentLink) {
+                        parentLink.classList.add("skeleton-hidden");
+                    }
+                }
+            };
+
+            // Check if Intersection Observer is supported
             if ('IntersectionObserver' in window) {
                 const imageObserver = new IntersectionObserver((entries, observer) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
-                            const img = entry.target.querySelector('img');
-                            if (img && img.dataset.src) {
+                            const img = entry.target;
+                            
+                            // Load image if it has data-src
+                            if (img.dataset.src) {
                                 img.src = img.dataset.src;
                                 img.removeAttribute('data-src');
-                                observer.unobserve(entry.target);
                             }
+                            
+                            // When image loads, add loaded class and hide skeleton
+                            if (img.complete && img.naturalHeight !== 0) {
+                                // Image already loaded
+                                handleImageLoad(img);
+                            } else {
+                                // Wait for image to load
+                                img.addEventListener("load", () => {
+                                    handleImageLoad(img);
+                                }, { once: true });
+                                
+                                // Fallback for images that fail to load
+                                img.addEventListener("error", () => {
+                                    img.classList.add("loaded");
+                                    img.style.opacity = "0.5";
+                                    // Still hide skeleton on error
+                                    if (!hasSelectorSupport) {
+                                        const parentLink = img.closest('a');
+                                        if (parentLink) {
+                                            parentLink.classList.add("skeleton-hidden");
+                                        }
+                                    }
+                                }, { once: true });
+                            }
+                            
+                            // Stop observing once processed
+                            observer.unobserve(img);
                         }
                     });
                 }, {
-                    rootMargin: LAZY_LOAD_THRESHOLD,
+                    // Start loading images 100px before they enter viewport
+                    rootMargin: '100px',
                     threshold: 0.01
                 });
 
-                // Observe all lazy-load items
-                const lazyItems = gallery.querySelectorAll('.lazy-load');
-                lazyItems.forEach(item => imageObserver.observe(item));
+                // Observe all gallery images
+                galleryImageElements.forEach(img => {
+                    imageObserver.observe(img);
+                });
             } else {
                 // Fallback for browsers without Intersection Observer
-                const lazyImages = gallery.querySelectorAll('img[data-src]');
-                lazyImages.forEach(img => {
-                    img.src = img.dataset.src;
-                    img.removeAttribute('data-src');
+                galleryImageElements.forEach(img => {
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                    }
+                    if (img.complete && img.naturalHeight !== 0) {
+                        handleImageLoad(img);
+                    } else {
+                        img.addEventListener("load", () => {
+                            handleImageLoad(img);
+                        }, { once: true });
+                    }
                 });
             }
 
