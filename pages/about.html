@@ -468,6 +468,10 @@
         .about-me-container h1 {
             font-size: 1.5rem;
         }
+
+        #line-break {
+         display: none;
+    }
     }
 
     .subscription-footer {
@@ -511,6 +515,10 @@
       }
 
       @media (max-width: 768px) {
+        #line-break {
+            display: none;
+        }
+
         .copy-right {
           font-size: 0.75rem;
           text-align: center;
@@ -730,12 +738,13 @@
     }
 
     @media (max-width: 768px) {
+        
         .sliding-door-wrapper {
             height: 100%;
         }
         
-        .door-logo {
-            width: clamp(100px, 25vw, 180px);
+        #index-logo3 {
+            width: clamp(250px, 25vw, 180px);
             bottom: 8%;
             right: 8%;
         }

@@ -376,8 +376,8 @@
             min-height: 280px;
         }
         
-        .door-logo {
-            width: clamp(100px, 25vw, 180px);
+        #newsletter-door-logo {
+            width: clamp(250px, 25vw, 180px);
             bottom: 8%;
             right: 8%;
         }
@@ -552,6 +552,11 @@
       }
 
       @media (max-width: 768px) {
+        
+        #line-break {
+            display: none;
+        }
+        
         .copy-right {
           font-size: 0.75rem;
           text-align: center;
@@ -576,6 +581,11 @@
       }
 
       @media (max-width: 768px) {
+        .door-logo {
+            width: clamp(100px, 25vw, 180px);
+            bottom: 8%;
+            right: 8%;
+        }
         #news-letter-links {
           transform: translate(0);
         }
